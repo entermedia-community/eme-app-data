@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MainApp());
+import 'core/settings.dart';
+import 'router.dart';
+import 'theme/app_theme.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  runApp(ProviderScope(overrides: [sharedPrefsProvider.overrideWithValue(prefs)], child: const EmeDataApp()));
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class EmeDataApp extends ConsumerWidget {
+  const EmeDataApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(settingsProvider.select((s) => s.themeMode));
+    return MaterialApp.router(
+      title: 'eMedia Data',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
+      themeMode: themeMode,
+      routerConfig: ref.watch(routerProvider),
     );
   }
 }
