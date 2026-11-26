@@ -20,8 +20,8 @@ final routerProvider = Provider<GoRouter>((ref) {
     redirect: (context, state) {
       final auth = ref.read(authProvider);
       final loc = state.matchedLocation;
-      if (auth.isLoading && !auth.hasValue) return loc == '/splash' ? null : '/splash';
-      final signedIn = auth.value != null;
+      if (auth.isRestoring) return loc == '/splash' ? null : '/splash';
+      final signedIn = auth.isAuthenticated;
       if (!signedIn) return loc == '/login' ? null : '/login';
       if (loc == '/login' || loc == '/splash') return '/';
       return null;
@@ -33,11 +33,15 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/asset/:id',
         pageBuilder: (_, s) => MaterialPage(
           fullscreenDialog: true,
-          child: AssetViewerPage(assetId: s.pathParameters['id']!, initialTab: s.uri.queryParameters['tab']),
+          child: AssetViewerPage(
+            assetId: s.pathParameters['id']!,
+            initialTab: s.uri.queryParameters['tab'],
+          ),
         ),
       ),
       ShellRoute(
-        builder: (_, state, child) => AppShell(location: state.matchedLocation, child: child),
+        builder: (_, state, child) =>
+            AppShell(location: state.matchedLocation, child: child),
         routes: [
           GoRoute(
             path: '/',
@@ -49,7 +53,10 @@ final routerProvider = Provider<GoRouter>((ref) {
               final module = s.pathParameters['module']!;
               return NoTransitionPage(
                 key: ValueKey(module),
-                child: ModulePage(moduleId: module, openRecordId: s.uri.queryParameters['open']),
+                child: ModulePage(
+                  moduleId: module,
+                  openRecordId: s.uri.queryParameters['open'],
+                ),
               );
             },
           ),
@@ -63,6 +70,11 @@ class _Splash extends StatelessWidget {
   const _Splash();
   @override
   Widget build(BuildContext context) => const Scaffold(
-    body: Center(child: SizedBox.square(dimension: 28, child: CircularProgressIndicator(strokeWidth: 2.5))),
+    body: Center(
+      child: SizedBox.square(
+        dimension: 28,
+        child: CircularProgressIndicator(strokeWidth: 2.5),
+      ),
+    ),
   );
 }

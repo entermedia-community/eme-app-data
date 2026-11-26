@@ -59,10 +59,13 @@ class SearchQuery {
 
   Json toRequest(String searchType) {
     final t = <Json>[
-      if (text.trim().isNotEmpty) {'field': 'description', 'operation': 'freeform', 'value': text.trim()},
-      if (categoryId != null) {'field': 'category', 'operation': 'exact', 'value': categoryId},
+      if (text.trim().isNotEmpty)
+        {'field': 'description', 'operation': 'freeform', 'value': text.trim()},
+      if (categoryId != null)
+        {'field': 'category', 'operation': 'exact', 'value': categoryId},
       for (final e in filters.entries)
-        if (e.value.isNotEmpty) {'field': e.key, 'operation': 'orsgroup', 'values': e.value.toList()},
+        if (e.value.isNotEmpty)
+          {'field': e.key, 'operation': 'orsgroup', 'values': e.value.toList()},
       ...terms,
     ];
     if (t.isEmpty) t.add({'field': 'id', 'operation': 'matches', 'value': '*'});
@@ -71,7 +74,8 @@ class SearchQuery {
       'hitsperpage': '$hitsPerPage',
       'showfilters': 'true',
       'query': {'terms': t},
-      if (sortField != null) '${searchType}sortby': '$sortField${sortAscending ? 'Up' : 'Down'}',
+      if (sortField != null)
+        '${searchType}sortby': '$sortField${sortAscending ? 'Up' : 'Down'}',
     };
   }
 
@@ -113,7 +117,12 @@ class EmeRepository {
   final ApiClient api;
 
   /// Modules whose `module/<id>/search` does not exist; use `lists/search/<id>` instead.
-  static final _listsOnly = <String>{'emeprofile', 'entitytopic', 'bankaccount', 'collectiveproduct'};
+  static final _listsOnly = <String>{
+    'emeprofile',
+    'entitytopic',
+    'bankaccount',
+    'collectiveproduct',
+  };
 
   static const _all = {
     'page': '1',
@@ -127,8 +136,13 @@ class EmeRepository {
 
   Future<List<ModuleInfo>> modules() async {
     final res = await api.postJson('lists/search/module', _all);
-    final list = [for (final r in res['results'] as List? ?? const []) ModuleInfo(r as Json)];
-    list.sort((a, b) => a.name().toLowerCase().compareTo(b.name().toLowerCase()));
+    final list = [
+      for (final r in res['results'] as List? ?? const [])
+        ModuleInfo(r as Json),
+    ];
+    list.sort(
+      (a, b) => a.name().toLowerCase().compareTo(b.name().toLowerCase()),
+    );
     return list;
   }
 
@@ -177,7 +191,9 @@ class EmeRepository {
   /// Entities point at assets by id (primarymedia / primaryimage); resolve their
   /// sourcepaths in one search and store them as `_thumbpath`.
   Future<void> _attachThumbnails(List<Json> hits) async {
-    String? refOf(Json h) => valueIds(h['primarymedia']).firstOrNull ?? valueIds(h['primaryimage']).firstOrNull;
+    String? refOf(Json h) =>
+        valueIds(h['primarymedia']).firstOrNull ??
+        valueIds(h['primaryimage']).firstOrNull;
     final ids = {for (final h in hits) ?refOf(h)};
     if (ids.isEmpty) return;
     try {
@@ -192,7 +208,8 @@ class EmeRepository {
       });
       final paths = {
         for (final a in res['results'] as List? ?? const [])
-          if (a is Json && a['sourcepath'] != null) a.id: a['sourcepath'] as String,
+          if (a is Json && a['sourcepath'] != null)
+            a.id: a['sourcepath'] as String,
       };
       for (final h in hits) {
         final p = paths[refOf(h)];
@@ -204,7 +221,10 @@ class EmeRepository {
   }
 
   Future<List<FieldDef>> fields(String searchType) async {
-    final res = await api.getJson('settings/datamanager/fields/listfields', query: {'searchtype': searchType});
+    final res = await api.getJson(
+      'settings/datamanager/fields/listfields',
+      query: {'searchtype': searchType},
+    );
     return [
       for (final r in res['results'] as List? ?? const [])
         if (r is Json) FieldDef(r),
@@ -219,7 +239,11 @@ class EmeRepository {
         'terms': [
           text.isEmpty
               ? {'field': 'id', 'operation': 'matches', 'value': '*'}
-              : {'field': 'name', 'operation': 'contains', 'value': text.toLowerCase()},
+              : {
+                  'field': 'name',
+                  'operation': 'contains',
+                  'value': text.toLowerCase(),
+                },
         ],
       },
     });
@@ -230,7 +254,9 @@ class EmeRepository {
   }
 
   Future<CategoryNode> categoryTree() async {
-    final res = await api.postJson('module/category/tree', {'categoryid': 'index'});
+    final res = await api.postJson('module/category/tree', {
+      'categoryid': 'index',
+    });
     return CategoryNode(
       id: '${res['id'] ?? 'index'}',
       name: localized(res['name']).isNotEmpty ? localized(res['name']) : 'All',
@@ -240,7 +266,9 @@ class EmeRepository {
   }
 
   Future<Json> load(String searchType, String id) async {
-    final path = searchType == 'asset' ? 'module/asset/data/$id' : 'lists/data/$searchType/$id';
+    final path = searchType == 'asset'
+        ? 'module/asset/data/$id'
+        : 'lists/data/$searchType/$id';
     final res = await api.getJson(path);
     final data = res['data'];
     if (data is! Json) throw ApiException('Record not found');
@@ -260,10 +288,13 @@ class EmeRepository {
           );
       final r = res['response'] as Map? ?? const {};
       final newId = r['id'] ?? (res['data'] as Map?)?['id'];
-      if (newId == null) throw ApiException('The server did not return the new record id');
+      if (newId == null)
+        throw ApiException('The server did not return the new record id');
       return '$newId';
     }
-    final path = searchType == 'asset' ? 'module/asset/data/$id' : 'lists/data/$searchType/$id';
+    final path = searchType == 'asset'
+        ? 'module/asset/data/$id'
+        : 'lists/data/$searchType/$id';
     await api.putJson(path, values);
     return id;
   }
@@ -277,7 +308,9 @@ class EmeRepository {
   }
 
   Future<List<Json>> versions(String assetId) async {
-    final res = await api.postJson('module/asset/versions/getrevisions', {'assetid': assetId});
+    final res = await api.postJson('module/asset/versions/getrevisions', {
+      'assetid': assetId,
+    });
     return [
       for (final r in res['results'] as List? ?? const [])
         if (r is Json) r,
@@ -295,8 +328,14 @@ class EmeRepository {
     CancelToken? cancelToken,
   }) async {
     final cleanFolder = folder.replaceAll(RegExp(r'^/+|/+$'), '');
-    final sourcepath = cleanFolder.isEmpty ? fileName : '$cleanFolder/$fileName';
-    final meta = {'sourcepath': sourcepath, if (cleanFolder.isNotEmpty) 'categorypath': cleanFolder, ...extra};
+    final sourcepath = cleanFolder.isEmpty
+        ? fileName
+        : '$cleanFolder/$fileName';
+    final meta = {
+      'sourcepath': sourcepath,
+      if (cleanFolder.isNotEmpty) 'categorypath': cleanFolder,
+      ...extra,
+    };
     final res = await api.postMultipart(
       'module/asset/create',
       () => FormData.fromMap({
@@ -311,4 +350,6 @@ class EmeRepository {
   }
 }
 
-final repositoryProvider = Provider<EmeRepository>((ref) => EmeRepository(ref.watch(apiClientProvider)));
+final repositoryProvider = Provider<EmeRepository>(
+  (ref) => EmeRepository(ref.watch(apiClientProvider)),
+);

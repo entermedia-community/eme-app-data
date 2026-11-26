@@ -7,7 +7,9 @@ import 'models.dart';
 import 'repository.dart';
 
 /// Invalidated by sign-in changes so per-user data reloads.
-final _sessionKeyProvider = Provider<String>((ref) => ref.watch(authProvider).value?.userId ?? '');
+final _sessionKeyProvider = Provider<String>(
+  (ref) => ref.watch(authProvider.select((s) => s.userId)),
+);
 
 final modulesProvider = FutureProvider<List<ModuleInfo>>((ref) {
   ref.watch(_sessionKeyProvider);
@@ -24,7 +26,9 @@ final moduleByIdProvider = Provider.family<ModuleInfo?, String>((ref, id) {
 
 /// "Data Entity Manager" sidebar: entity modules, alphabetical.
 final entityModulesProvider = Provider<AsyncValue<List<ModuleInfo>>>((ref) {
-  return ref.watch(modulesProvider).whenData((l) => l.where((m) => m.isEntity).toList());
+  return ref
+      .watch(modulesProvider)
+      .whenData((l) => l.where((m) => m.isEntity).toList());
 });
 
 final appSectionsProvider = FutureProvider<List<AppSection>>((ref) {
@@ -32,7 +36,10 @@ final appSectionsProvider = FutureProvider<List<AppSection>>((ref) {
   return ref.watch(repositoryProvider).appSections();
 });
 
-final fieldsProvider = FutureProvider.family<List<FieldDef>, String>((ref, searchType) async {
+final fieldsProvider = FutureProvider.family<List<FieldDef>, String>((
+  ref,
+  searchType,
+) async {
   ref.watch(_sessionKeyProvider);
   try {
     return await ref.watch(repositoryProvider).fields(searchType);
@@ -42,7 +49,10 @@ final fieldsProvider = FutureProvider.family<List<FieldDef>, String>((ref, searc
   }
 });
 
-final listOptionsProvider = FutureProvider.family<List<Json>, String>((ref, listId) {
+final listOptionsProvider = FutureProvider.family<List<Json>, String>((
+  ref,
+  listId,
+) {
   return ref.watch(repositoryProvider).listOptions(listId);
 });
 
@@ -51,11 +61,17 @@ final categoryTreeProvider = FutureProvider<CategoryNode>((ref) {
   return ref.watch(repositoryProvider).categoryTree();
 });
 
-final recordProvider = FutureProvider.family<Json, ({String type, String id})>((ref, key) {
+final recordProvider = FutureProvider.family<Json, ({String type, String id})>((
+  ref,
+  key,
+) {
   return ref.watch(repositoryProvider).load(key.type, key.id);
 });
 
-final versionsProvider = FutureProvider.family<List<Json>, String>((ref, assetId) {
+final versionsProvider = FutureProvider.family<List<Json>, String>((
+  ref,
+  assetId,
+) {
   return ref.watch(repositoryProvider).versions(assetId);
 });
 
@@ -104,7 +120,13 @@ class ModuleViewController extends Notifier<ModuleViewState> {
     final module = ref.read(moduleByIdProvider(moduleId));
     final mode =
         ViewMode.values.where((v) => v.name == saved).firstOrNull ??
-        (const {'brickvertical', 'grid', 'gallery'}.contains(module?.resultsView) ? ViewMode.grid : ViewMode.table);
+        (const {
+              'brickvertical',
+              'grid',
+              'gallery',
+            }.contains(module?.resultsView)
+            ? ViewMode.grid
+            : ViewMode.table);
     final hidden = prefs.getStringList('columns.$moduleId');
     return ModuleViewState(
       query: SearchQuery(hitsPerPage: prefs.getInt('pagesize') ?? 36),
@@ -131,7 +153,9 @@ class ModuleViewController extends Notifier<ModuleViewState> {
 
   void setPageSize(int size) {
     ref.read(sharedPrefsProvider).setInt('pagesize', size);
-    state = state.copyWith(query: state.query.copyWith(hitsPerPage: size, page: 1));
+    state = state.copyWith(
+      query: state.query.copyWith(hitsPerPage: size, page: 1),
+    );
   }
 
   void sortBy(String field) {
@@ -142,10 +166,15 @@ class ModuleViewController extends Notifier<ModuleViewState> {
     );
   }
 
-  void clearSort() => state = state.copyWith(query: state.query.copyWith(sortField: () => null, page: 1));
+  void clearSort() => state = state.copyWith(
+    query: state.query.copyWith(sortField: () => null, page: 1),
+  );
 
   void setCategory(String? id) => state = state.copyWith(
-    query: state.query.copyWith(categoryId: () => id == 'index' ? null : id, page: 1),
+    query: state.query.copyWith(
+      categoryId: () => id == 'index' ? null : id,
+      page: 1,
+    ),
     selected: {},
   );
 
@@ -161,7 +190,8 @@ class ModuleViewController extends Notifier<ModuleViewState> {
     );
   }
 
-  void clearFilters() => state = state.copyWith(query: state.query.copyWith(filters: {}, page: 1));
+  void clearFilters() =>
+      state = state.copyWith(query: state.query.copyWith(filters: {}, page: 1));
 
   void toggleSelected(String id) {
     final s = {...state.selected};
@@ -172,7 +202,9 @@ class ModuleViewController extends Notifier<ModuleViewState> {
   void setSelected(Set<String> ids) => state = state.copyWith(selected: ids);
 
   void setHiddenColumns(Set<String> hidden) {
-    ref.read(sharedPrefsProvider).setStringList('columns.$moduleId', hidden.toList());
+    ref
+        .read(sharedPrefsProvider)
+        .setStringList('columns.$moduleId', hidden.toList());
     state = state.copyWith(hiddenColumns: hidden);
   }
 
@@ -183,23 +215,25 @@ class ModuleViewController extends Notifier<ModuleViewState> {
   }
 }
 
-final moduleViewProvider = NotifierProvider.family<ModuleViewController, ModuleViewState, String>(
-  ModuleViewController.new,
-);
+final moduleViewProvider =
+    NotifierProvider.family<ModuleViewController, ModuleViewState, String>(
+      ModuleViewController.new,
+    );
 
-final searchResultsProvider = FutureProvider.family<SearchResult, String>((ref, moduleId) {
+final searchResultsProvider = FutureProvider.family<SearchResult, String>((
+  ref,
+  moduleId,
+) {
   ref.watch(_sessionKeyProvider);
   final query = ref.watch(moduleViewProvider(moduleId).select((s) => s.query));
   return ref.watch(repositoryProvider).search(moduleId, query);
 });
 
 /// Ad-hoc searches (column view, related assets) keyed by module + query.
-final adhocSearchProvider = FutureProvider.autoDispose.family<SearchResult, ({String module, SearchQuery query})>((
-  ref,
-  key,
-) {
-  return ref.watch(repositoryProvider).search(key.module, key.query);
-});
+final adhocSearchProvider = FutureProvider.autoDispose
+    .family<SearchResult, ({String module, SearchQuery query})>((ref, key) {
+      return ref.watch(repositoryProvider).search(key.module, key.query);
+    });
 
 /// Ids of the current result list, used for prev/next in the asset viewer.
 class ViewerNavigation extends Notifier<List<String>> {
@@ -208,4 +242,5 @@ class ViewerNavigation extends Notifier<List<String>> {
   void set(List<String> ids) => state = ids;
 }
 
-final viewerNavigationProvider = NotifierProvider<ViewerNavigation, List<String>>(ViewerNavigation.new);
+final viewerNavigationProvider =
+    NotifierProvider<ViewerNavigation, List<String>>(ViewerNavigation.new);

@@ -27,21 +27,28 @@ class ModuleInfo {
   int get ordering => int.tryParse('${raw['ordering'] ?? ''}') ?? 1000;
 
   /// `table`, `brickvertical` or `gallery` from the server.
-  String? get resultsView => (raw['moduleresultsview'] as Map?)?['id'] as String?;
+  String? get resultsView =>
+      (raw['moduleresultsview'] as Map?)?['id'] as String?;
 
   bool get isAsset => id == 'asset';
 }
 
 /// A top menu entry (`appsection` table).
 class AppSection {
-  AppSection({required this.moduleId, required this.name, required this.ordering});
+  AppSection({
+    required this.moduleId,
+    required this.name,
+    required this.ordering,
+  });
   final String moduleId;
   final String name;
   final int ordering;
 
   factory AppSection.fromJson(Json j) => AppSection(
     moduleId: '${(j['toplevelentity'] as Map?)?['id'] ?? ''}',
-    name: localized(j['name']).isNotEmpty ? localized(j['name']) : localized(j['toplevelentity']),
+    name: localized(j['name']).isNotEmpty
+        ? localized(j['name'])
+        : localized(j['toplevelentity']),
     ordering: int.tryParse('${j['ordering'] ?? ''}') ?? 1000,
   );
 }
@@ -61,13 +68,17 @@ class FieldDef {
   String? get rendertype => (raw['rendertype'] as Map?)?['id'] as String?;
 
   /// EME convention: a list field without listid uses its own id as the list.
-  String get listId => (raw['listid'] as String?)?.isNotEmpty == true ? raw['listid'] as String : id;
+  String get listId => (raw['listid'] as String?)?.isNotEmpty == true
+      ? raw['listid'] as String
+      : id;
   bool get editable => raw['editable'] != 'false';
   bool get internal => raw['internalfield'] == 'true';
-  bool get multilanguage => raw['multilanguage'] == 'true' || datatype == 'multilanguage';
+  bool get multilanguage =>
+      raw['multilanguage'] == 'true' || datatype == 'multilanguage';
   bool get isList => datatype == 'list';
   bool get isAssetRef => isList && listId == 'asset';
-  bool get isCategory => isList && (listId == 'category' || rendertype == 'category');
+  bool get isCategory =>
+      isList && (listId == 'category' || rendertype == 'category');
   bool get isMulti =>
       raw['multiple'] == 'true' ||
       const {'multiselect', 'entity', 'tageditor'}.contains(rendertype) ||
@@ -75,9 +86,11 @@ class FieldDef {
   bool get isTags => rendertype == 'tageditor' || id == 'keywords';
   bool get isDate => datatype == 'date' || rendertype == 'date';
   bool get isBoolean => datatype == 'boolean';
-  bool get isNumber => const {'number', 'double', 'long', 'integer'}.contains(datatype);
+  bool get isNumber =>
+      const {'number', 'double', 'long', 'integer'}.contains(datatype);
   bool get isTextArea => rendertype == 'textarea' || rendertype == 'html';
-  bool get isComplex => const {'nested', 'objectarray', 'object', 'json'}.contains(datatype);
+  bool get isComplex =>
+      const {'nested', 'objectarray', 'object', 'json'}.contains(datatype);
 }
 
 class FacetOption {
@@ -120,7 +133,12 @@ class SearchResult {
 }
 
 class CategoryNode {
-  CategoryNode({required this.id, required this.name, required this.path, required this.children});
+  CategoryNode({
+    required this.id,
+    required this.name,
+    required this.path,
+    required this.children,
+  });
   final String id;
   final String name;
   final String path;
@@ -159,7 +177,13 @@ extension RecordX on Json {
   String get id => '${this['id']}';
 
   String title([String lang = 'en']) {
-    for (final k in ['assettitle', 'name', 'displayname', 'headline', 'title']) {
+    for (final k in [
+      'assettitle',
+      'name',
+      'displayname',
+      'headline',
+      'title',
+    ]) {
       final v = localized(this[k], lang);
       if (v.isNotEmpty) return v;
     }

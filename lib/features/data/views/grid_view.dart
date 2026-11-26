@@ -17,7 +17,9 @@ class ResultsGrid extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selected = ref.watch(moduleViewProvider(moduleId).select((s) => s.selected));
+    final selected = ref.watch(
+      moduleViewProvider(moduleId).select((s) => s.selected),
+    );
     final ctrl = ref.read(moduleViewProvider(moduleId).notifier);
     return GridView.builder(
       padding: const EdgeInsets.all(16),
@@ -35,7 +37,8 @@ class ResultsGrid extends ConsumerWidget {
           record: r,
           selected: selected.contains(r.id),
           onSelect: () => ctrl.toggleSelected(r.id),
-          onOpen: () => openRecord(context, ref, moduleId, r, siblings: result.hits),
+          onOpen: () =>
+              openRecord(context, ref, moduleId, r, siblings: result.hits),
         );
       },
     );
@@ -73,7 +76,10 @@ class _GridCardState extends ConsumerState<GridCard> {
     final isAsset = widget.moduleId == 'asset';
     final module = ref.watch(moduleByIdProvider(widget.moduleId));
     final subtitle = isAsset
-        ? [displayValue(r['fileformat']), formatBytes(r['filesize'])].where((x) => x.isNotEmpty).join(' · ')
+        ? [
+            displayValue(r['fileformat']),
+            formatBytes(r['filesize']),
+          ].where((x) => x.isNotEmpty).join(' · ')
         : displayValue(r['entity_date']).isNotEmpty
         ? displayValue(r['entity_date'])
         : displayValue(r['owner']);
@@ -91,11 +97,19 @@ class _GridCardState extends ConsumerState<GridCard> {
             color: s.surfaceContainerLow,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: widget.selected ? s.primary : (highlight ? s.outline : s.outlineVariant),
+              color: widget.selected
+                  ? s.primary
+                  : (highlight ? s.outline : s.outlineVariant),
               width: widget.selected ? 2 : 1,
             ),
             boxShadow: _hover
-                ? [BoxShadow(color: Colors.black.withValues(alpha: 0.18), blurRadius: 16, offset: const Offset(0, 6))]
+                ? [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.18),
+                      blurRadius: 16,
+                      offset: const Offset(0, 6),
+                    ),
+                  ]
                 : null,
           ),
           child: Column(
@@ -112,7 +126,11 @@ class _GridCardState extends ConsumerState<GridCard> {
                         preset: Preset.medium,
                         fallbackIcon: isAsset
                             ? iconForAsset(r)
-                            : moduleIcon(module, filled: true, fallback: PhFill.userCircle),
+                            : moduleIcon(
+                                module,
+                                filled: true,
+                                fallback: PhFill.userCircle,
+                              ),
                         background: isAsset ? null : const Color(0xFF55658F),
                       ),
                       Positioned(
@@ -128,7 +146,10 @@ class _GridCardState extends ConsumerState<GridCard> {
                             ),
                             child: SizedBox.square(
                               dimension: 26,
-                              child: Checkbox(value: widget.selected, onChanged: (_) => widget.onSelect()),
+                              child: Checkbox(
+                                value: widget.selected,
+                                onChanged: (_) => widget.onSelect(),
+                              ),
                             ),
                           ),
                         ),
@@ -143,7 +164,11 @@ class _GridCardState extends ConsumerState<GridCard> {
                               color: Colors.black.withValues(alpha: 0.55),
                               borderRadius: BorderRadius.circular(6),
                             ),
-                            child: Icon(iconForAsset(r), size: 12, color: Colors.white),
+                            child: Icon(
+                              iconForAsset(r),
+                              size: 12,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                     ],
@@ -159,7 +184,10 @@ class _GridCardState extends ConsumerState<GridCard> {
                       r.title(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13.5),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 13.5,
+                      ),
                     ),
                     const SizedBox(height: 2),
                     Text(

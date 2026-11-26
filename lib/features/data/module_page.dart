@@ -46,7 +46,11 @@ class _ModulePageState extends ConsumerState<ModulePage> {
         if (isAsset) {
           context.push('/asset/$open');
         } else {
-          showRecordDialog(context, moduleId: moduleId, recordId: open == 'new' ? null : open);
+          showRecordDialog(
+            context,
+            moduleId: moduleId,
+            recordId: open == 'new' ? null : open,
+          );
         }
       });
     }
@@ -57,8 +61,10 @@ class _ModulePageState extends ConsumerState<ModulePage> {
     final view = ref.watch(moduleViewProvider(moduleId));
     final results = ref.watch(searchResultsProvider(moduleId));
     final width = MediaQuery.sizeOf(context).width;
-    final showFolders = isAsset && width >= 1100 && view.viewMode != ViewMode.column;
-    final showSummary = view.showSummary && width >= 1250 && view.viewMode != ViewMode.column;
+    final showFolders =
+        isAsset && width >= 1100 && view.viewMode != ViewMode.column;
+    final showSummary =
+        view.showSummary && width >= 1250 && view.viewMode != ViewMode.column;
     final target = isAsset ? targetFor(ref, 'asset') : targetFor(ref, moduleId);
 
     return Column(
@@ -69,20 +75,31 @@ class _ModulePageState extends ConsumerState<ModulePage> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              if (showFolders) const SizedBox(width: 264, child: FoldersPanel()),
+              if (showFolders)
+                const SizedBox(width: 264, child: FoldersPanel()),
               Expanded(
                 child: UploadDropZone(
                   target: target,
                   child: results.when(
                     skipLoadingOnReload: true,
-                    loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
-                    error: (e, _) =>
-                        ErrorState(error: e, onRetry: () => ref.invalidate(searchResultsProvider(moduleId))),
-                    data: (r) => _ResultsBody(moduleId: moduleId, result: r, viewMode: view.viewMode),
+                    loading: () => const Center(
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    ),
+                    error: (e, _) => ErrorState(
+                      error: e,
+                      onRetry: () =>
+                          ref.invalidate(searchResultsProvider(moduleId)),
+                    ),
+                    data: (r) => _ResultsBody(
+                      moduleId: moduleId,
+                      result: r,
+                      viewMode: view.viewMode,
+                    ),
                   ),
                 ),
               ),
-              if (showSummary) SizedBox(width: 272, child: SummaryPanel(moduleId: moduleId)),
+              if (showSummary)
+                SizedBox(width: 272, child: SummaryPanel(moduleId: moduleId)),
             ],
           ),
         ),
@@ -92,7 +109,13 @@ class _ModulePageState extends ConsumerState<ModulePage> {
 }
 
 /// Opens a record: the full-screen viewer for assets, the record dialog otherwise.
-void openRecord(BuildContext context, WidgetRef ref, String moduleId, Json record, {List<Json>? siblings}) {
+void openRecord(
+  BuildContext context,
+  WidgetRef ref,
+  String moduleId,
+  Json record, {
+  List<Json>? siblings,
+}) {
   if (moduleId == 'asset') {
     ref.read(viewerNavigationProvider.notifier).set([
       for (final h in siblings ?? [record]) h.id,
@@ -104,14 +127,20 @@ void openRecord(BuildContext context, WidgetRef ref, String moduleId, Json recor
 }
 
 class _ResultsBody extends ConsumerWidget {
-  const _ResultsBody({required this.moduleId, required this.result, required this.viewMode});
+  const _ResultsBody({
+    required this.moduleId,
+    required this.result,
+    required this.viewMode,
+  });
   final String moduleId;
   final SearchResult result;
   final ViewMode viewMode;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final query = ref.watch(moduleViewProvider(moduleId).select((s) => s.query));
+    final query = ref.watch(
+      moduleViewProvider(moduleId).select((s) => s.query),
+    );
     if (result.hits.isEmpty && viewMode != ViewMode.column) {
       final filtered = query.text.isNotEmpty || query.activeFilterCount > 0;
       return EmptyState(
@@ -151,7 +180,9 @@ class _Toolbar extends ConsumerStatefulWidget {
 }
 
 class _ToolbarState extends ConsumerState<_Toolbar> {
-  late final _search = TextEditingController(text: ref.read(moduleViewProvider(widget.moduleId)).query.text);
+  late final _search = TextEditingController(
+    text: ref.read(moduleViewProvider(widget.moduleId)).query.text,
+  );
   Timer? _debounce;
 
   @override
@@ -186,7 +217,9 @@ class _ToolbarState extends ConsumerState<_Toolbar> {
       height: 52,
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: context.scheme.outlineVariant)),
+        border: Border(
+          bottom: BorderSide(color: context.scheme.outlineVariant),
+        ),
       ),
       child: Row(
         children: [
@@ -195,7 +228,12 @@ class _ToolbarState extends ConsumerState<_Toolbar> {
               onPressed: () => showRecordDialog(context, moduleId: id),
               icon: const Icon(Ph.plus, size: 14),
               label: Text(narrow ? 'New' : 'Create new'),
-              style: FilledButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12)),
+              style: FilledButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 12,
+                ),
+              ),
             ),
             const SizedBox(width: 10),
           ],
@@ -207,7 +245,8 @@ class _ToolbarState extends ConsumerState<_Toolbar> {
               onSubmitted: ctrl.setText,
               style: const TextStyle(fontSize: 13),
               decoration: InputDecoration(
-                hintText: 'Search ${module?.name() ?? (id == 'asset' ? 'assets' : id)}',
+                hintText:
+                    'Search ${module?.name() ?? (id == 'asset' ? 'assets' : id)}',
                 prefixIcon: const Icon(Ph.magnifyingGlass, size: 13),
                 prefixIconConstraints: const BoxConstraints(minWidth: 34),
                 suffixIcon: _search.text.isEmpty
@@ -233,12 +272,17 @@ class _ToolbarState extends ConsumerState<_Toolbar> {
           const SizedBox(width: 6),
           _SortMenu(moduleId: id),
           if (view.viewMode == ViewMode.table) _ColumnsMenu(moduleId: id),
-          if (result != null && result.pages > 1) _Pager(moduleId: id, result: result),
+          if (result != null && result.pages > 1)
+            _Pager(moduleId: id, result: result),
           _PageSizeMenu(moduleId: id),
           IconButton(
             tooltip: view.showSummary ? 'Hide summary' : 'Show summary',
             onPressed: ctrl.toggleSummary,
-            icon: Icon(Ph.sidebar, size: 15, color: view.showSummary ? context.scheme.primary : c.muted),
+            icon: Icon(
+              Ph.sidebar,
+              size: 15,
+              color: view.showSummary ? context.scheme.primary : c.muted,
+            ),
           ),
           IconButton(
             tooltip: 'Refresh',
@@ -273,7 +317,11 @@ class _ViewSwitcher extends StatelessWidget {
               color: active ? s.surfaceContainerHighest : Colors.transparent,
               borderRadius: BorderRadius.circular(6),
             ),
-            child: Icon(icon, size: 14, color: active ? s.onSurface : context.colors.muted),
+            child: Icon(
+              icon,
+              size: 14,
+              color: active ? s.onSurface : context.colors.muted,
+            ),
           ),
         ),
       );
@@ -305,18 +353,28 @@ class _SortMenu extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final q = ref.watch(moduleViewProvider(moduleId).select((s) => s.query));
-    final hits = ref.watch(searchResultsProvider(moduleId)).value?.hits ?? const [];
+    final hits =
+        ref.watch(searchResultsProvider(moduleId)).value?.hits ?? const [];
     final fields = ref.watch(fieldsProvider(moduleId)).value ?? const [];
-    final cols = columnsFor(moduleId, fields, hits).where((c) => c.sortable).toList();
+    final cols = columnsFor(
+      moduleId,
+      fields,
+      hits,
+    ).where((c) => c.sortable).toList();
     final ctrl = ref.read(moduleViewProvider(moduleId).notifier);
     final label = q.sortField == null
         ? 'Default'
-        : cols.where((c) => c.id == q.sortField).firstOrNull?.label ?? q.sortField!;
+        : cols.where((c) => c.id == q.sortField).firstOrNull?.label ??
+              q.sortField!;
     return PopupMenuButton<String>(
       tooltip: 'Sort',
       onSelected: (v) => v == '_default' ? ctrl.clearSort() : ctrl.sortBy(v),
       itemBuilder: (_) => [
-        CheckedPopupMenuItem(value: '_default', checked: q.sortField == null, child: const Text('Default')),
+        CheckedPopupMenuItem(
+          value: '_default',
+          checked: q.sortField == null,
+          child: const Text('Default'),
+        ),
         const PopupMenuDivider(),
         for (final c in cols)
           CheckedPopupMenuItem(
@@ -325,7 +383,11 @@ class _SortMenu extends ConsumerWidget {
             child: Row(
               children: [
                 Expanded(child: Text(c.label)),
-                if (q.sortField == c.id) Icon(q.sortAscending ? Ph.sortAscending : Ph.sortDescending, size: 14),
+                if (q.sortField == c.id)
+                  Icon(
+                    q.sortAscending ? Ph.sortAscending : Ph.sortDescending,
+                    size: 14,
+                  ),
               ],
             ),
           ),
@@ -334,7 +396,11 @@ class _SortMenu extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         child: Row(
           children: [
-            Icon(q.sortAscending ? Ph.sortAscending : Ph.sortDescending, size: 14, color: context.colors.muted),
+            Icon(
+              q.sortAscending ? Ph.sortAscending : Ph.sortDescending,
+              size: 14,
+              color: context.colors.muted,
+            ),
             if (MediaQuery.sizeOf(context).width >= 1000) ...[
               const SizedBox(width: 6),
               Text(label, style: const TextStyle(fontSize: 13)),
@@ -353,7 +419,8 @@ class _ColumnsMenu extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final view = ref.watch(moduleViewProvider(moduleId));
-    final hits = ref.watch(searchResultsProvider(moduleId)).value?.hits ?? const [];
+    final hits =
+        ref.watch(searchResultsProvider(moduleId)).value?.hits ?? const [];
     final fields = ref.watch(fieldsProvider(moduleId)).value ?? const [];
     final cols = columnsFor(moduleId, fields, hits);
     final hidden = view.hiddenColumns ?? defaultHidden(moduleId, cols);
@@ -366,7 +433,12 @@ class _ColumnsMenu extends ConsumerWidget {
         ref.read(moduleViewProvider(moduleId).notifier).setHiddenColumns(next);
       },
       itemBuilder: (_) => [
-        for (final c in cols) CheckedPopupMenuItem(value: c.id, checked: !hidden.contains(c.id), child: Text(c.label)),
+        for (final c in cols)
+          CheckedPopupMenuItem(
+            value: c.id,
+            checked: !hidden.contains(c.id),
+            child: Text(c.label),
+          ),
       ],
     );
   }
@@ -378,13 +450,19 @@ class _PageSizeMenu extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = ref.watch(moduleViewProvider(moduleId).select((s) => s.query.hitsPerPage));
+    final size = ref.watch(
+      moduleViewProvider(moduleId).select((s) => s.query.hitsPerPage),
+    );
     return PopupMenuButton<int>(
       tooltip: 'Page size',
       onSelected: ref.read(moduleViewProvider(moduleId).notifier).setPageSize,
       itemBuilder: (_) => [
         for (final n in [12, 24, 36, 60, 100, 200])
-          CheckedPopupMenuItem(value: n, checked: n == size, child: Text('$n per page')),
+          CheckedPopupMenuItem(
+            value: n,
+            checked: n == size,
+            child: Text('$n per page'),
+          ),
       ],
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -410,12 +488,19 @@ class _Pager extends ConsumerWidget {
     return Row(
       children: [
         IconButton(
-          onPressed: result.page > 1 ? () => ctrl.setPage(result.page - 1) : null,
+          onPressed: result.page > 1
+              ? () => ctrl.setPage(result.page - 1)
+              : null,
           icon: const Icon(Ph.caretLeft, size: 13),
         ),
-        Text('${result.page} / ${result.pages}', style: const TextStyle(fontSize: 13)),
+        Text(
+          '${result.page} / ${result.pages}',
+          style: const TextStyle(fontSize: 13),
+        ),
         IconButton(
-          onPressed: result.page < result.pages ? () => ctrl.setPage(result.page + 1) : null,
+          onPressed: result.page < result.pages
+              ? () => ctrl.setPage(result.page + 1)
+              : null,
           icon: const Icon(Ph.caretRight, size: 13),
         ),
       ],
@@ -429,7 +514,9 @@ class _SelectionBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selected = ref.watch(moduleViewProvider(moduleId).select((s) => s.selected));
+    final selected = ref.watch(
+      moduleViewProvider(moduleId).select((s) => s.selected),
+    );
     final ctrl = ref.read(moduleViewProvider(moduleId).notifier);
     final s = context.scheme;
     return Container(
@@ -440,16 +527,23 @@ class _SelectionBar extends ConsumerWidget {
         children: [
           Icon(Ph.checkSquare, size: 15, color: s.primary),
           const SizedBox(width: 10),
-          Text('${selected.length} selected', style: const TextStyle(fontWeight: FontWeight.w600)),
+          Text(
+            '${selected.length} selected',
+            style: const TextStyle(fontWeight: FontWeight.w600),
+          ),
           const SizedBox(width: 16),
-          TextButton(onPressed: () => ctrl.setSelected({}), child: const Text('Clear')),
+          TextButton(
+            onPressed: () => ctrl.setSelected({}),
+            child: const Text('Clear'),
+          ),
           const Spacer(),
           TextButton.icon(
             style: TextButton.styleFrom(foregroundColor: s.error),
             onPressed: () async {
               final ok = await confirm(
                 context,
-                title: 'Delete ${selected.length} item${selected.length == 1 ? '' : 's'}?',
+                title:
+                    'Delete ${selected.length} item${selected.length == 1 ? '' : 's'}?',
                 message: 'This cannot be undone.',
               );
               if (!ok) return;
@@ -465,7 +559,11 @@ class _SelectionBar extends ConsumerWidget {
               ctrl.setSelected({});
               ref.invalidate(searchResultsProvider(moduleId));
               if (context.mounted) {
-                showMessage(context, failed == 0 ? 'Deleted' : '$failed could not be deleted', error: failed > 0);
+                showMessage(
+                  context,
+                  failed == 0 ? 'Deleted' : '$failed could not be deleted',
+                  error: failed > 0,
+                );
               }
             },
             icon: const Icon(Ph.trash, size: 14),

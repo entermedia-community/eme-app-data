@@ -28,7 +28,9 @@ class FieldValue {
     } else if (f.isBoolean) {
       flag = '$initial' == 'true';
     } else {
-      text = initial == null ? '' : (initial is String ? initial : displayValue(initial));
+      text = initial == null
+          ? ''
+          : (initial is String ? initial : displayValue(initial));
     }
   }
 
@@ -51,7 +53,9 @@ class FieldValue {
     final list = v is List ? v : [v];
     for (final e in list) {
       if (e is Map && e['id'] != null) {
-        names['${e['id']}'] = localized(e['name']).isNotEmpty ? localized(e['name']) : '${e['id']}';
+        names['${e['id']}'] = localized(e['name']).isNotEmpty
+            ? localized(e['name'])
+            : '${e['id']}';
       }
     }
   }
@@ -97,35 +101,51 @@ class _FieldInputState extends ConsumerState<FieldInput> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(f.label(), style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13)),
+        Text(
+          f.label(),
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+        ),
         const SizedBox(height: 6),
         _input(context),
-        if (f.raw['note'] is String && (f.raw['note'] as String).isNotEmpty) ...[
+        if (f.raw['note'] is String &&
+            (f.raw['note'] as String).isNotEmpty) ...[
           const SizedBox(height: 4),
-          Text(f.raw['note'] as String, style: TextStyle(fontSize: 11.5, color: context.colors.muted)),
+          Text(
+            f.raw['note'] as String,
+            style: TextStyle(fontSize: 11.5, color: context.colors.muted),
+          ),
         ],
       ],
     );
   }
 
   Widget _input(BuildContext context) {
-    if (v.multilang != null) return _MultiLang(value: v, onChanged: () => _changed(() {}));
+    if (v.multilang != null)
+      return _MultiLang(value: v, onChanged: () => _changed(() {}));
     if (f.isBoolean) {
       return Align(
         alignment: Alignment.centerLeft,
-        child: Switch(value: v.flag, onChanged: (b) => _changed(() => v.flag = b)),
+        child: Switch(
+          value: v.flag,
+          onChanged: (b) => _changed(() => v.flag = b),
+        ),
       );
     }
     if (f.isDate) return _dateInput(context);
     if (f.isTags) return _TagsInput(value: v, onChanged: () => _changed(() {}));
-    if (f.isMulti) return _MultiListInput(value: v, onChanged: () => _changed(() {}));
+    if (f.isMulti)
+      return _MultiListInput(value: v, onChanged: () => _changed(() {}));
     if (f.isList) return _ListInput(value: v, onChanged: () => _changed(() {}));
     return TextFormField(
       initialValue: v.text,
       minLines: f.isTextArea ? 3 : 1,
       maxLines: f.isTextArea ? 8 : 1,
-      keyboardType: f.isNumber ? const TextInputType.numberWithOptions(decimal: true) : null,
-      inputFormatters: f.isNumber ? [FilteringTextInputFormatter.allow(RegExp(r'[0-9.\-]'))] : null,
+      keyboardType: f.isNumber
+          ? const TextInputType.numberWithOptions(decimal: true)
+          : null,
+      inputFormatters: f.isNumber
+          ? [FilteringTextInputFormatter.allow(RegExp(r'[0-9.\-]'))]
+          : null,
       onChanged: (t) => _changed(() => v.text = t),
     );
   }
@@ -145,11 +165,17 @@ class _FieldInputState extends ConsumerState<FieldInput> {
         decoration: InputDecoration(
           suffixIcon: v.date == null
               ? const Icon(Ph.calendarBlank, size: 14)
-              : IconButton(icon: const Icon(Ph.x, size: 16), onPressed: () => _changed(() => v.date = null)),
+              : IconButton(
+                  icon: const Icon(Ph.x, size: 16),
+                  onPressed: () => _changed(() => v.date = null),
+                ),
         ),
         child: Text(
           v.date == null ? 'Pick a date' : formatDate(v.date!),
-          style: TextStyle(fontSize: 14, color: v.date == null ? context.colors.muted : null),
+          style: TextStyle(
+            fontSize: 14,
+            color: v.date == null ? context.colors.muted : null,
+          ),
         ),
       ),
     );
@@ -170,7 +196,9 @@ class _MultiLangState extends State<_MultiLang> {
 
   @override
   Widget build(BuildContext context) {
-    final missing = knownLanguages.keys.where((k) => !map.containsKey(k)).toList();
+    final missing = knownLanguages.keys
+        .where((k) => !map.containsKey(k))
+        .toList();
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -190,7 +218,10 @@ class _MultiLangState extends State<_MultiLang> {
                     width: 86,
                     child: Text(
                       knownLanguages[lang] ?? lang,
-                      style: TextStyle(fontSize: 12.5, color: context.colors.muted),
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        color: context.colors.muted,
+                      ),
                     ),
                   ),
                   Expanded(
@@ -225,17 +256,28 @@ class _MultiLangState extends State<_MultiLang> {
                   map[l] = '';
                   widget.value.removedLanguages.remove(l);
                 }),
-                itemBuilder: (_) => [for (final l in missing) PopupMenuItem(value: l, child: Text(knownLanguages[l]!))],
+                itemBuilder: (_) => [
+                  for (final l in missing)
+                    PopupMenuItem(value: l, child: Text(knownLanguages[l]!)),
+                ],
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 4),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Ph.translate, size: 13, color: context.scheme.primary),
+                      Icon(
+                        Ph.translate,
+                        size: 13,
+                        color: context.scheme.primary,
+                      ),
                       const SizedBox(width: 6),
                       Text(
                         'Add language',
-                        style: TextStyle(color: context.scheme.primary, fontSize: 13, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                          color: context.scheme.primary,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ],
                   ),
@@ -258,11 +300,14 @@ class _ListInput extends ConsumerWidget {
     final options = ref.watch(listOptionsProvider(value.field.listId));
     final list = options.value ?? const <Json>[];
     for (final o in list) {
-      value.names[o.id] = localized(o['name']).isNotEmpty ? localized(o['name']) : o.id;
+      value.names[o.id] = localized(o['name']).isNotEmpty
+          ? localized(o['name'])
+          : o.id;
     }
     final entries = {
       for (final o in list) o.id: value.names[o.id]!,
-      if (value.id != null && value.id!.isNotEmpty) value.id!: value.names[value.id] ?? value.id!,
+      if (value.id != null && value.id!.isNotEmpty)
+        value.id!: value.names[value.id] ?? value.id!,
     };
     return LayoutBuilder(
       builder: (context, box) => DropdownMenu<String>(
@@ -270,11 +315,14 @@ class _ListInput extends ConsumerWidget {
         initialSelection: value.id,
         enableFilter: true,
         requestFocusOnTap: true,
-        hintText: options.isLoading ? 'Loading…' : (options.hasError ? 'Could not load options' : 'Choose…'),
+        hintText: options.isLoading
+            ? 'Loading…'
+            : (options.hasError ? 'Could not load options' : 'Choose…'),
         menuHeight: 320,
         dropdownMenuEntries: [
           const DropdownMenuEntry(value: '', label: '— None —'),
-          for (final e in entries.entries) DropdownMenuEntry(value: e.key, label: e.value),
+          for (final e in entries.entries)
+            DropdownMenuEntry(value: e.key, label: e.value),
         ],
         onSelected: (id) {
           value.id = id;
@@ -292,9 +340,13 @@ class _MultiListInput extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final options = ref.watch(listOptionsProvider(value.field.listId)).value ?? const <Json>[];
+    final options =
+        ref.watch(listOptionsProvider(value.field.listId)).value ??
+        const <Json>[];
     for (final o in options) {
-      value.names[o.id] = localized(o['name']).isNotEmpty ? localized(o['name']) : o.id;
+      value.names[o.id] = localized(o['name']).isNotEmpty
+          ? localized(o['name'])
+          : o.id;
     }
     final remaining = options.where((o) => !value.ids.contains(o.id)).toList();
     return Wrap(
@@ -318,11 +370,16 @@ class _MultiListInput extends ConsumerWidget {
             value.ids = [...value.ids, id];
             onChanged();
           },
-          itemBuilder: (_) => [for (final o in remaining) PopupMenuItem(value: o.id, child: Text(value.names[o.id]!))],
+          itemBuilder: (_) => [
+            for (final o in remaining)
+              PopupMenuItem(value: o.id, child: Text(value.names[o.id]!)),
+          ],
           child: Chip(
             avatar: Icon(Ph.plus, size: 16, color: context.scheme.primary),
             label: Text(
-              remaining.isEmpty && options.isEmpty ? 'No options' : 'Add ${value.field.label().toLowerCase()}',
+              remaining.isEmpty && options.isEmpty
+                  ? 'No options'
+                  : 'Add ${value.field.label().toLowerCase()}',
             ),
           ),
         ),
@@ -365,7 +422,9 @@ class _TagsInputState extends State<_TagsInput> {
       children: [
         TextField(
           controller: _ctrl,
-          decoration: const InputDecoration(hintText: 'Type a tag and press Enter'),
+          decoration: const InputDecoration(
+            hintText: 'Type a tag and press Enter',
+          ),
           onSubmitted: _add,
         ),
         if (v.ids.isNotEmpty) ...[

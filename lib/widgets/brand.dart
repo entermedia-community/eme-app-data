@@ -27,7 +27,12 @@ class BrandMark extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             'E',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: size * 0.55, height: 1),
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w800,
+              fontSize: size * 0.55,
+              height: 1,
+            ),
           ),
         ),
         if (showText) ...[
@@ -37,11 +42,17 @@ class BrandMark extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'eMedia',
-                  style: TextStyle(fontWeight: FontWeight.w700, color: context.scheme.onSurface),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: context.scheme.onSurface,
+                  ),
                 ),
                 TextSpan(
                   text: ' Data',
-                  style: TextStyle(fontWeight: FontWeight.w400, color: context.colors.muted),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: context.colors.muted,
+                  ),
                 ),
               ],
             ),
@@ -55,7 +66,12 @@ class BrandMark extends StatelessWidget {
 
 /// Circular avatar with initials, or a network image.
 class UserAvatar extends StatelessWidget {
-  const UserAvatar({super.key, required this.name, this.imageUrl, this.size = 30});
+  const UserAvatar({
+    super.key,
+    required this.name,
+    this.imageUrl,
+    this.size = 30,
+  });
   final String name;
   final String? imageUrl;
   final double size;
@@ -77,7 +93,11 @@ class UserAvatar extends StatelessWidget {
       foregroundImage: imageUrl == null ? null : NetworkImage(imageUrl!),
       child: Text(
         initials,
-        style: TextStyle(fontSize: size * 0.38, fontWeight: FontWeight.w700, color: context.scheme.primary),
+        style: TextStyle(
+          fontSize: size * 0.38,
+          fontWeight: FontWeight.w700,
+          color: context.scheme.primary,
+        ),
       ),
     );
   }

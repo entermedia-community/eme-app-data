@@ -13,16 +13,22 @@ import '../upload/upload_panel.dart';
 import '../upload/upload_queue.dart';
 import '../../core/icons.dart';
 
-const _recentQuery = SearchQuery(hitsPerPage: 12, sortField: 'assetaddeddate', sortAscending: false);
+const _recentQuery = SearchQuery(
+  hitsPerPage: 12,
+  sortField: 'assetaddeddate',
+  sortAscending: false,
+);
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final session = ref.watch(authProvider).value;
+    final session = ref.watch(authProvider).user;
     final sections = ref.watch(appSectionsProvider).value ?? const [];
-    final recent = ref.watch(adhocSearchProvider((module: 'asset', query: _recentQuery)));
+    final recent = ref.watch(
+      adhocSearchProvider((module: 'asset', query: _recentQuery)),
+    );
     final c = context.colors;
 
     return UploadDropZone(
@@ -32,7 +38,10 @@ class HomePage extends ConsumerWidget {
         children: [
           Text(
             'Welcome back${session == null ? '' : ', ${session.displayName}'}',
-            style: context.text.headlineSmall?.copyWith(fontWeight: FontWeight.w700, letterSpacing: -0.4),
+            style: context.text.headlineSmall?.copyWith(
+              fontWeight: FontWeight.w700,
+              letterSpacing: -0.4,
+            ),
           ),
           const SizedBox(height: 4),
           Text(
@@ -44,10 +53,18 @@ class HomePage extends ConsumerWidget {
             spacing: 14,
             runSpacing: 14,
             children: [
-              _Tile(icon: Ph.images, title: 'Assets', moduleId: 'asset', onTap: () => context.go('/m/asset')),
+              _Tile(
+                icon: Ph.images,
+                title: 'Assets',
+                moduleId: 'asset',
+                onTap: () => context.go('/m/asset'),
+              ),
               for (final s in sections)
                 _Tile(
-                  icon: moduleIcon(ref.watch(moduleByIdProvider(s.moduleId)), filled: true),
+                  icon: moduleIcon(
+                    ref.watch(moduleByIdProvider(s.moduleId)),
+                    filled: true,
+                  ),
                   title: s.name,
                   moduleId: s.moduleId,
                   onTap: () => context.go('/m/${s.moduleId}'),
@@ -57,9 +74,17 @@ class HomePage extends ConsumerWidget {
           const SizedBox(height: 32),
           Row(
             children: [
-              Text('Recently added', style: context.text.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+              Text(
+                'Recently added',
+                style: context.text.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
               const Spacer(),
-              TextButton(onPressed: () => context.go('/m/asset'), child: const Text('View all')),
+              TextButton(
+                onPressed: () => context.go('/m/asset'),
+                child: const Text('View all'),
+              ),
             ],
           ),
           const SizedBox(height: 10),
@@ -74,19 +99,26 @@ class HomePage extends ConsumerWidget {
                 : GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 220,
-                      mainAxisSpacing: 14,
-                      crossAxisSpacing: 14,
-                      childAspectRatio: 0.82,
-                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 220,
+                          mainAxisSpacing: 14,
+                          crossAxisSpacing: 14,
+                          childAspectRatio: 0.82,
+                        ),
                     itemCount: r.hits.length,
                     itemBuilder: (_, i) => GridCard(
                       moduleId: 'asset',
                       record: r.hits[i],
                       selected: false,
                       onSelect: () {},
-                      onOpen: () => openRecord(context, ref, 'asset', r.hits[i], siblings: r.hits),
+                      onOpen: () => openRecord(
+                        context,
+                        ref,
+                        'asset',
+                        r.hits[i],
+                        siblings: r.hits,
+                      ),
                     ),
                   ),
           ),
@@ -97,7 +129,12 @@ class HomePage extends ConsumerWidget {
 }
 
 class _Tile extends ConsumerWidget {
-  const _Tile({required this.icon, required this.title, required this.moduleId, required this.onTap});
+  const _Tile({
+    required this.icon,
+    required this.title,
+    required this.moduleId,
+    required this.onTap,
+  });
   final IconData icon;
   final String title;
   final String moduleId;
@@ -106,7 +143,12 @@ class _Tile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final count = ref
-        .watch(adhocSearchProvider((module: moduleId, query: const SearchQuery(hitsPerPage: 1))))
+        .watch(
+          adhocSearchProvider((
+            module: moduleId,
+            query: const SearchQuery(hitsPerPage: 1),
+          )),
+        )
         .value
         ?.total;
     final s = context.scheme;
@@ -122,7 +164,10 @@ class _Tile extends ConsumerWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(color: context.colors.accentSoft, borderRadius: BorderRadius.circular(10)),
+                  decoration: BoxDecoration(
+                    color: context.colors.accentSoft,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   child: Icon(icon, size: 18, color: s.primary),
                 ),
                 const SizedBox(width: 14),
@@ -136,8 +181,13 @@ class _Tile extends ConsumerWidget {
                         style: const TextStyle(fontWeight: FontWeight.w600),
                       ),
                       Text(
-                        count == null ? ' ' : '$count ${count == 1 ? 'item' : 'items'}',
-                        style: TextStyle(color: context.colors.muted, fontSize: 12.5),
+                        count == null
+                            ? ' '
+                            : '$count ${count == 1 ? 'item' : 'items'}',
+                        style: TextStyle(
+                          color: context.colors.muted,
+                          fontSize: 12.5,
+                        ),
                       ),
                     ],
                   ),

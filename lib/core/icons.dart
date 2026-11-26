@@ -36,7 +36,10 @@ const _bootstrapAliases = {
 /// Looks up a Phosphor icon by its web name (`user-circle`); [filled] picks the fill weight.
 IconData? phosphorIcon(String? name, {bool filled = false}) {
   if (name == null) return null;
-  final key = name.trim().toLowerCase().replaceFirst(RegExp(r'^(ph-|ph:|bi-)'), '');
+  final key = name.trim().toLowerCase().replaceFirst(
+    RegExp(r'^(ph-|ph:|bi-)'),
+    '',
+  );
   final pair = phosphorIconMap[key];
   if (pair == null) return null;
   return filled ? pair.$2 : pair.$1;
@@ -44,7 +47,11 @@ IconData? phosphorIcon(String? name, {bool filled = false}) {
 
 /// Icon for a module: `appicon` (Phosphor name) first, then the legacy Bootstrap
 /// `moduleicon` through [_bootstrapAliases] (or an identically named Phosphor icon).
-IconData moduleIcon(ModuleInfo? module, {bool filled = false, IconData? fallback}) {
+IconData moduleIcon(
+  ModuleInfo? module, {
+  bool filled = false,
+  IconData? fallback,
+}) {
   final fb = fallback ?? (filled ? PhFill.squaresFour : Ph.squaresFour);
   if (module == null) return fb;
   final legacy = module.icon?.trim().replaceFirst('bi-', '');

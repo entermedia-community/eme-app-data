@@ -27,7 +27,8 @@ class AssetViewerPage extends ConsumerStatefulWidget {
   ConsumerState<AssetViewerPage> createState() => _AssetViewerPageState();
 }
 
-class _AssetViewerPageState extends ConsumerState<AssetViewerPage> with SingleTickerProviderStateMixin {
+class _AssetViewerPageState extends ConsumerState<AssetViewerPage>
+    with SingleTickerProviderStateMixin {
   static const _tabNames = ['data', 'viewer', 'history', 'download'];
   late final _tabs = TabController(
     length: 4,
@@ -54,7 +55,9 @@ class _AssetViewerPageState extends ConsumerState<AssetViewerPage> with SingleTi
 
   @override
   Widget build(BuildContext context) {
-    final asset = ref.watch(recordProvider((type: 'asset', id: widget.assetId)));
+    final asset = ref.watch(
+      recordProvider((type: 'asset', id: widget.assetId)),
+    );
     final ids = ref.watch(viewerNavigationProvider);
     final index = ids.indexOf(widget.assetId);
     final c = context.colors;
@@ -80,17 +83,27 @@ class _AssetViewerPageState extends ConsumerState<AssetViewerPage> with SingleTi
                       height: 48,
                       child: Row(
                         children: [
-                          IconButton(tooltip: 'Close (Esc)', onPressed: _close, icon: const Icon(Ph.x, size: 15)),
+                          IconButton(
+                            tooltip: 'Close (Esc)',
+                            onPressed: _close,
+                            icon: const Icon(Ph.x, size: 15),
+                          ),
                           const SizedBox(width: 4),
                           Expanded(
                             child: Text(
                               asset.value?.sourcepath ?? '',
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13.5),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 13.5,
+                              ),
                             ),
                           ),
                           if (index >= 0 && ids.length > 1) ...[
-                            Text('${index + 1} of ${ids.length}', style: TextStyle(color: c.muted, fontSize: 12.5)),
+                            Text(
+                              '${index + 1} of ${ids.length}',
+                              style: TextStyle(color: c.muted, fontSize: 12.5),
+                            ),
                             IconButton(
                               tooltip: 'Previous (←)',
                               onPressed: index > 0 ? () => _go(-1) : null,
@@ -98,7 +111,9 @@ class _AssetViewerPageState extends ConsumerState<AssetViewerPage> with SingleTi
                             ),
                             IconButton(
                               tooltip: 'Next (→)',
-                              onPressed: index < ids.length - 1 ? () => _go(1) : null,
+                              onPressed: index < ids.length - 1
+                                  ? () => _go(1)
+                                  : null,
                               icon: const Icon(Ph.caretRight, size: 15),
                             ),
                           ],
@@ -113,7 +128,12 @@ class _AssetViewerPageState extends ConsumerState<AssetViewerPage> with SingleTi
                         isScrollable: true,
                         tabAlignment: TabAlignment.start,
                         tabs: const [
-                          Tab(icon: Icon(Ph.info, size: 14), text: 'Data', iconMargin: EdgeInsets.zero, height: 44),
+                          Tab(
+                            icon: Icon(Ph.info, size: 14),
+                            text: 'Data',
+                            iconMargin: EdgeInsets.zero,
+                            height: 44,
+                          ),
                           Tab(
                             icon: Icon(Ph.cornersOut, size: 14),
                             text: 'Viewer',
@@ -140,10 +160,14 @@ class _AssetViewerPageState extends ConsumerState<AssetViewerPage> with SingleTi
               ),
               Expanded(
                 child: asset.when(
-                  loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                  loading: () => const Center(
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  ),
                   error: (e, _) => ErrorState(
                     error: e,
-                    onRetry: () => ref.invalidate(recordProvider((type: 'asset', id: widget.assetId))),
+                    onRetry: () => ref.invalidate(
+                      recordProvider((type: 'asset', id: widget.assetId)),
+                    ),
                   ),
                   data: (a) => TabBarView(
                     controller: _tabs,
@@ -196,7 +220,9 @@ class _DataTab extends ConsumerWidget {
             alignment: WrapAlignment.center,
             children: [
               Pill(
-                displayValue(asset['editstatus']).isEmpty ? 'No status' : displayValue(asset['editstatus']),
+                displayValue(asset['editstatus']).isEmpty
+                    ? 'No status'
+                    : displayValue(asset['editstatus']),
                 icon: Ph.circle,
                 color: const Color(0xFFF2B53A),
               ),
@@ -206,7 +232,9 @@ class _DataTab extends ConsumerWidget {
                 label: const Text('Original'),
               ),
               OutlinedButton.icon(
-                style: OutlinedButton.styleFrom(foregroundColor: context.scheme.error),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: context.scheme.error,
+                ),
                 onPressed: () async {
                   final ok = await confirm(
                     context,
@@ -215,11 +243,14 @@ class _DataTab extends ConsumerWidget {
                   );
                   if (!ok) return;
                   try {
-                    await ref.read(repositoryProvider).deleteRecord('asset', asset.id);
+                    await ref
+                        .read(repositoryProvider)
+                        .deleteRecord('asset', asset.id);
                     ref.invalidate(searchResultsProvider('asset'));
                     onDeleted();
                   } catch (e) {
-                    if (context.mounted) showMessage(context, '$e', error: true);
+                    if (context.mounted)
+                      showMessage(context, '$e', error: true);
                   }
                 },
                 icon: const Icon(Ph.trash, size: 14),
@@ -257,8 +288,14 @@ class _AssetDetails extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.colors;
-    Widget section(String title, List<(String, Object?)> rows, {VoidCallback? onEdit}) {
-      final visible = rows.where((r) => r.$2 != null && displayValue(r.$2).isNotEmpty).toList();
+    Widget section(
+      String title,
+      List<(String, Object?)> rows, {
+      VoidCallback? onEdit,
+    }) {
+      final visible = rows
+          .where((r) => r.$2 != null && displayValue(r.$2).isNotEmpty)
+          .toList();
       if (visible.isEmpty) return const SizedBox.shrink();
       return Padding(
         padding: const EdgeInsets.only(bottom: 28),
@@ -267,7 +304,12 @@ class _AssetDetails extends ConsumerWidget {
           children: [
             Row(
               children: [
-                Text(title, style: context.text.titleSmall?.copyWith(fontWeight: FontWeight.w700)),
+                Text(
+                  title,
+                  style: context.text.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
                 const Spacer(),
                 if (onEdit != null)
                   TextButton.icon(
@@ -288,7 +330,11 @@ class _AssetDetails extends ConsumerWidget {
                       width: 130,
                       child: Text(
                         r.$1,
-                        style: TextStyle(color: c.muted, fontSize: 12.5, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                          color: c.muted,
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     Expanded(child: _value(context, r.$2)),
@@ -300,9 +346,12 @@ class _AssetDetails extends ConsumerWidget {
       );
     }
 
-    void edit() => showRecordDialog(context, moduleId: 'asset', recordId: asset.id).then((_) {
-      ref.invalidate(recordProvider((type: 'asset', id: asset.id)));
-    });
+    void edit() =>
+        showRecordDialog(context, moduleId: 'asset', recordId: asset.id).then((
+          _,
+        ) {
+          ref.invalidate(recordProvider((type: 'asset', id: asset.id)));
+        });
 
     return Padding(
       padding: const EdgeInsets.all(24),
@@ -311,7 +360,10 @@ class _AssetDetails extends ConsumerWidget {
         children: [
           Text(
             asset.title(),
-            style: context.text.headlineSmall?.copyWith(fontWeight: FontWeight.w700, letterSpacing: -0.3),
+            style: context.text.headlineSmall?.copyWith(
+              fontWeight: FontWeight.w700,
+              letterSpacing: -0.3,
+            ),
           ),
           const SizedBox(height: 22),
           section('Details', [
@@ -333,7 +385,12 @@ class _AssetDetails extends ConsumerWidget {
             ('Type', asset['assettype']),
             ('Format', asset['fileformat']),
             ('Size', formatBytes(asset['filesize'])),
-            ('Dimensions', asset['width'] == null ? null : '${asset['width']} × ${asset['height']} px'),
+            (
+              'Dimensions',
+              asset['width'] == null
+                  ? null
+                  : '${asset['width']} × ${asset['height']} px',
+            ),
             ('Pages', asset['pages']),
             ('Added', asset['assetaddeddate']),
             ('Modified', asset['assetmodificationdate']),
@@ -351,7 +408,8 @@ class _AssetDetails extends ConsumerWidget {
         runSpacing: 6,
         children: [
           for (final x in v)
-            if (displayValue(x).isNotEmpty && displayValue(x) != 'All') Pill(displayValue(x)),
+            if (displayValue(x).isNotEmpty && displayValue(x) != 'All')
+              Pill(displayValue(x)),
         ],
       );
     }
@@ -379,7 +437,10 @@ class _AssetDetails extends ConsumerWidget {
         ],
       );
     }
-    return SelectableText(displayValue(v), style: const TextStyle(fontSize: 14, height: 1.4));
+    return SelectableText(
+      displayValue(v),
+      style: const TextStyle(fontSize: 14, height: 1.4),
+    );
   }
 }
 
@@ -412,7 +473,8 @@ class _ViewerTab extends ConsumerWidget {
     return EmptyState(
       icon: iconForAsset(asset),
       title: 'Preview not available in the browser',
-      message: 'Download the original to view this ${type.isEmpty ? 'file' : type}.',
+      message:
+          'Download the original to view this ${type.isEmpty ? 'file' : type}.',
       action: FilledButton.icon(
         onPressed: () => downloadOriginal(context, ref, asset),
         icon: const Icon(Ph.downloadSimple, size: 14),
@@ -422,7 +484,10 @@ class _ViewerTab extends ConsumerWidget {
   }
 }
 
-final _pdfBytesProvider = FutureProvider.autoDispose.family<Uint8List, String>((ref, url) {
+final _pdfBytesProvider = FutureProvider.autoDispose.family<Uint8List, String>((
+  ref,
+  url,
+) {
   return ref.watch(apiClientProvider).getBytes(url);
 });
 
@@ -435,17 +500,23 @@ class _PdfView extends ConsumerWidget {
     final format = '${(asset['fileformat'] as Map?)?['id'] ?? ''}';
     final sp = asset.sourcepath ?? '';
     // PDFs are shown from the original; other documents from the generated PDF rendition.
-    final url = format == 'pdf' ? originalUrl(asset) : 'module/asset/generated/${encodePath(sp)}/document.pdf';
+    final url = format == 'pdf'
+        ? originalUrl(asset)
+        : 'module/asset/generated/${encodePath(sp)}/document.pdf';
     final bytes = ref.watch(_pdfBytesProvider(url));
     return bytes.when(
-      loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
+      loading: () =>
+          const Center(child: CircularProgressIndicator(strokeWidth: 2)),
       error: (e, _) => ErrorState(error: e),
       data: (b) => Container(
         color: context.colors.shell,
         child: PdfViewer.data(
           b,
           sourceName: '${asset.id}.pdf',
-          params: const PdfViewerParams(backgroundColor: Colors.transparent, margin: 16),
+          params: const PdfViewerParams(
+            backgroundColor: Colors.transparent,
+            margin: 16,
+          ),
         ),
       ),
     );
@@ -461,14 +532,18 @@ class _HistoryTab extends ConsumerWidget {
     final versions = ref.watch(versionsProvider(asset.id));
     final c = context.colors;
     return versions.when(
-      loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
+      loading: () =>
+          const Center(child: CircularProgressIndicator(strokeWidth: 2)),
       error: (e, _) => ErrorState(error: e),
       data: (list) {
         final entries = [
           for (final v in list)
             (
               'Version ${v['number'] ?? ''}',
-              [displayValue(v['userid']), displayValue(v['message'])].where((s) => s.isNotEmpty).join(' – '),
+              [
+                displayValue(v['userid']),
+                displayValue(v['message']),
+              ].where((s) => s.isNotEmpty).join(' – '),
               displayValue(v['date']),
               formatBytes(v['bytes'] ?? v['size']),
             ),
@@ -476,7 +551,9 @@ class _HistoryTab extends ConsumerWidget {
             (
               'Version 1',
               '${displayValue(asset['owner'])} – Imported',
-              displayValue(asset['assetmodificationdate'] ?? asset['assetaddeddate']),
+              displayValue(
+                asset['assetmodificationdate'] ?? asset['assetaddeddate'],
+              ),
               formatBytes(asset['filesize']),
             ),
         ];
@@ -493,7 +570,9 @@ class _HistoryTab extends ConsumerWidget {
                         width: 30,
                         height: 30,
                         decoration: BoxDecoration(
-                          color: i == 0 ? c.accentSoft : context.scheme.surfaceContainerHigh,
+                          color: i == 0
+                              ? c.accentSoft
+                              : context.scheme.surfaceContainerHigh,
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
@@ -502,7 +581,12 @@ class _HistoryTab extends ConsumerWidget {
                           color: i == 0 ? context.scheme.primary : c.muted,
                         ),
                       ),
-                      if (i < entries.length - 1) Container(width: 2, height: 46, color: context.scheme.outlineVariant),
+                      if (i < entries.length - 1)
+                        Container(
+                          width: 2,
+                          height: 46,
+                          color: context.scheme.outlineVariant,
+                        ),
                     ],
                   ),
                   const SizedBox(width: 14),
@@ -512,8 +596,15 @@ class _HistoryTab extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(e.$1, style: const TextStyle(fontWeight: FontWeight.w700)),
-                          if (e.$2.isNotEmpty) Text(e.$2, style: TextStyle(color: c.muted, fontSize: 12.5)),
+                          Text(
+                            e.$1,
+                            style: const TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                          if (e.$2.isNotEmpty)
+                            Text(
+                              e.$2,
+                              style: TextStyle(color: c.muted, fontSize: 12.5),
+                            ),
                           Text(
                             [e.$3, e.$4].where((s) => s.isNotEmpty).join(' · '),
                             style: TextStyle(color: c.muted, fontSize: 12.5),
@@ -547,13 +638,19 @@ class _DownloadTab extends ConsumerWidget {
         _DownloadRow(
           icon: Ph.fileArrowDown,
           title: 'Original file',
-          subtitle: '${displayValue(asset['name'])} · ${formatBytes(asset['filesize'])}',
+          subtitle:
+              '${displayValue(asset['name'])} · ${formatBytes(asset['filesize'])}',
           onTap: () => downloadOriginal(context, ref, asset),
           primary: true,
         ),
         if (downloads.isNotEmpty) ...[
           const SizedBox(height: 20),
-          Text('Renditions', style: context.text.titleSmall?.copyWith(fontWeight: FontWeight.w700)),
+          Text(
+            'Renditions',
+            style: context.text.titleSmall?.copyWith(
+              fontWeight: FontWeight.w700,
+            ),
+          ),
           const SizedBox(height: 10),
         ],
         for (final d in downloads)
@@ -561,7 +658,12 @@ class _DownloadTab extends ConsumerWidget {
             icon: Ph.image,
             title: localized(d['name']),
             subtitle: '${d['url'] ?? ''}'.split('/').last,
-            onTap: () => _download(context, ref, '${d['download'] ?? d['url']}', '${d['url'] ?? ''}'.split('/').last),
+            onTap: () => _download(
+              context,
+              ref,
+              '${d['download'] ?? d['url']}',
+              '${d['url'] ?? ''}'.split('/').last,
+            ),
           ),
       ],
     );
@@ -587,9 +689,19 @@ class _DownloadRow extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       child: ListTile(
-        leading: Icon(icon, size: 18, color: primary ? context.scheme.primary : context.colors.muted),
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13.5)),
-        subtitle: Text(subtitle, style: TextStyle(color: context.colors.muted, fontSize: 12)),
+        leading: Icon(
+          icon,
+          size: 18,
+          color: primary ? context.scheme.primary : context.colors.muted,
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13.5),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: TextStyle(color: context.colors.muted, fontSize: 12),
+        ),
         trailing: primary
             ? FilledButton.icon(
                 onPressed: onTap,
@@ -608,10 +720,23 @@ String originalUrl(Json asset) {
   return 'module/asset/downloads/originals/${encodePath(sp)}/${Uri.encodeComponent(name)}';
 }
 
-Future<void> downloadOriginal(BuildContext context, WidgetRef ref, Json asset) =>
-    _download(context, ref, originalUrl(asset), '${asset['name'] ?? 'download'}');
+Future<void> downloadOriginal(
+  BuildContext context,
+  WidgetRef ref,
+  Json asset,
+) => _download(
+  context,
+  ref,
+  originalUrl(asset),
+  '${asset['name'] ?? 'download'}',
+);
 
-Future<void> _download(BuildContext context, WidgetRef ref, String url, String fileName) async {
+Future<void> _download(
+  BuildContext context,
+  WidgetRef ref,
+  String url,
+  String fileName,
+) async {
   showMessage(context, 'Preparing $fileName…');
   try {
     final bytes = await ref.read(apiClientProvider).getBytes(url);

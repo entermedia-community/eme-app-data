@@ -22,7 +22,11 @@ class _FoldersPanelState extends ConsumerState<FoldersPanel> {
   Widget build(BuildContext context) {
     final c = context.colors;
     final tree = ref.watch(categoryTreeProvider);
-    final selected = ref.watch(moduleViewProvider('asset').select((s) => s.query.categoryId)) ?? 'index';
+    final selected =
+        ref.watch(
+          moduleViewProvider('asset').select((s) => s.query.categoryId),
+        ) ??
+        'index';
     final select = ref.read(moduleViewProvider('asset').notifier).setCategory;
 
     return Container(
@@ -37,13 +41,19 @@ class _FoldersPanelState extends ConsumerState<FoldersPanel> {
             padding: const EdgeInsets.fromLTRB(16, 14, 12, 8),
             child: Text(
               'FOLDERS',
-              style: TextStyle(fontSize: 11.5, fontWeight: FontWeight.w700, letterSpacing: 1.1, color: c.muted),
+              style: TextStyle(
+                fontSize: 11.5,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 1.1,
+                color: c.muted,
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
             child: TextField(
-              onChanged: (v) => setState(() => _filter = v.trim().toLowerCase()),
+              onChanged: (v) =>
+                  setState(() => _filter = v.trim().toLowerCase()),
               style: const TextStyle(fontSize: 13),
               decoration: const InputDecoration(
                 hintText: 'Search folders',
@@ -54,19 +64,29 @@ class _FoldersPanelState extends ConsumerState<FoldersPanel> {
           ),
           Expanded(
             child: tree.when(
-              loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
+              loading: () => const Center(
+                child: CircularProgressIndicator(strokeWidth: 2),
+              ),
               error: (e, _) => Padding(
                 padding: const EdgeInsets.all(16),
                 child: Text('$e', style: TextStyle(color: c.muted)),
               ),
               data: (root) {
                 if (_filter.isNotEmpty) {
-                  final matches = root.flatten().where((n) => n.path.toLowerCase().contains(_filter)).toList();
+                  final matches = root
+                      .flatten()
+                      .where((n) => n.path.toLowerCase().contains(_filter))
+                      .toList();
                   return ListView(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     children: [
                       for (final n in matches)
-                        _FolderRow(label: n.path, depth: 0, selected: n.id == selected, onTap: () => select(n.id)),
+                        _FolderRow(
+                          label: n.path,
+                          depth: 0,
+                          selected: n.id == selected,
+                          onTap: () => select(n.id),
+                        ),
                     ],
                   );
                 }
@@ -80,7 +100,10 @@ class _FoldersPanelState extends ConsumerState<FoldersPanel> {
                       selected: n.id == selected,
                       hasChildren: n.children.isNotEmpty,
                       expanded: open,
-                      onToggle: () => setState(() => open ? _expanded.remove(n.id) : _expanded.add(n.id)),
+                      onToggle: () => setState(
+                        () =>
+                            open ? _expanded.remove(n.id) : _expanded.add(n.id),
+                      ),
                       onTap: () => select(n.id),
                     ),
                   );
@@ -92,7 +115,10 @@ class _FoldersPanelState extends ConsumerState<FoldersPanel> {
                 }
 
                 walk(root, 0);
-                return ListView(padding: const EdgeInsets.fromLTRB(8, 0, 8, 12), children: rows);
+                return ListView(
+                  padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+                  children: rows,
+                );
               },
             ),
           ),
@@ -133,7 +159,12 @@ class _FolderRow extends StatelessWidget {
         onTap: onTap,
         onDoubleTap: onToggle,
         child: Padding(
-          padding: EdgeInsets.only(left: 4.0 + depth * 14, right: 8, top: 6, bottom: 6),
+          padding: EdgeInsets.only(
+            left: 4.0 + depth * 14,
+            right: 8,
+            top: 6,
+            bottom: 6,
+          ),
           child: Row(
             children: [
               SizedBox(
@@ -141,7 +172,11 @@ class _FolderRow extends StatelessWidget {
                 child: hasChildren
                     ? InkWell(
                         onTap: onToggle,
-                        child: Icon(expanded ? Ph.caretDown : Ph.caretRight, size: 11, color: c.muted),
+                        child: Icon(
+                          expanded ? Ph.caretDown : Ph.caretRight,
+                          size: 11,
+                          color: c.muted,
+                        ),
                       )
                     : null,
               ),

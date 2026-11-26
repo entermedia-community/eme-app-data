@@ -8,8 +8,6 @@ import '../../theme/app_theme.dart';
 import '../../widgets/brand.dart';
 import 'auth_controller.dart';
 
-enum _Step { email, code, appPassword }
-
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
@@ -20,19 +18,17 @@ class LoginPage extends ConsumerStatefulWidget {
 class _LoginPageState extends ConsumerState<LoginPage> {
   final _email = TextEditingController();
   final _code = TextEditingController();
-  final _appPassword = TextEditingController();
-  late final _server = TextEditingController(text: ref.read(settingsProvider).serverUrl);
-  var _step = _Step.email;
+  late final _server = TextEditingController(
+    text: ref.read(settingsProvider).serverUrl,
+  );
   var _busy = false;
   var _showServer = false;
   String? _error;
-  String? _sentTo;
 
   @override
   void dispose() {
     _email.dispose();
     _code.dispose();
-    _appPassword.dispose();
     _server.dispose();
     super.dispose();
   }
@@ -54,26 +50,29 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   Future<void> _sendCode() => _run(() async {
     if (!_email.text.contains('@')) throw 'Enter your email address';
-    final sent = await ref.read(authProvider.notifier).sendCode(_email.text);
-    setState(() {
-      _sentTo = sent;
-      _step = _Step.code;
-    });
+    final res = await ref
+        .read(authProvider.notifier)
+        .sendUserCode(email: _email.text);
+    if (res.isNoUser) throw 'No account found for ${_email.text.trim()}';
+    if (!res.isSuccess) throw res.errorMessage ?? 'Could not send the code';
   });
 
   Future<void> _verify() => _run(() async {
     if (_code.text.trim().length < 4) throw 'Enter the code from your email';
-    await ref.read(authProvider.notifier).verifyCode(_email.text, _code.text);
-  });
-
-  Future<void> _useAppPassword() => _run(() async {
-    if (!_appPassword.text.trim().startsWith('emeapp.')) throw 'Application passwords start with "emeapp."';
-    await ref.read(authProvider.notifier).useAppPassword(_appPassword.text);
+    final res = await ref
+        .read(authProvider.notifier)
+        .loginWithCode(email: _email.text, code: _code.text);
+    if (!res.isSuccess) throw res.errorMessage ?? 'Invalid code';
   });
 
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    final codeStep = ref.watch(
+      authProvider.select(
+        (a) => a.isCodeSent || (a.isLoading && a.email != null),
+      ),
+    );
     return Scaffold(
       backgroundColor: c.shell,
       body: Center(
@@ -94,50 +93,51 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text(switch (_step) {
-                            _Step.email => 'Sign in',
-                            _Step.code => 'Check your email',
-                            _Step.appPassword => 'Application password',
-                          }, style: context.text.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
+                          Text(
+                            codeStep ? 'Check your email' : 'Sign in',
+                            style: context.text.titleLarge?.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                           const SizedBox(height: 6),
-                          Text(switch (_step) {
-                            _Step.email => 'We will email you a 6 digit sign-in code.',
-                            _Step.code => 'Enter the code we sent to ${_sentTo ?? _email.text}.',
-                            _Step.appPassword => 'Paste an application password created in EME.',
-                          }, style: TextStyle(color: c.muted)),
+                          Text(
+                            codeStep
+                                ? 'Enter the code we sent to ${_email.text.trim()}.'
+                                : 'We will email you a 6 digit sign-in code.',
+                            style: TextStyle(color: c.muted),
+                          ),
                           const SizedBox(height: 20),
-                          ..._fields(),
+                          ..._fields(codeStep),
                           if (_error != null) ...[
                             const SizedBox(height: 12),
-                            Text(_error!, style: TextStyle(color: context.scheme.error)),
+                            Text(
+                              _error!,
+                              style: TextStyle(color: context.scheme.error),
+                            ),
                           ],
                           const SizedBox(height: 18),
                           FilledButton(
                             onPressed: _busy
                                 ? null
-                                : switch (_step) {
-                                    _Step.email => _sendCode,
-                                    _Step.code => _verify,
-                                    _Step.appPassword => _useAppPassword,
-                                  },
+                                : codeStep
+                                ? _verify
+                                : _sendCode,
                             child: _busy
-                                ? const SizedBox.square(dimension: 18, child: CircularProgressIndicator(strokeWidth: 2))
-                                : Text(switch (_step) {
-                                    _Step.email => 'Send code',
-                                    _Step.code => 'Sign in',
-                                    _Step.appPassword => 'Sign in',
-                                  }),
+                                ? const SizedBox.square(
+                                    dimension: 18,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                    ),
+                                  )
+                                : Text(codeStep ? 'Sign in' : 'Send code'),
                           ),
                           const SizedBox(height: 8),
-                          if (_step != _Step.email)
+                          if (codeStep)
                             TextButton(
-                              onPressed: _busy ? null : () => setState(() => _step = _Step.email),
+                              onPressed: _busy
+                                  ? null
+                                  : ref.read(authProvider.notifier).resetFlow,
                               child: const Text('Back'),
-                            )
-                          else
-                            TextButton(
-                              onPressed: _busy ? null : () => setState(() => _step = _Step.appPassword),
-                              child: const Text('Use an application password'),
                             ),
                         ],
                       ),
@@ -148,14 +148,22 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 TextButton.icon(
                   onPressed: () => setState(() => _showServer = !_showServer),
                   icon: const Icon(Ph.hardDrives, size: 14),
-                  label: Text(_showServer ? 'Hide server' : 'Server: ${ref.watch(settingsProvider).serverUrl}'),
+                  label: Text(
+                    _showServer
+                        ? 'Hide server'
+                        : 'Server: ${ref.watch(settingsProvider).serverUrl}',
+                  ),
                   style: TextButton.styleFrom(foregroundColor: c.muted),
                 ),
                 if (_showServer)
                   TextField(
                     controller: _server,
-                    decoration: const InputDecoration(labelText: 'Server address', hintText: defaultServerUrl),
-                    onSubmitted: (v) => ref.read(settingsProvider.notifier).setServerUrl(v),
+                    decoration: const InputDecoration(
+                      labelText: 'Server address',
+                      hintText: defaultServerUrl,
+                    ),
+                    onSubmitted: (v) =>
+                        ref.read(settingsProvider.notifier).setServerUrl(v),
                   ),
               ],
             ),
@@ -165,42 +173,45 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     );
   }
 
-  List<Widget> _fields() => switch (_step) {
-    _Step.email => [
-      TextField(
-        controller: _email,
-        autofocus: true,
-        keyboardType: TextInputType.emailAddress,
-        autofillHints: const [AutofillHints.email],
-        decoration: const InputDecoration(labelText: 'Email', prefixIcon: Icon(Ph.envelopeSimple, size: 16)),
-        onSubmitted: (_) => _sendCode(),
-      ),
-    ],
-    _Step.code => [
-      TextField(
-        controller: _code,
-        autofocus: true,
-        keyboardType: TextInputType.number,
-        inputFormatters: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(8)],
-        style: const TextStyle(fontSize: 22, letterSpacing: 8, fontWeight: FontWeight.w600),
-        textAlign: TextAlign.center,
-        decoration: const InputDecoration(hintText: '••••••'),
-        onSubmitted: (_) => _verify(),
-      ),
-      const SizedBox(height: 8),
-      Align(
-        alignment: Alignment.centerRight,
-        child: TextButton(onPressed: _busy ? null : _sendCode, child: const Text('Send a new code')),
-      ),
-    ],
-    _Step.appPassword => [
-      TextField(
-        controller: _appPassword,
-        autofocus: true,
-        obscureText: true,
-        decoration: const InputDecoration(labelText: 'emeapp.…', prefixIcon: Icon(Ph.key, size: 16)),
-        onSubmitted: (_) => _useAppPassword(),
-      ),
-    ],
-  };
+  List<Widget> _fields(bool codeStep) => !codeStep
+      ? [
+          TextField(
+            controller: _email,
+            autofocus: true,
+            keyboardType: TextInputType.emailAddress,
+            autofillHints: const [AutofillHints.email],
+            decoration: const InputDecoration(
+              labelText: 'Email',
+              prefixIcon: Icon(Ph.envelopeSimple, size: 16),
+            ),
+            onSubmitted: (_) => _sendCode(),
+          ),
+        ]
+      : [
+          TextField(
+            controller: _code,
+            autofocus: true,
+            keyboardType: TextInputType.number,
+            inputFormatters: [
+              FilteringTextInputFormatter.digitsOnly,
+              LengthLimitingTextInputFormatter(8),
+            ],
+            style: const TextStyle(
+              fontSize: 22,
+              letterSpacing: 8,
+              fontWeight: FontWeight.w600,
+            ),
+            textAlign: TextAlign.center,
+            decoration: const InputDecoration(hintText: '••••••'),
+            onSubmitted: (_) => _verify(),
+          ),
+          const SizedBox(height: 8),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: _busy ? null : _sendCode,
+              child: const Text('Send a new code'),
+            ),
+          ),
+        ];
 }

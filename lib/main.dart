@@ -1,3 +1,4 @@
+import 'package:eme_app_sdk/eme_app_sdk.dart' show DioUtil;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,7 +10,14 @@ import 'theme/app_theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
-  runApp(ProviderScope(overrides: [sharedPrefsProvider.overrideWithValue(prefs)], child: const EmeDataApp()));
+  await DioUtil.init();
+  await initSdk(prefs.getString('serverUrl') ?? defaultServerUrl);
+  runApp(
+    ProviderScope(
+      overrides: [sharedPrefsProvider.overrideWithValue(prefs)],
+      child: const EmeDataApp(),
+    ),
+  );
 }
 
 class EmeDataApp extends ConsumerWidget {

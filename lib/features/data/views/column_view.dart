@@ -17,7 +17,11 @@ import '../../../core/icons.dart';
 ///  - Assets: folder → subfolder → … → files in the folder → preview.
 ///  - Entities: records → files in the record's folder → preview.
 class ColumnBrowser extends ConsumerStatefulWidget {
-  const ColumnBrowser({super.key, required this.moduleId, required this.result});
+  const ColumnBrowser({
+    super.key,
+    required this.moduleId,
+    required this.result,
+  });
   final String moduleId;
   final SearchResult result;
 
@@ -97,14 +101,18 @@ class _ColumnBrowserState extends ConsumerState<ColumnBrowser> {
     } else {
       panes.add(
         _Pane(
-          title: ref.watch(moduleByIdProvider(widget.moduleId))?.name() ?? widget.moduleId,
+          title:
+              ref.watch(moduleByIdProvider(widget.moduleId))?.name() ??
+              widget.moduleId,
           child: ListView(
             children: [
               for (final r in widget.result.hits)
                 _ItemTile(
                   title: r.title(),
                   sourcepath: r['_thumbpath'] as String?,
-                  icon: moduleIcon(ref.watch(moduleByIdProvider(widget.moduleId))),
+                  icon: moduleIcon(
+                    ref.watch(moduleByIdProvider(widget.moduleId)),
+                  ),
                   selected: _record?.id == r.id,
                   trailing: Ph.caretRight,
                   onTap: () => setState(() {
@@ -112,14 +120,17 @@ class _ColumnBrowserState extends ConsumerState<ColumnBrowser> {
                     _asset = null;
                     _revealEnd();
                   }),
-                  onDoubleTap: () => openRecord(context, ref, widget.moduleId, r),
+                  onDoubleTap: () =>
+                      openRecord(context, ref, widget.moduleId, r),
                 ),
             ],
           ),
         ),
       );
       final rec = _record;
-      final folderId = rec == null ? null : valueIds(rec['rootcategory']).firstOrNull;
+      final folderId = rec == null
+          ? null
+          : valueIds(rec['rootcategory']).firstOrNull;
       if (rec != null) {
         panes.add(
           _Pane(
@@ -132,7 +143,11 @@ class _ColumnBrowserState extends ConsumerState<ColumnBrowser> {
                 label: rec.title(),
               ),
               child: folderId == null
-                  ? EmptyState(icon: Ph.folder, title: 'No folder', message: 'This record has no files folder yet.')
+                  ? EmptyState(
+                      icon: Ph.folder,
+                      title: 'No folder',
+                      message: 'This record has no files folder yet.',
+                    )
                   : _FilesList(
                       categoryId: folderId,
                       selectedId: _asset?.id,
@@ -160,7 +175,10 @@ class _ColumnBrowserState extends ConsumerState<ColumnBrowser> {
     return LayoutBuilder(
       builder: (context, box) {
         const paneW = 260.0;
-        final previewW = (box.maxWidth - panes.length * paneW).clamp(360.0, 720.0);
+        final previewW = (box.maxWidth - panes.length * paneW).clamp(
+          360.0,
+          720.0,
+        );
         return Scrollbar(
           controller: _scroll,
           child: SingleChildScrollView(
@@ -239,8 +257,18 @@ class _FolderAndFilesList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final files = showFiles ? ref.watch(adhocSearchProvider((module: 'asset', query: _directFiles(folder.id)))) : null;
-    final folderTarget = FolderTarget(folder.path, folder.path.isEmpty ? 'All' : folder.path);
+    final files = showFiles
+        ? ref.watch(
+            adhocSearchProvider((
+              module: 'asset',
+              query: _directFiles(folder.id),
+            )),
+          )
+        : null;
+    final folderTarget = FolderTarget(
+      folder.path,
+      folder.path.isEmpty ? 'All' : folder.path,
+    );
     return UploadDropZone(
       enabled: showFiles,
       target: folderTarget,
@@ -260,10 +288,14 @@ class _FolderAndFilesList extends ConsumerWidget {
               loading: () => [
                 const Padding(
                   padding: EdgeInsets.all(16),
-                  child: Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                  child: Center(
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  ),
                 ),
               ],
-              error: (e, _) => [Padding(padding: const EdgeInsets.all(12), child: Text('$e'))],
+              error: (e, _) => [
+                Padding(padding: const EdgeInsets.all(12), child: Text('$e')),
+              ],
               data: (r) => [
                 for (final a in r.hits)
                   _ItemTile(
@@ -272,11 +304,14 @@ class _FolderAndFilesList extends ConsumerWidget {
                     icon: iconForAsset(a),
                     selected: a.id == selectedAssetId,
                     onTap: () => onAsset(a),
-                    onDoubleTap: () => openRecord(context, ref, 'asset', a, siblings: r.hits),
+                    onDoubleTap: () =>
+                        openRecord(context, ref, 'asset', a, siblings: r.hits),
                   ),
               ],
             ),
-          if (folder.children.isEmpty && (files?.value?.hits.isEmpty ?? true) && !(files?.isLoading ?? false))
+          if (folder.children.isEmpty &&
+              (files?.value?.hits.isEmpty ?? true) &&
+              !(files?.isLoading ?? false))
             Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
@@ -299,7 +334,11 @@ SearchQuery _directFiles(String categoryId) => SearchQuery(
 );
 
 class _FilesList extends ConsumerWidget {
-  const _FilesList({required this.categoryId, required this.selectedId, required this.onAsset});
+  const _FilesList({
+    required this.categoryId,
+    required this.selectedId,
+    required this.onAsset,
+  });
   final String categoryId;
   final String? selectedId;
   final ValueChanged<Json> onAsset;
@@ -307,13 +346,21 @@ class _FilesList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final files = ref.watch(
-      adhocSearchProvider((module: 'asset', query: SearchQuery(hitsPerPage: 200, categoryId: categoryId))),
+      adhocSearchProvider((
+        module: 'asset',
+        query: SearchQuery(hitsPerPage: 200, categoryId: categoryId),
+      )),
     );
     return files.when(
-      loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
+      loading: () =>
+          const Center(child: CircularProgressIndicator(strokeWidth: 2)),
       error: (e, _) => ErrorState(error: e),
       data: (r) => r.hits.isEmpty
-          ? const EmptyState(icon: Ph.cloudArrowUp, title: 'No files', message: 'Drop files here to add them.')
+          ? const EmptyState(
+              icon: Ph.cloudArrowUp,
+              title: 'No files',
+              message: 'Drop files here to add them.',
+            )
           : ListView(
               children: [
                 for (final a in r.hits)
@@ -323,7 +370,8 @@ class _FilesList extends ConsumerWidget {
                     icon: iconForAsset(a),
                     selected: a.id == selectedId,
                     onTap: () => onAsset(a),
-                    onDoubleTap: () => openRecord(context, ref, 'asset', a, siblings: r.hits),
+                    onDoubleTap: () =>
+                        openRecord(context, ref, 'asset', a, siblings: r.hits),
                   ),
               ],
             ),
@@ -368,8 +416,18 @@ class _ItemTile extends StatelessWidget {
                 width: 30,
                 height: 30,
                 child: sourcepath != null
-                    ? AssetThumb(sourcepath: sourcepath, fallbackIcon: icon, radius: 5)
-                    : Icon(icon, size: 16, color: selected ? s.onPrimary : (iconColor ?? context.colors.muted)),
+                    ? AssetThumb(
+                        sourcepath: sourcepath,
+                        fallbackIcon: icon,
+                        radius: 5,
+                      )
+                    : Icon(
+                        icon,
+                        size: 16,
+                        color: selected
+                            ? s.onPrimary
+                            : (iconColor ?? context.colors.muted),
+                      ),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -384,7 +442,12 @@ class _ItemTile extends StatelessWidget {
                   ),
                 ),
               ),
-              if (trailing != null) Icon(trailing, size: 11, color: selected ? s.onPrimary : context.colors.muted),
+              if (trailing != null)
+                Icon(
+                  trailing,
+                  size: 11,
+                  color: selected ? s.onPrimary : context.colors.muted,
+                ),
             ],
           ),
         ),
@@ -404,10 +467,21 @@ class _AssetPreview extends ConsumerWidget {
       ('Type', displayValue(asset['assettype'])),
       ('Format', displayValue(asset['fileformat'])),
       ('Size', formatBytes(asset['filesize'])),
-      if (asset['width'] != null) ('Dimensions', '${asset['width']} × ${asset['height']}'),
+      if (asset['width'] != null)
+        ('Dimensions', '${asset['width']} × ${asset['height']}'),
       ('Status', displayValue(asset['editstatus'])),
       ('Added', displayValue(asset['assetaddeddate'])),
-      ('Folder', asset.sourcepath?.split('/').reversed.skip(1).toList().reversed.join(' / ') ?? ''),
+      (
+        'Folder',
+        asset.sourcepath
+                ?.split('/')
+                .reversed
+                .skip(1)
+                .toList()
+                .reversed
+                .join(' / ') ??
+            '',
+      ),
     ].where((r) => r.$2.isNotEmpty).toList();
     return ListView(
       padding: const EdgeInsets.all(20),
@@ -423,7 +497,12 @@ class _AssetPreview extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 16),
-        Text(asset.title(), style: context.text.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+        Text(
+          asset.title(),
+          style: context.text.titleMedium?.copyWith(
+            fontWeight: FontWeight.w700,
+          ),
+        ),
         const SizedBox(height: 12),
         for (final r in rows) _KV(r.$1, r.$2),
         const SizedBox(height: 16),
@@ -449,7 +528,14 @@ class _RecordPreview extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final entries = record.entries
         .where(
-          (e) => !e.key.startsWith('_') && !const {'id', 'description', 'emrecordstatus', 'sourcepath'}.contains(e.key),
+          (e) =>
+              !e.key.startsWith('_') &&
+              !const {
+                'id',
+                'description',
+                'emrecordstatus',
+                'sourcepath',
+              }.contains(e.key),
         )
         .map((e) => (e.key, displayValue(e.value)))
         .where((e) => e.$2.isNotEmpty)
@@ -462,13 +548,21 @@ class _RecordPreview extends ConsumerWidget {
           child: AssetThumb(
             sourcepath: record['_thumbpath'] as String?,
             preset: Preset.large,
-            fallbackIcon: moduleIcon(ref.watch(moduleByIdProvider(moduleId)), filled: true),
+            fallbackIcon: moduleIcon(
+              ref.watch(moduleByIdProvider(moduleId)),
+              filled: true,
+            ),
             background: const Color(0xFF55658F),
             radius: 10,
           ),
         ),
         const SizedBox(height: 16),
-        Text(record.title(), style: context.text.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+        Text(
+          record.title(),
+          style: context.text.titleMedium?.copyWith(
+            fontWeight: FontWeight.w700,
+          ),
+        ),
         const SizedBox(height: 12),
         for (final e in entries) _KV(e.$1, e.$2),
         const SizedBox(height: 16),
@@ -498,7 +592,10 @@ class _KV extends StatelessWidget {
       children: [
         SizedBox(
           width: 110,
-          child: Text(k, style: TextStyle(color: context.colors.muted, fontSize: 12.5)),
+          child: Text(
+            k,
+            style: TextStyle(color: context.colors.muted, fontSize: 12.5),
+          ),
         ),
         Expanded(child: Text(v, style: const TextStyle(fontSize: 13))),
       ],

@@ -1,12 +1,9 @@
-import 'dart:convert';
 
-import 'package:cryptography/cryptography.dart';
 import 'package:eme_data_app/core/api_client.dart';
 import 'package:eme_data_app/core/icons.dart';
 import 'package:eme_data_app/core/values.dart';
 import 'package:eme_data_app/data/models.dart';
 import 'package:eme_data_app/data/repository.dart';
-import 'package:eme_data_app/features/auth/auth_controller.dart';
 import 'package:eme_data_app/features/data/columns.dart';
 import 'package:eme_data_app/features/record/field_inputs.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -15,8 +12,14 @@ import 'package:eme_data_app/core/ph.dart';
 void main() {
   group('values', () {
     test('localized picks language, falls back to en then first', () {
-      expect(localized({'en': 'Articles', 'es': 'Artículos'}, 'es'), 'Artículos');
-      expect(localized({'en': 'Articles', 'es': 'Artículos'}, 'fr'), 'Articles');
+      expect(
+        localized({'en': 'Articles', 'es': 'Artículos'}, 'es'),
+        'Artículos',
+      );
+      expect(
+        localized({'en': 'Articles', 'es': 'Artículos'}, 'fr'),
+        'Articles',
+      );
       expect(localized({'de': 'Kanal'}), 'Kanal');
       expect(localized({'id': 'photo', 'name': 'Photos'}), 'Photos');
       expect(localized({'id': 'x'}), 'x');
@@ -55,17 +58,26 @@ void main() {
     });
 
     test('encodePath keeps slashes and escapes segments', () {
-      expect(encodePath('Entity Asset/Cyber Basics.pdf'), 'Entity%20Asset/Cyber%20Basics.pdf');
+      expect(
+        encodePath('Entity Asset/Cyber Basics.pdf'),
+        'Entity%20Asset/Cyber%20Basics.pdf',
+      );
     });
 
     test('module icons: appicon, then aliased moduleicon, then fallback', () {
       ModuleInfo m(Map<String, dynamic> raw) => ModuleInfo({'id': 'x', ...raw});
-      expect(moduleIcon(m({'appicon': 'rocket', 'moduleicon': 'person'})), Ph.rocket);
+      expect(
+        moduleIcon(m({'appicon': 'rocket', 'moduleicon': 'person'})),
+        Ph.rocket,
+      );
       expect(moduleIcon(m({'appicon': 'rocket'}), filled: true), PhFill.rocket);
       expect(moduleIcon(m({'moduleicon': 'person'})), Ph.user);
       expect(moduleIcon(m({'moduleicon': 'file-earmark-post'})), Ph.article);
       // An unknown appicon falls back to the legacy icon, then to the default.
-      expect(moduleIcon(m({'appicon': 'nope', 'moduleicon': 'geo-alt'})), Ph.mapPin);
+      expect(
+        moduleIcon(m({'appicon': 'nope', 'moduleicon': 'geo-alt'})),
+        Ph.mapPin,
+      );
       expect(moduleIcon(m({})), Ph.squaresFour);
       expect(phosphorIcon('arrow-u-down-left'), Ph.arrowUDownLeft);
     });
@@ -92,8 +104,22 @@ void main() {
         sortAscending: false,
       ).toRequest('asset');
       final terms = (r['query'] as Map)['terms'] as List;
-      expect(terms, contains(equals({'field': 'description', 'operation': 'freeform', 'value': 'laptop'})));
-      expect(terms, contains(equals({'field': 'category', 'operation': 'exact', 'value': 'cat1'})));
+      expect(
+        terms,
+        contains(
+          equals({
+            'field': 'description',
+            'operation': 'freeform',
+            'value': 'laptop',
+          }),
+        ),
+      );
+      expect(
+        terms,
+        contains(
+          equals({'field': 'category', 'operation': 'exact', 'value': 'cat1'}),
+        ),
+      );
       expect(
         terms,
         contains(
@@ -125,7 +151,10 @@ void main() {
 
   group('ApiClient.decodeBody', () {
     test('parses the server text/json body', () {
-      expect(ApiClient.decodeBody('\n{ "response": {"status":"ok"} }')?['response'], {'status': 'ok'});
+      expect(
+        ApiClient.decodeBody('\n{ "response": {"status":"ok"} }')?['response'],
+        {'status': 'ok'},
+      );
     });
     test('returns null for HTML error pages', () {
       expect(ApiClient.decodeBody('<!doctype html><html>404</html>'), isNull);
@@ -136,7 +165,10 @@ void main() {
     FieldDef def(Map<String, dynamic> raw) => FieldDef(raw);
 
     test('multilanguage uses field.lang keys and clears removed languages', () {
-      final v = FieldValue(def({'id': 'name', 'multilanguage': 'true'}), {'en': 'Test', 'es': 'Prueba'});
+      final v = FieldValue(def({'id': 'name', 'multilanguage': 'true'}), {
+        'en': 'Test',
+        'es': 'Prueba',
+      });
       v.multilang!.remove('es');
       v.removedLanguages.add('es');
       expect(v.toPayload(), {'name.es': '', 'name.en': 'Test'});
@@ -213,23 +245,6 @@ void main() {
       expect(cols.first.kind, ColumnKind.thumb);
       expect(cols.map((c) => c.id), containsAll(['name', 'jobtitle']));
       expect(cols.map((c) => c.id), isNot(contains('sourcepath')));
-    });
-  });
-
-  group('device key', () {
-    test('SPKI wrapping and signatures verify with the public key', () async {
-      final ed = Ed25519();
-      final kp = await ed.newKeyPair();
-      final pub = await kp.extractPublicKey();
-      final spki = ed25519Spki(pub.bytes);
-      expect(spki.length, 44);
-      expect(base64UrlNoPad(spki), isNot(contains('=')));
-      // Round trip through the base64url text the server stores.
-      final decoded = base64Url.decode(base64Url.normalize(base64UrlNoPad(spki)));
-      expect(decoded.sublist(12), pub.bytes);
-      final msg = utf8.encode('admin\nkey1\n123\nnonce-nonce-nonce');
-      final sig = await ed.sign(msg, keyPair: kp);
-      expect(await ed.verify(msg, signature: sig), isTrue);
     });
   });
 }

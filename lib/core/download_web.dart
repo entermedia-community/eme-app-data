@@ -14,5 +14,8 @@ void saveBytes(Uint8List bytes, String fileName, String mimeType) {
   a.click();
   a.remove();
   // Give the browser a moment to start the download before revoking.
-  Future<void>.delayed(const Duration(seconds: 30), () => web.URL.revokeObjectURL(url));
+  Future<void>.delayed(
+    const Duration(seconds: 30),
+    () => web.URL.revokeObjectURL(url),
+  );
 }

@@ -44,8 +44,9 @@ DateTime? parseDate(Object? v) {
   return DateTime.tryParse(v)?.toLocal();
 }
 
-String formatDate(DateTime d, {bool withTime = false}) =>
-    withTime ? DateFormat.yMMMd().add_jm().format(d) : DateFormat.yMMMd().format(d);
+String formatDate(DateTime d, {bool withTime = false}) => withTime
+    ? DateFormat.yMMMd().add_jm().format(d)
+    : DateFormat.yMMMd().format(d);
 
 /// Server ISO format: yyyy-MM-dd'T'HH:mm:ss.SSSZ in UTC.
 String toServerDate(DateTime d) => d.toUtc().toIso8601String();
@@ -54,7 +55,10 @@ String toServerDate(DateTime d) => d.toUtc().toIso8601String();
 String displayValue(Object? v, {String lang = 'en'}) {
   if (v == null) return '';
   if (v is List) {
-    return v.map((e) => displayValue(e, lang: lang)).where((s) => s.isNotEmpty).join(', ');
+    return v
+        .map((e) => displayValue(e, lang: lang))
+        .where((s) => s.isNotEmpty)
+        .join(', ');
   }
   if (v is Map) return localized(v, lang);
   final s = '$v';
@@ -88,4 +92,5 @@ String formatBytes(Object? v) {
 }
 
 /// Encodes each path segment of a sourcepath for use in a URL.
-String encodePath(String path) => path.split('/').map(Uri.encodeComponent).join('/');
+String encodePath(String path) =>
+    path.split('/').map(Uri.encodeComponent).join('/');

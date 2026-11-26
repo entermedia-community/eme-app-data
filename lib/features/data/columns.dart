@@ -4,7 +4,13 @@ import '../../data/models.dart';
 enum ColumnKind { thumb, text, bytes, chips, date }
 
 class ColumnDef {
-  const ColumnDef(this.id, this.label, {this.kind = ColumnKind.text, this.flex = 2, this.sortable = true});
+  const ColumnDef(
+    this.id,
+    this.label, {
+    this.kind = ColumnKind.text,
+    this.flex = 2,
+    this.sortable = true,
+  });
   final String id;
   final String label;
   final ColumnKind kind;
@@ -82,7 +88,13 @@ const systemFields = {
 };
 
 const _assetColumns = [
-  ColumnDef('_thumb', 'Preview', kind: ColumnKind.thumb, flex: 1, sortable: false),
+  ColumnDef(
+    '_thumb',
+    'Preview',
+    kind: ColumnKind.thumb,
+    flex: 1,
+    sortable: false,
+  ),
   ColumnDef('assettitle', 'Title', flex: 3),
   ColumnDef('name', 'File name', flex: 3),
   ColumnDef('filesize', 'Size', kind: ColumnKind.bytes, flex: 1),
@@ -91,28 +103,60 @@ const _assetColumns = [
   ColumnDef('owner', 'Owner', flex: 1),
   ColumnDef('assetaddeddate', 'Added', kind: ColumnKind.date, flex: 1),
   ColumnDef('fileformat', 'Format', flex: 1),
-  ColumnDef('keywordsai', 'AI tags', kind: ColumnKind.chips, flex: 3, sortable: false),
+  ColumnDef(
+    'keywordsai',
+    'AI tags',
+    kind: ColumnKind.chips,
+    flex: 3,
+    sortable: false,
+  ),
 ];
 
 /// Columns hidden by default (still available in the column picker).
 Set<String> defaultHidden(String moduleId, List<ColumnDef> all) =>
-    moduleId == 'asset' ? {'owner', 'assetaddeddate', 'fileformat', 'keywordsai'} : {for (final c in all.skip(6)) c.id};
+    moduleId == 'asset'
+    ? {'owner', 'assetaddeddate', 'fileformat', 'keywordsai'}
+    : {for (final c in all.skip(6)) c.id};
 
 /// Builds the column set for a module from its field definitions, falling back to
 /// the keys present in the results when definitions are not available.
-List<ColumnDef> columnsFor(String moduleId, List<FieldDef> fields, List<Json> hits, {String lang = 'en'}) {
+List<ColumnDef> columnsFor(
+  String moduleId,
+  List<FieldDef> fields,
+  List<Json> hits, {
+  String lang = 'en',
+}) {
   if (moduleId == 'asset') return _assetColumns;
   final present = <String>{for (final h in hits) ...h.keys};
   final cols = <ColumnDef>[
-    const ColumnDef('_thumb', 'Preview', kind: ColumnKind.thumb, flex: 1, sortable: false),
-    ColumnDef('name', fields.where((f) => f.id == 'name').firstOrNull?.label(lang) ?? 'Name', flex: 3),
+    const ColumnDef(
+      '_thumb',
+      'Preview',
+      kind: ColumnKind.thumb,
+      flex: 1,
+      sortable: false,
+    ),
+    ColumnDef(
+      'name',
+      fields.where((f) => f.id == 'name').firstOrNull?.label(lang) ?? 'Name',
+      flex: 3,
+    ),
   ];
   final seen = {'name', '_thumb'};
   if (fields.isNotEmpty) {
     for (final f in fields) {
-      if (seen.contains(f.id) || systemFields.contains(f.id) || f.internal || f.isComplex) continue;
+      if (seen.contains(f.id) ||
+          systemFields.contains(f.id) ||
+          f.internal ||
+          f.isComplex)
+        continue;
       if (!present.contains(f.id) &&
-          !const {'keywords', 'searchcategory', 'entity_date', 'longcaption'}.contains(f.id)) {
+          !const {
+            'keywords',
+            'searchcategory',
+            'entity_date',
+            'longcaption',
+          }.contains(f.id)) {
         continue;
       }
       seen.add(f.id);
@@ -120,7 +164,9 @@ List<ColumnDef> columnsFor(String moduleId, List<FieldDef> fields, List<Json> hi
         ColumnDef(
           f.id,
           f.label(lang),
-          kind: f.isDate ? ColumnKind.date : (f.isMulti ? ColumnKind.chips : ColumnKind.text),
+          kind: f.isDate
+              ? ColumnKind.date
+              : (f.isMulti ? ColumnKind.chips : ColumnKind.text),
           flex: f.isTextArea ? 3 : 2,
           sortable: !f.isMulti,
         ),
@@ -141,12 +187,20 @@ List<ColumnDef> columnsFor(String moduleId, List<FieldDef> fields, List<Json> hi
   return [
     for (final c in cols)
       (counts[c.label] ?? 0) > 1 && c.id != 'name'
-          ? ColumnDef(c.id, '${c.label} (${c.id})', kind: c.kind, flex: c.flex, sortable: c.sortable)
+          ? ColumnDef(
+              c.id,
+              '${c.label} (${c.id})',
+              kind: c.kind,
+              flex: c.flex,
+              sortable: c.sortable,
+            )
           : c,
   ];
 }
 
 String _humanize(String id) {
-  final s = id.replaceAll('_', ' ').replaceAllMapped(RegExp(r'([a-z])([A-Z])'), (m) => '${m[1]} ${m[2]}');
+  final s = id
+      .replaceAll('_', ' ')
+      .replaceAllMapped(RegExp(r'([a-z])([A-Z])'), (m) => '${m[1]} ${m[2]}');
   return s.isEmpty ? id : s[0].toUpperCase() + s.substring(1);
 }

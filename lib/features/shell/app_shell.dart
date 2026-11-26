@@ -23,7 +23,9 @@ class SidebarOpen extends Notifier<bool> {
   }
 }
 
-final sidebarOpenProvider = NotifierProvider<SidebarOpen, bool>(SidebarOpen.new);
+final sidebarOpenProvider = NotifierProvider<SidebarOpen, bool>(
+  SidebarOpen.new,
+);
 
 String? moduleFromLocation(String location) {
   final m = RegExp(r'^/m/([^/]+)').firstMatch(location);
@@ -46,13 +48,20 @@ class AppShell extends ConsumerWidget {
             ref.read(sidebarOpenProvider.notifier).toggle(),
         const SingleActivator(LogicalKeyboardKey.keyB, control: true): () =>
             ref.read(sidebarOpenProvider.notifier).toggle(),
-        const SingleActivator(LogicalKeyboardKey.keyK, meta: true): () => _GlobalSearchButton._open(context, ref),
-        const SingleActivator(LogicalKeyboardKey.keyK, control: true): () => _GlobalSearchButton._open(context, ref),
+        const SingleActivator(LogicalKeyboardKey.keyK, meta: true): () =>
+            _GlobalSearchButton._open(context, ref),
+        const SingleActivator(LogicalKeyboardKey.keyK, control: true): () =>
+            _GlobalSearchButton._open(context, ref),
       },
       child: Focus(
         autofocus: true,
         child: Scaffold(
-          drawer: wide ? null : Drawer(width: 280, child: EntitySidebar(current: current, inDrawer: true)),
+          drawer: wide
+              ? null
+              : Drawer(
+                  width: 280,
+                  child: EntitySidebar(current: current, inDrawer: true),
+                ),
           body: Stack(
             children: [
               Row(
@@ -99,7 +108,7 @@ class _SideRail extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.colors;
     final module = moduleFromLocation(location);
-    final session = ref.watch(authProvider).value;
+    final session = ref.watch(authProvider).user;
     final dark = ref.watch(settingsProvider).themeMode == ThemeMode.dark;
     return Container(
       width: 60,
@@ -166,22 +175,41 @@ class _SideRail extends ConsumerWidget {
                     children: [
                       Text(
                         session.displayName,
-                        style: TextStyle(fontWeight: FontWeight.w600, color: context.scheme.onSurface),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: context.scheme.onSurface,
+                        ),
                       ),
-                      Text('${session.user['email'] ?? ''}', style: TextStyle(fontSize: 12, color: c.muted)),
-                      Text(ref.read(settingsProvider).serverUrl, style: TextStyle(fontSize: 12, color: c.muted)),
+                      Text(
+                        '${session.email ?? ''}',
+                        style: TextStyle(fontSize: 12, color: c.muted),
+                      ),
+                      Text(
+                        ref.read(settingsProvider).serverUrl,
+                        style: TextStyle(fontSize: 12, color: c.muted),
+                      ),
                     ],
                   ),
                 ),
                 const PopupMenuDivider(),
                 const PopupMenuItem(
                   value: 'logout',
-                  child: Row(children: [Icon(Ph.signOut, size: 16), SizedBox(width: 10), Text('Sign out')]),
+                  child: Row(
+                    children: [
+                      Icon(Ph.signOut, size: 16),
+                      SizedBox(width: 10),
+                      Text('Sign out'),
+                    ],
+                  ),
                 ),
               ],
               child: Padding(
                 padding: const EdgeInsets.all(6),
-                child: UserAvatar(name: session.displayName, imageUrl: session.portrait, size: 32),
+                child: UserAvatar(
+                  name: session.displayName,
+                  imageUrl: session.portrait,
+                  size: 32,
+                ),
               ),
             ),
           const SizedBox(height: 12),
@@ -236,7 +264,11 @@ class _RailButton extends StatelessWidget {
 
 /// "Data Entity Manager": every entity module the user can see.
 class EntitySidebar extends ConsumerStatefulWidget {
-  const EntitySidebar({super.key, required this.current, this.inDrawer = false});
+  const EntitySidebar({
+    super.key,
+    required this.current,
+    this.inDrawer = false,
+  });
   final String? current;
   final bool inDrawer;
 
@@ -267,13 +299,19 @@ class _EntitySidebarState extends ConsumerState<EntitySidebar> {
                 Expanded(
                   child: Text(
                     'DATA ENTITIES',
-                    style: TextStyle(fontSize: 11.5, fontWeight: FontWeight.w700, letterSpacing: 1.1, color: c.muted),
+                    style: TextStyle(
+                      fontSize: 11.5,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.1,
+                      color: c.muted,
+                    ),
                   ),
                 ),
                 if (!widget.inDrawer)
                   IconButton(
                     tooltip: 'Collapse (⌘B)',
-                    onPressed: () => ref.read(sidebarOpenProvider.notifier).toggle(),
+                    onPressed: () =>
+                        ref.read(sidebarOpenProvider.notifier).toggle(),
                     icon: Icon(Ph.sidebarSimple, size: 16, color: c.muted),
                   ),
                 const SizedBox(width: 6),
@@ -294,13 +332,21 @@ class _EntitySidebarState extends ConsumerState<EntitySidebar> {
           ),
           Expanded(
             child: modules.when(
-              loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
+              loading: () => const Center(
+                child: CircularProgressIndicator(strokeWidth: 2),
+              ),
               error: (e, _) => Padding(
                 padding: const EdgeInsets.all(16),
                 child: Text('$e', style: TextStyle(color: c.muted)),
               ),
               data: (list) {
-                final items = list.where((m) => _filter.isEmpty || m.name().toLowerCase().contains(_filter)).toList();
+                final items = list
+                    .where(
+                      (m) =>
+                          _filter.isEmpty ||
+                          m.name().toLowerCase().contains(_filter),
+                    )
+                    .toList();
                 return ListView.builder(
                   padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
                   itemCount: items.length,
@@ -323,7 +369,11 @@ class _EntitySidebarState extends ConsumerState<EntitySidebar> {
 }
 
 class _SidebarItem extends StatefulWidget {
-  const _SidebarItem({required this.module, required this.active, required this.onTap});
+  const _SidebarItem({
+    required this.module,
+    required this.active,
+    required this.onTap,
+  });
   final ModuleInfo module;
   final bool active;
   final VoidCallback onTap;
@@ -350,12 +400,18 @@ class _SidebarItemState extends State<_SidebarItem> {
           margin: const EdgeInsets.symmetric(vertical: 1),
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
           decoration: BoxDecoration(
-            color: active ? c.accentSoft : (_hover ? c.subtle : Colors.transparent),
+            color: active
+                ? c.accentSoft
+                : (_hover ? c.subtle : Colors.transparent),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Row(
             children: [
-              Icon(moduleIcon(widget.module, filled: active), size: 15, color: active ? s.primary : c.muted),
+              Icon(
+                moduleIcon(widget.module, filled: active),
+                size: 15,
+                color: active ? s.primary : c.muted,
+              ),
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
@@ -384,8 +440,12 @@ class _TopBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.colors;
-    final module = current == null ? null : ref.watch(moduleByIdProvider(current!));
-    final title = module?.name() ?? (current == 'asset' ? 'Assets' : (current == null ? 'Home' : current!));
+    final module = current == null
+        ? null
+        : ref.watch(moduleByIdProvider(current!));
+    final title =
+        module?.name() ??
+        (current == 'asset' ? 'Assets' : (current == null ? 'Home' : current!));
     return Container(
       height: 56,
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -397,27 +457,39 @@ class _TopBar extends ConsumerWidget {
         children: [
           if (showMenu)
             Builder(
-              builder: (context) =>
-                  IconButton(onPressed: () => Scaffold.of(context).openDrawer(), icon: const Icon(Ph.list, size: 18)),
+              builder: (context) => IconButton(
+                onPressed: () => Scaffold.of(context).openDrawer(),
+                icon: const Icon(Ph.list, size: 18),
+              ),
             ),
           if (module != null) ...[
-            Icon(moduleIcon(module, filled: true, fallback: PhFill.images), size: 17, color: context.scheme.primary),
+            Icon(
+              moduleIcon(module, filled: true, fallback: PhFill.images),
+              size: 17,
+              color: context.scheme.primary,
+            ),
             const SizedBox(width: 10),
           ],
           Expanded(
             child: Text(
               title,
               overflow: TextOverflow.ellipsis,
-              style: context.text.titleMedium?.copyWith(fontWeight: FontWeight.w700, letterSpacing: -0.2),
+              style: context.text.titleMedium?.copyWith(
+                fontWeight: FontWeight.w700,
+                letterSpacing: -0.2,
+              ),
             ),
           ),
           const _GlobalSearchButton(),
           const SizedBox(width: 8),
           FilledButton.icon(
-            onPressed: () => pickAndUpload(context, ref, targetFor(ref, current)),
+            onPressed: () =>
+                pickAndUpload(context, ref, targetFor(ref, current)),
             icon: const Icon(Ph.cloudArrowUp, size: 15),
             label: const Text('Upload'),
-            style: FilledButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12)),
+            style: FilledButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            ),
           ),
         ],
       ),
@@ -432,7 +504,10 @@ class _GlobalSearchButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final c = context.colors;
     if (MediaQuery.sizeOf(context).width < 700) {
-      return IconButton(onPressed: () => _open(context, ref), icon: const Icon(Ph.magnifyingGlass, size: 16));
+      return IconButton(
+        onPressed: () => _open(context, ref),
+        icon: const Icon(Ph.magnifyingGlass, size: 16),
+      );
     }
     return InkWell(
       onTap: () => _open(context, ref),
@@ -450,7 +525,10 @@ class _GlobalSearchButton extends ConsumerWidget {
             Icon(Ph.magnifyingGlass, size: 13, color: c.muted),
             const SizedBox(width: 10),
             Expanded(
-              child: Text('Search assets…', style: TextStyle(color: c.muted, fontSize: 13)),
+              child: Text(
+                'Search assets…',
+                style: TextStyle(color: c.muted, fontSize: 13),
+              ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
@@ -530,7 +608,10 @@ class _EntityTabs extends ConsumerWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        children: [for (final s in sections) _EntityPill(section: s, active: s.moduleId == current)],
+        children: [
+          for (final s in sections)
+            _EntityPill(section: s, active: s.moduleId == current),
+        ],
       ),
     );
   }
@@ -557,7 +638,11 @@ class _EntityPill extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Row(
               children: [
-                Icon(moduleIcon(module, filled: active), size: 14, color: active ? s.onPrimary : context.colors.muted),
+                Icon(
+                  moduleIcon(module, filled: active),
+                  size: 14,
+                  color: active ? s.onPrimary : context.colors.muted,
+                ),
                 const SizedBox(width: 8),
                 Text(
                   section.name,

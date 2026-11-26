@@ -131,8 +131,16 @@ class AppTheme {
     ),
   );
 
-  static ThemeData _build({required Brightness brightness, required ColorScheme scheme, required AppColors colors}) {
-    final base = ThemeData(useMaterial3: true, brightness: brightness, colorScheme: scheme);
+  static ThemeData _build({
+    required Brightness brightness,
+    required ColorScheme scheme,
+    required AppColors colors,
+  }) {
+    final base = ThemeData(
+      useMaterial3: true,
+      brightness: brightness,
+      colorScheme: scheme,
+    );
     final textTheme = GoogleFonts.interTextTheme(base.textTheme)
         .apply(bodyColor: scheme.onSurface, displayColor: scheme.onSurface);
     final radius = BorderRadius.circular(8);
@@ -140,18 +148,28 @@ class AppTheme {
       textTheme: textTheme,
       scaffoldBackgroundColor: scheme.surface,
       extensions: [colors],
-      dividerTheme: DividerThemeData(color: scheme.outlineVariant, thickness: 1, space: 1),
+      dividerTheme: DividerThemeData(
+        color: scheme.outlineVariant,
+        thickness: 1,
+        space: 1,
+      ),
       visualDensity: VisualDensity.compact,
       tooltipTheme: TooltipThemeData(
         waitDuration: const Duration(milliseconds: 400),
-        decoration: BoxDecoration(color: scheme.inverseSurface, borderRadius: BorderRadius.circular(6)),
+        decoration: BoxDecoration(
+          color: scheme.inverseSurface,
+          borderRadius: BorderRadius.circular(6),
+        ),
         textStyle: TextStyle(color: scheme.onInverseSurface, fontSize: 12),
       ),
       inputDecorationTheme: InputDecorationTheme(
         isDense: true,
         filled: true,
         fillColor: scheme.surfaceContainerLow,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 12,
+        ),
         border: OutlineInputBorder(
           borderRadius: radius,
           borderSide: BorderSide(color: scheme.outline),
@@ -181,10 +199,14 @@ class AppTheme {
         ),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: radius)),
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: radius),
+        ),
       ),
       iconButtonTheme: IconButtonThemeData(
-        style: IconButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: radius)),
+        style: IconButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: radius),
+        ),
       ),
       cardTheme: CardThemeData(
         elevation: 0,

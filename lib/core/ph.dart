@@ -8,25 +8,58 @@ import 'package:flutter/widgets.dart';
 abstract final class Ph {
   static const acorn = IconData(0xeb9a, fontFamily: 'PhosphorRegular');
   static const addressBook = IconData(0xe6f8, fontFamily: 'PhosphorRegular');
-  static const addressBookTabs = IconData(0xee4e, fontFamily: 'PhosphorRegular');
-  static const airTrafficControl = IconData(0xecd8, fontFamily: 'PhosphorRegular');
+  static const addressBookTabs = IconData(
+    0xee4e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const airTrafficControl = IconData(
+    0xecd8,
+    fontFamily: 'PhosphorRegular',
+  );
   static const airplane = IconData(0xe002, fontFamily: 'PhosphorRegular');
-  static const airplaneInFlight = IconData(0xe4fe, fontFamily: 'PhosphorRegular');
-  static const airplaneLanding = IconData(0xe502, fontFamily: 'PhosphorRegular');
-  static const airplaneTakeoff = IconData(0xe504, fontFamily: 'PhosphorRegular');
-  static const airplaneTaxiing = IconData(0xe500, fontFamily: 'PhosphorRegular');
+  static const airplaneInFlight = IconData(
+    0xe4fe,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const airplaneLanding = IconData(
+    0xe502,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const airplaneTakeoff = IconData(
+    0xe504,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const airplaneTaxiing = IconData(
+    0xe500,
+    fontFamily: 'PhosphorRegular',
+  );
   static const airplaneTilt = IconData(0xe5d6, fontFamily: 'PhosphorRegular');
   static const airplay = IconData(0xe004, fontFamily: 'PhosphorRegular');
   static const alarm = IconData(0xe006, fontFamily: 'PhosphorRegular');
   static const alien = IconData(0xe8a6, fontFamily: 'PhosphorRegular');
   static const alignBottom = IconData(0xe506, fontFamily: 'PhosphorRegular');
-  static const alignBottomSimple = IconData(0xeb0c, fontFamily: 'PhosphorRegular');
-  static const alignCenterHorizontal = IconData(0xe50a, fontFamily: 'PhosphorRegular');
-  static const alignCenterVertical = IconData(0xe50c, fontFamily: 'PhosphorRegular');
+  static const alignBottomSimple = IconData(
+    0xeb0c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const alignCenterHorizontal = IconData(
+    0xe50a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const alignCenterVertical = IconData(
+    0xe50c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const alignLeft = IconData(0xe50e, fontFamily: 'PhosphorRegular');
-  static const alignLeftSimple = IconData(0xeaee, fontFamily: 'PhosphorRegular');
+  static const alignLeftSimple = IconData(
+    0xeaee,
+    fontFamily: 'PhosphorRegular',
+  );
   static const alignRight = IconData(0xe510, fontFamily: 'PhosphorRegular');
-  static const alignRightSimple = IconData(0xeb12, fontFamily: 'PhosphorRegular');
+  static const alignRightSimple = IconData(
+    0xeb12,
+    fontFamily: 'PhosphorRegular',
+  );
   static const alignTop = IconData(0xe512, fontFamily: 'PhosphorRegular');
   static const alignTopSimple = IconData(0xeb14, fontFamily: 'PhosphorRegular');
   static const amazonLogo = IconData(0xe96c, fontFamily: 'PhosphorRegular');
@@ -40,103 +73,280 @@ abstract final class Ph {
   static const appStoreLogo = IconData(0xe974, fontFamily: 'PhosphorRegular');
   static const appWindow = IconData(0xe5da, fontFamily: 'PhosphorRegular');
   static const appleLogo = IconData(0xe516, fontFamily: 'PhosphorRegular');
-  static const applePodcastsLogo = IconData(0xeb96, fontFamily: 'PhosphorRegular');
-  static const approximateEquals = IconData(0xedaa, fontFamily: 'PhosphorRegular');
+  static const applePodcastsLogo = IconData(
+    0xeb96,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const approximateEquals = IconData(
+    0xedaa,
+    fontFamily: 'PhosphorRegular',
+  );
   static const archive = IconData(0xe00c, fontFamily: 'PhosphorRegular');
   static const armchair = IconData(0xe012, fontFamily: 'PhosphorRegular');
   static const arrowArcLeft = IconData(0xe014, fontFamily: 'PhosphorRegular');
   static const arrowArcRight = IconData(0xe016, fontFamily: 'PhosphorRegular');
-  static const arrowBendDoubleUpLeft = IconData(0xe03a, fontFamily: 'PhosphorRegular');
-  static const arrowBendDoubleUpRight = IconData(0xe03c, fontFamily: 'PhosphorRegular');
-  static const arrowBendDownLeft = IconData(0xe018, fontFamily: 'PhosphorRegular');
-  static const arrowBendDownRight = IconData(0xe01a, fontFamily: 'PhosphorRegular');
-  static const arrowBendLeftDown = IconData(0xe01c, fontFamily: 'PhosphorRegular');
-  static const arrowBendLeftUp = IconData(0xe01e, fontFamily: 'PhosphorRegular');
-  static const arrowBendRightDown = IconData(0xe020, fontFamily: 'PhosphorRegular');
-  static const arrowBendRightUp = IconData(0xe022, fontFamily: 'PhosphorRegular');
-  static const arrowBendUpLeft = IconData(0xe024, fontFamily: 'PhosphorRegular');
-  static const arrowBendUpRight = IconData(0xe026, fontFamily: 'PhosphorRegular');
-  static const arrowCircleDown = IconData(0xe028, fontFamily: 'PhosphorRegular');
-  static const arrowCircleDownLeft = IconData(0xe02a, fontFamily: 'PhosphorRegular');
-  static const arrowCircleDownRight = IconData(0xe02c, fontFamily: 'PhosphorRegular');
-  static const arrowCircleLeft = IconData(0xe05a, fontFamily: 'PhosphorRegular');
-  static const arrowCircleRight = IconData(0xe02e, fontFamily: 'PhosphorRegular');
+  static const arrowBendDoubleUpLeft = IconData(
+    0xe03a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowBendDoubleUpRight = IconData(
+    0xe03c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowBendDownLeft = IconData(
+    0xe018,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowBendDownRight = IconData(
+    0xe01a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowBendLeftDown = IconData(
+    0xe01c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowBendLeftUp = IconData(
+    0xe01e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowBendRightDown = IconData(
+    0xe020,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowBendRightUp = IconData(
+    0xe022,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowBendUpLeft = IconData(
+    0xe024,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowBendUpRight = IconData(
+    0xe026,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowCircleDown = IconData(
+    0xe028,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowCircleDownLeft = IconData(
+    0xe02a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowCircleDownRight = IconData(
+    0xe02c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowCircleLeft = IconData(
+    0xe05a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowCircleRight = IconData(
+    0xe02e,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowCircleUp = IconData(0xe030, fontFamily: 'PhosphorRegular');
-  static const arrowCircleUpLeft = IconData(0xe032, fontFamily: 'PhosphorRegular');
-  static const arrowCircleUpRight = IconData(0xe034, fontFamily: 'PhosphorRegular');
+  static const arrowCircleUpLeft = IconData(
+    0xe032,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowCircleUpRight = IconData(
+    0xe034,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowClockwise = IconData(0xe036, fontFamily: 'PhosphorRegular');
-  static const arrowCounterClockwise = IconData(0xe038, fontFamily: 'PhosphorRegular');
+  static const arrowCounterClockwise = IconData(
+    0xe038,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowDown = IconData(0xe03e, fontFamily: 'PhosphorRegular');
   static const arrowDownLeft = IconData(0xe040, fontFamily: 'PhosphorRegular');
   static const arrowDownRight = IconData(0xe042, fontFamily: 'PhosphorRegular');
-  static const arrowElbowDownLeft = IconData(0xe044, fontFamily: 'PhosphorRegular');
-  static const arrowElbowDownRight = IconData(0xe046, fontFamily: 'PhosphorRegular');
+  static const arrowElbowDownLeft = IconData(
+    0xe044,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowElbowDownRight = IconData(
+    0xe046,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowElbowLeft = IconData(0xe048, fontFamily: 'PhosphorRegular');
-  static const arrowElbowLeftDown = IconData(0xe04a, fontFamily: 'PhosphorRegular');
-  static const arrowElbowLeftUp = IconData(0xe04c, fontFamily: 'PhosphorRegular');
-  static const arrowElbowRight = IconData(0xe04e, fontFamily: 'PhosphorRegular');
-  static const arrowElbowRightDown = IconData(0xe050, fontFamily: 'PhosphorRegular');
-  static const arrowElbowRightUp = IconData(0xe052, fontFamily: 'PhosphorRegular');
-  static const arrowElbowUpLeft = IconData(0xe054, fontFamily: 'PhosphorRegular');
-  static const arrowElbowUpRight = IconData(0xe056, fontFamily: 'PhosphorRegular');
+  static const arrowElbowLeftDown = IconData(
+    0xe04a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowElbowLeftUp = IconData(
+    0xe04c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowElbowRight = IconData(
+    0xe04e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowElbowRightDown = IconData(
+    0xe050,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowElbowRightUp = IconData(
+    0xe052,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowElbowUpLeft = IconData(
+    0xe054,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowElbowUpRight = IconData(
+    0xe056,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowFatDown = IconData(0xe518, fontFamily: 'PhosphorRegular');
   static const arrowFatLeft = IconData(0xe51a, fontFamily: 'PhosphorRegular');
-  static const arrowFatLineDown = IconData(0xe51c, fontFamily: 'PhosphorRegular');
-  static const arrowFatLineLeft = IconData(0xe51e, fontFamily: 'PhosphorRegular');
-  static const arrowFatLineRight = IconData(0xe520, fontFamily: 'PhosphorRegular');
+  static const arrowFatLineDown = IconData(
+    0xe51c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowFatLineLeft = IconData(
+    0xe51e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowFatLineRight = IconData(
+    0xe520,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowFatLineUp = IconData(0xe522, fontFamily: 'PhosphorRegular');
-  static const arrowFatLinesDown = IconData(0xe524, fontFamily: 'PhosphorRegular');
-  static const arrowFatLinesLeft = IconData(0xe526, fontFamily: 'PhosphorRegular');
-  static const arrowFatLinesRight = IconData(0xe528, fontFamily: 'PhosphorRegular');
-  static const arrowFatLinesUp = IconData(0xe52a, fontFamily: 'PhosphorRegular');
+  static const arrowFatLinesDown = IconData(
+    0xe524,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowFatLinesLeft = IconData(
+    0xe526,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowFatLinesRight = IconData(
+    0xe528,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowFatLinesUp = IconData(
+    0xe52a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowFatRight = IconData(0xe52c, fontFamily: 'PhosphorRegular');
   static const arrowFatUp = IconData(0xe52e, fontFamily: 'PhosphorRegular');
   static const arrowLeft = IconData(0xe058, fontFamily: 'PhosphorRegular');
   static const arrowLineDown = IconData(0xe05c, fontFamily: 'PhosphorRegular');
-  static const arrowLineDownLeft = IconData(0xe05e, fontFamily: 'PhosphorRegular');
-  static const arrowLineDownRight = IconData(0xe060, fontFamily: 'PhosphorRegular');
+  static const arrowLineDownLeft = IconData(
+    0xe05e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowLineDownRight = IconData(
+    0xe060,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowLineLeft = IconData(0xe062, fontFamily: 'PhosphorRegular');
   static const arrowLineRight = IconData(0xe064, fontFamily: 'PhosphorRegular');
   static const arrowLineUp = IconData(0xe066, fontFamily: 'PhosphorRegular');
-  static const arrowLineUpLeft = IconData(0xe068, fontFamily: 'PhosphorRegular');
-  static const arrowLineUpRight = IconData(0xe06a, fontFamily: 'PhosphorRegular');
+  static const arrowLineUpLeft = IconData(
+    0xe068,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowLineUpRight = IconData(
+    0xe06a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowRight = IconData(0xe06c, fontFamily: 'PhosphorRegular');
-  static const arrowSquareDown = IconData(0xe06e, fontFamily: 'PhosphorRegular');
-  static const arrowSquareDownLeft = IconData(0xe070, fontFamily: 'PhosphorRegular');
-  static const arrowSquareDownRight = IconData(0xe072, fontFamily: 'PhosphorRegular');
+  static const arrowSquareDown = IconData(
+    0xe06e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowSquareDownLeft = IconData(
+    0xe070,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowSquareDownRight = IconData(
+    0xe072,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowSquareIn = IconData(0xe5dc, fontFamily: 'PhosphorRegular');
-  static const arrowSquareLeft = IconData(0xe074, fontFamily: 'PhosphorRegular');
+  static const arrowSquareLeft = IconData(
+    0xe074,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowSquareOut = IconData(0xe5de, fontFamily: 'PhosphorRegular');
-  static const arrowSquareRight = IconData(0xe076, fontFamily: 'PhosphorRegular');
+  static const arrowSquareRight = IconData(
+    0xe076,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowSquareUp = IconData(0xe078, fontFamily: 'PhosphorRegular');
-  static const arrowSquareUpLeft = IconData(0xe07a, fontFamily: 'PhosphorRegular');
-  static const arrowSquareUpRight = IconData(0xe07c, fontFamily: 'PhosphorRegular');
+  static const arrowSquareUpLeft = IconData(
+    0xe07a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowSquareUpRight = IconData(
+    0xe07c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowUDownLeft = IconData(0xe07e, fontFamily: 'PhosphorRegular');
-  static const arrowUDownRight = IconData(0xe080, fontFamily: 'PhosphorRegular');
+  static const arrowUDownRight = IconData(
+    0xe080,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowULeftDown = IconData(0xe082, fontFamily: 'PhosphorRegular');
   static const arrowULeftUp = IconData(0xe084, fontFamily: 'PhosphorRegular');
-  static const arrowURightDown = IconData(0xe086, fontFamily: 'PhosphorRegular');
+  static const arrowURightDown = IconData(
+    0xe086,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowURightUp = IconData(0xe088, fontFamily: 'PhosphorRegular');
   static const arrowUUpLeft = IconData(0xe08a, fontFamily: 'PhosphorRegular');
   static const arrowUUpRight = IconData(0xe08c, fontFamily: 'PhosphorRegular');
   static const arrowUp = IconData(0xe08e, fontFamily: 'PhosphorRegular');
   static const arrowUpLeft = IconData(0xe090, fontFamily: 'PhosphorRegular');
   static const arrowUpRight = IconData(0xe092, fontFamily: 'PhosphorRegular');
-  static const arrowsClockwise = IconData(0xe094, fontFamily: 'PhosphorRegular');
-  static const arrowsCounterClockwise = IconData(0xe096, fontFamily: 'PhosphorRegular');
+  static const arrowsClockwise = IconData(
+    0xe094,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowsCounterClockwise = IconData(
+    0xe096,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowsDownUp = IconData(0xe098, fontFamily: 'PhosphorRegular');
-  static const arrowsHorizontal = IconData(0xeb06, fontFamily: 'PhosphorRegular');
+  static const arrowsHorizontal = IconData(
+    0xeb06,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowsIn = IconData(0xe09a, fontFamily: 'PhosphorRegular');
-  static const arrowsInCardinal = IconData(0xe09c, fontFamily: 'PhosphorRegular');
-  static const arrowsInLineHorizontal = IconData(0xe530, fontFamily: 'PhosphorRegular');
-  static const arrowsInLineVertical = IconData(0xe532, fontFamily: 'PhosphorRegular');
+  static const arrowsInCardinal = IconData(
+    0xe09c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowsInLineHorizontal = IconData(
+    0xe530,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowsInLineVertical = IconData(
+    0xe532,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowsInSimple = IconData(0xe09e, fontFamily: 'PhosphorRegular');
-  static const arrowsLeftRight = IconData(0xe0a0, fontFamily: 'PhosphorRegular');
+  static const arrowsLeftRight = IconData(
+    0xe0a0,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowsMerge = IconData(0xed3e, fontFamily: 'PhosphorRegular');
   static const arrowsOut = IconData(0xe0a2, fontFamily: 'PhosphorRegular');
-  static const arrowsOutCardinal = IconData(0xe0a4, fontFamily: 'PhosphorRegular');
-  static const arrowsOutLineVertical = IconData(0xe536, fontFamily: 'PhosphorRegular');
-  static const arrowsOutSimple = IconData(0xe0a6, fontFamily: 'PhosphorRegular');
+  static const arrowsOutCardinal = IconData(
+    0xe0a4,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowsOutLineVertical = IconData(
+    0xe536,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const arrowsOutSimple = IconData(
+    0xe0a6,
+    fontFamily: 'PhosphorRegular',
+  );
   static const arrowsSplit = IconData(0xed3c, fontFamily: 'PhosphorRegular');
   static const arrowsVertical = IconData(0xeb04, fontFamily: 'PhosphorRegular');
   static const article = IconData(0xe0a8, fontFamily: 'PhosphorRegular');
@@ -168,21 +378,45 @@ abstract final class Ph {
   static const basket = IconData(0xe964, fontFamily: 'PhosphorRegular');
   static const basketball = IconData(0xe724, fontFamily: 'PhosphorRegular');
   static const bathtub = IconData(0xe81e, fontFamily: 'PhosphorRegular');
-  static const batteryCharging = IconData(0xe0ba, fontFamily: 'PhosphorRegular');
+  static const batteryCharging = IconData(
+    0xe0ba,
+    fontFamily: 'PhosphorRegular',
+  );
   static const batteryEmpty = IconData(0xe0be, fontFamily: 'PhosphorRegular');
   static const batteryFull = IconData(0xe0c0, fontFamily: 'PhosphorRegular');
   static const batteryHigh = IconData(0xe0c2, fontFamily: 'PhosphorRegular');
   static const batteryLow = IconData(0xe0c4, fontFamily: 'PhosphorRegular');
   static const batteryMedium = IconData(0xe0c6, fontFamily: 'PhosphorRegular');
   static const batteryPlus = IconData(0xe808, fontFamily: 'PhosphorRegular');
-  static const batteryPlusVertical = IconData(0xec50, fontFamily: 'PhosphorRegular');
-  static const batteryVerticalEmpty = IconData(0xe7c6, fontFamily: 'PhosphorRegular');
-  static const batteryVerticalFull = IconData(0xe7c4, fontFamily: 'PhosphorRegular');
-  static const batteryVerticalHigh = IconData(0xe7c2, fontFamily: 'PhosphorRegular');
-  static const batteryVerticalLow = IconData(0xe7be, fontFamily: 'PhosphorRegular');
-  static const batteryVerticalMedium = IconData(0xe7c0, fontFamily: 'PhosphorRegular');
+  static const batteryPlusVertical = IconData(
+    0xec50,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const batteryVerticalEmpty = IconData(
+    0xe7c6,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const batteryVerticalFull = IconData(
+    0xe7c4,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const batteryVerticalHigh = IconData(
+    0xe7c2,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const batteryVerticalLow = IconData(
+    0xe7be,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const batteryVerticalMedium = IconData(
+    0xe7c0,
+    fontFamily: 'PhosphorRegular',
+  );
   static const batteryWarning = IconData(0xe0c8, fontFamily: 'PhosphorRegular');
-  static const batteryWarningVertical = IconData(0xe0ca, fontFamily: 'PhosphorRegular');
+  static const batteryWarningVertical = IconData(
+    0xe0ca,
+    fontFamily: 'PhosphorRegular',
+  );
   static const beachBall = IconData(0xed24, fontFamily: 'PhosphorRegular');
   static const beanie = IconData(0xea2a, fontFamily: 'PhosphorRegular');
   static const bed = IconData(0xe0cc, fontFamily: 'PhosphorRegular');
@@ -192,8 +426,14 @@ abstract final class Ph {
   static const bell = IconData(0xe0ce, fontFamily: 'PhosphorRegular');
   static const bellRinging = IconData(0xe5e8, fontFamily: 'PhosphorRegular');
   static const bellSimple = IconData(0xe0d0, fontFamily: 'PhosphorRegular');
-  static const bellSimpleRinging = IconData(0xe5ea, fontFamily: 'PhosphorRegular');
-  static const bellSimpleSlash = IconData(0xe0d2, fontFamily: 'PhosphorRegular');
+  static const bellSimpleRinging = IconData(
+    0xe5ea,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const bellSimpleSlash = IconData(
+    0xe0d2,
+    fontFamily: 'PhosphorRegular',
+  );
   static const bellSimpleZ = IconData(0xe5ec, fontFamily: 'PhosphorRegular');
   static const bellSlash = IconData(0xe0d4, fontFamily: 'PhosphorRegular');
   static const bellZ = IconData(0xe5ee, fontFamily: 'PhosphorRegular');
@@ -206,7 +446,10 @@ abstract final class Ph {
   static const bird = IconData(0xe72c, fontFamily: 'PhosphorRegular');
   static const blueprint = IconData(0xeda0, fontFamily: 'PhosphorRegular');
   static const bluetooth = IconData(0xe0da, fontFamily: 'PhosphorRegular');
-  static const bluetoothConnected = IconData(0xe0dc, fontFamily: 'PhosphorRegular');
+  static const bluetoothConnected = IconData(
+    0xe0dc,
+    fontFamily: 'PhosphorRegular',
+  );
   static const bluetoothSlash = IconData(0xe0de, fontFamily: 'PhosphorRegular');
   static const bluetoothX = IconData(0xe0e0, fontFamily: 'PhosphorRegular');
   static const boat = IconData(0xe786, fontFamily: 'PhosphorRegular');
@@ -220,7 +463,10 @@ abstract final class Ph {
   static const bookmark = IconData(0xe0e8, fontFamily: 'PhosphorRegular');
   static const bookmarkSimple = IconData(0xe0ea, fontFamily: 'PhosphorRegular');
   static const bookmarks = IconData(0xe0ec, fontFamily: 'PhosphorRegular');
-  static const bookmarksSimple = IconData(0xe5f0, fontFamily: 'PhosphorRegular');
+  static const bookmarksSimple = IconData(
+    0xe5f0,
+    fontFamily: 'PhosphorRegular',
+  );
   static const books = IconData(0xe758, fontFamily: 'PhosphorRegular');
   static const boot = IconData(0xecca, fontFamily: 'PhosphorRegular');
   static const boules = IconData(0xe722, fontFamily: 'PhosphorRegular');
@@ -249,7 +495,10 @@ abstract final class Ph {
   static const bugBeetle = IconData(0xe5f6, fontFamily: 'PhosphorRegular');
   static const bugDroid = IconData(0xe5f8, fontFamily: 'PhosphorRegular');
   static const building = IconData(0xe100, fontFamily: 'PhosphorRegular');
-  static const buildingApartment = IconData(0xe0fe, fontFamily: 'PhosphorRegular');
+  static const buildingApartment = IconData(
+    0xe0fe,
+    fontFamily: 'PhosphorRegular',
+  );
   static const buildingOffice = IconData(0xe0ff, fontFamily: 'PhosphorRegular');
   static const buildings = IconData(0xe102, fontFamily: 'PhosphorRegular');
   static const bulldozer = IconData(0xec6c, fontFamily: 'PhosphorRegular');
@@ -283,18 +532,51 @@ abstract final class Ph {
   static const cardholder = IconData(0xe5fa, fontFamily: 'PhosphorRegular');
   static const cards = IconData(0xe0f8, fontFamily: 'PhosphorRegular');
   static const cardsThree = IconData(0xee50, fontFamily: 'PhosphorRegular');
-  static const caretCircleDoubleDown = IconData(0xe116, fontFamily: 'PhosphorRegular');
-  static const caretCircleDoubleLeft = IconData(0xe118, fontFamily: 'PhosphorRegular');
-  static const caretCircleDoubleRight = IconData(0xe11a, fontFamily: 'PhosphorRegular');
-  static const caretCircleDoubleUp = IconData(0xe11c, fontFamily: 'PhosphorRegular');
-  static const caretCircleDown = IconData(0xe11e, fontFamily: 'PhosphorRegular');
-  static const caretCircleLeft = IconData(0xe120, fontFamily: 'PhosphorRegular');
-  static const caretCircleRight = IconData(0xe122, fontFamily: 'PhosphorRegular');
+  static const caretCircleDoubleDown = IconData(
+    0xe116,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const caretCircleDoubleLeft = IconData(
+    0xe118,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const caretCircleDoubleRight = IconData(
+    0xe11a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const caretCircleDoubleUp = IconData(
+    0xe11c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const caretCircleDown = IconData(
+    0xe11e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const caretCircleLeft = IconData(
+    0xe120,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const caretCircleRight = IconData(
+    0xe122,
+    fontFamily: 'PhosphorRegular',
+  );
   static const caretCircleUp = IconData(0xe124, fontFamily: 'PhosphorRegular');
-  static const caretCircleUpDown = IconData(0xe13e, fontFamily: 'PhosphorRegular');
-  static const caretDoubleDown = IconData(0xe126, fontFamily: 'PhosphorRegular');
-  static const caretDoubleLeft = IconData(0xe128, fontFamily: 'PhosphorRegular');
-  static const caretDoubleRight = IconData(0xe12a, fontFamily: 'PhosphorRegular');
+  static const caretCircleUpDown = IconData(
+    0xe13e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const caretDoubleDown = IconData(
+    0xe126,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const caretDoubleLeft = IconData(
+    0xe128,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const caretDoubleRight = IconData(
+    0xe12a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const caretDoubleUp = IconData(0xe12c, fontFamily: 'PhosphorRegular');
   static const caretDown = IconData(0xe136, fontFamily: 'PhosphorRegular');
   static const caretLeft = IconData(0xe138, fontFamily: 'PhosphorRegular');
@@ -313,20 +595,38 @@ abstract final class Ph {
   static const cellSignalFull = IconData(0xe142, fontFamily: 'PhosphorRegular');
   static const cellSignalHigh = IconData(0xe144, fontFamily: 'PhosphorRegular');
   static const cellSignalLow = IconData(0xe146, fontFamily: 'PhosphorRegular');
-  static const cellSignalMedium = IconData(0xe148, fontFamily: 'PhosphorRegular');
+  static const cellSignalMedium = IconData(
+    0xe148,
+    fontFamily: 'PhosphorRegular',
+  );
   static const cellSignalNone = IconData(0xe14a, fontFamily: 'PhosphorRegular');
-  static const cellSignalSlash = IconData(0xe14c, fontFamily: 'PhosphorRegular');
+  static const cellSignalSlash = IconData(
+    0xe14c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const cellSignalX = IconData(0xe14e, fontFamily: 'PhosphorRegular');
   static const cellTower = IconData(0xebaa, fontFamily: 'PhosphorRegular');
   static const certificate = IconData(0xe766, fontFamily: 'PhosphorRegular');
   static const chair = IconData(0xe950, fontFamily: 'PhosphorRegular');
   static const chalkboard = IconData(0xe5fc, fontFamily: 'PhosphorRegular');
-  static const chalkboardSimple = IconData(0xe5fe, fontFamily: 'PhosphorRegular');
-  static const chalkboardTeacher = IconData(0xe600, fontFamily: 'PhosphorRegular');
+  static const chalkboardSimple = IconData(
+    0xe5fe,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const chalkboardTeacher = IconData(
+    0xe600,
+    fontFamily: 'PhosphorRegular',
+  );
   static const champagne = IconData(0xeaca, fontFamily: 'PhosphorRegular');
-  static const chargingStation = IconData(0xe8d0, fontFamily: 'PhosphorRegular');
+  static const chargingStation = IconData(
+    0xe8d0,
+    fontFamily: 'PhosphorRegular',
+  );
   static const chartBar = IconData(0xe150, fontFamily: 'PhosphorRegular');
-  static const chartBarHorizontal = IconData(0xe152, fontFamily: 'PhosphorRegular');
+  static const chartBarHorizontal = IconData(
+    0xe152,
+    fontFamily: 'PhosphorRegular',
+  );
   static const chartDonut = IconData(0xeaa6, fontFamily: 'PhosphorRegular');
   static const chartLine = IconData(0xe154, fontFamily: 'PhosphorRegular');
   static const chartLineDown = IconData(0xe8b6, fontFamily: 'PhosphorRegular');
@@ -337,19 +637,40 @@ abstract final class Ph {
   static const chartScatter = IconData(0xeaac, fontFamily: 'PhosphorRegular');
   static const chat = IconData(0xe15c, fontFamily: 'PhosphorRegular');
   static const chatCentered = IconData(0xe160, fontFamily: 'PhosphorRegular');
-  static const chatCenteredDots = IconData(0xe164, fontFamily: 'PhosphorRegular');
-  static const chatCenteredSlash = IconData(0xe162, fontFamily: 'PhosphorRegular');
-  static const chatCenteredText = IconData(0xe166, fontFamily: 'PhosphorRegular');
+  static const chatCenteredDots = IconData(
+    0xe164,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const chatCenteredSlash = IconData(
+    0xe162,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const chatCenteredText = IconData(
+    0xe166,
+    fontFamily: 'PhosphorRegular',
+  );
   static const chatCircle = IconData(0xe168, fontFamily: 'PhosphorRegular');
   static const chatCircleDots = IconData(0xe16c, fontFamily: 'PhosphorRegular');
-  static const chatCircleSlash = IconData(0xe16a, fontFamily: 'PhosphorRegular');
+  static const chatCircleSlash = IconData(
+    0xe16a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const chatCircleText = IconData(0xe16e, fontFamily: 'PhosphorRegular');
   static const chatDots = IconData(0xe170, fontFamily: 'PhosphorRegular');
   static const chatSlash = IconData(0xe15e, fontFamily: 'PhosphorRegular');
   static const chatTeardrop = IconData(0xe172, fontFamily: 'PhosphorRegular');
-  static const chatTeardropDots = IconData(0xe176, fontFamily: 'PhosphorRegular');
-  static const chatTeardropSlash = IconData(0xe174, fontFamily: 'PhosphorRegular');
-  static const chatTeardropText = IconData(0xe178, fontFamily: 'PhosphorRegular');
+  static const chatTeardropDots = IconData(
+    0xe176,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const chatTeardropSlash = IconData(
+    0xe174,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const chatTeardropText = IconData(
+    0xe178,
+    fontFamily: 'PhosphorRegular',
+  );
   static const chatText = IconData(0xe17a, fontFamily: 'PhosphorRegular');
   static const chats = IconData(0xe17c, fontFamily: 'PhosphorRegular');
   static const chatsCircle = IconData(0xe17e, fontFamily: 'PhosphorRegular');
@@ -358,7 +679,10 @@ abstract final class Ph {
   static const checkCircle = IconData(0xe184, fontFamily: 'PhosphorRegular');
   static const checkFat = IconData(0xeba6, fontFamily: 'PhosphorRegular');
   static const checkSquare = IconData(0xe186, fontFamily: 'PhosphorRegular');
-  static const checkSquareOffset = IconData(0xe188, fontFamily: 'PhosphorRegular');
+  static const checkSquareOffset = IconData(
+    0xe188,
+    fontFamily: 'PhosphorRegular',
+  );
   static const checkerboard = IconData(0xe8c4, fontFamily: 'PhosphorRegular');
   static const checks = IconData(0xe53a, fontFamily: 'PhosphorRegular');
   static const cheers = IconData(0xea4a, fontFamily: 'PhosphorRegular');
@@ -375,7 +699,10 @@ abstract final class Ph {
   static const circleNotch = IconData(0xeb44, fontFamily: 'PhosphorRegular');
   static const circlesFour = IconData(0xe190, fontFamily: 'PhosphorRegular');
   static const circlesThree = IconData(0xe192, fontFamily: 'PhosphorRegular');
-  static const circlesThreePlus = IconData(0xe194, fontFamily: 'PhosphorRegular');
+  static const circlesThreePlus = IconData(
+    0xe194,
+    fontFamily: 'PhosphorRegular',
+  );
   static const circuitry = IconData(0xe9c2, fontFamily: 'PhosphorRegular');
   static const city = IconData(0xea6a, fontFamily: 'PhosphorRegular');
   static const clipboard = IconData(0xe196, fontFamily: 'PhosphorRegular');
@@ -384,9 +711,15 @@ abstract final class Ph {
   static const clockAfternoon = IconData(0xe19c, fontFamily: 'PhosphorRegular');
   static const clockClockwise = IconData(0xe19e, fontFamily: 'PhosphorRegular');
   static const clockCountdown = IconData(0xed2c, fontFamily: 'PhosphorRegular');
-  static const clockCounterClockwise = IconData(0xe1a0, fontFamily: 'PhosphorRegular');
+  static const clockCounterClockwise = IconData(
+    0xe1a0,
+    fontFamily: 'PhosphorRegular',
+  );
   static const clockUser = IconData(0xedec, fontFamily: 'PhosphorRegular');
-  static const closedCaptioning = IconData(0xe1a4, fontFamily: 'PhosphorRegular');
+  static const closedCaptioning = IconData(
+    0xe1a4,
+    fontFamily: 'PhosphorRegular',
+  );
   static const cloud = IconData(0xe1aa, fontFamily: 'PhosphorRegular');
   static const cloudArrowDown = IconData(0xe1ac, fontFamily: 'PhosphorRegular');
   static const cloudArrowUp = IconData(0xe1ae, fontFamily: 'PhosphorRegular');
@@ -408,22 +741,34 @@ abstract final class Ph {
   static const codeBlock = IconData(0xeafe, fontFamily: 'PhosphorRegular');
   static const codeSimple = IconData(0xe1be, fontFamily: 'PhosphorRegular');
   static const codepenLogo = IconData(0xe978, fontFamily: 'PhosphorRegular');
-  static const codesandboxLogo = IconData(0xea06, fontFamily: 'PhosphorRegular');
+  static const codesandboxLogo = IconData(
+    0xea06,
+    fontFamily: 'PhosphorRegular',
+  );
   static const coffee = IconData(0xe1c2, fontFamily: 'PhosphorRegular');
   static const coffeeBean = IconData(0xe1c0, fontFamily: 'PhosphorRegular');
   static const coin = IconData(0xe60e, fontFamily: 'PhosphorRegular');
   static const coinVertical = IconData(0xeb48, fontFamily: 'PhosphorRegular');
   static const coins = IconData(0xe78e, fontFamily: 'PhosphorRegular');
   static const columns = IconData(0xe546, fontFamily: 'PhosphorRegular');
-  static const columnsPlusLeft = IconData(0xe544, fontFamily: 'PhosphorRegular');
-  static const columnsPlusRight = IconData(0xe542, fontFamily: 'PhosphorRegular');
+  static const columnsPlusLeft = IconData(
+    0xe544,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const columnsPlusRight = IconData(
+    0xe542,
+    fontFamily: 'PhosphorRegular',
+  );
   static const command = IconData(0xe1c4, fontFamily: 'PhosphorRegular');
   static const compass = IconData(0xe1c8, fontFamily: 'PhosphorRegular');
   static const compassRose = IconData(0xe1c6, fontFamily: 'PhosphorRegular');
   static const compassTool = IconData(0xea0e, fontFamily: 'PhosphorRegular');
   static const computerTower = IconData(0xe548, fontFamily: 'PhosphorRegular');
   static const confetti = IconData(0xe81a, fontFamily: 'PhosphorRegular');
-  static const contactlessPayment = IconData(0xed42, fontFamily: 'PhosphorRegular');
+  static const contactlessPayment = IconData(
+    0xed42,
+    fontFamily: 'PhosphorRegular',
+  );
   static const control = IconData(0xeca6, fontFamily: 'PhosphorRegular');
   static const cookie = IconData(0xe6ca, fontFamily: 'PhosphorRegular');
   static const cookingPot = IconData(0xe764, fontFamily: 'PhosphorRegular');
@@ -434,7 +779,10 @@ abstract final class Ph {
   static const cornersIn = IconData(0xe1ce, fontFamily: 'PhosphorRegular');
   static const cornersOut = IconData(0xe1d0, fontFamily: 'PhosphorRegular');
   static const couch = IconData(0xe7f6, fontFamily: 'PhosphorRegular');
-  static const courtBasketball = IconData(0xee36, fontFamily: 'PhosphorRegular');
+  static const courtBasketball = IconData(
+    0xee36,
+    fontFamily: 'PhosphorRegular',
+  );
   static const cow = IconData(0xeabe, fontFamily: 'PhosphorRegular');
   static const cowboyHat = IconData(0xed12, fontFamily: 'PhosphorRegular');
   static const cpu = IconData(0xe610, fontFamily: 'PhosphorRegular');
@@ -445,18 +793,30 @@ abstract final class Ph {
   static const crop = IconData(0xe1d4, fontFamily: 'PhosphorRegular');
   static const cross = IconData(0xe8a0, fontFamily: 'PhosphorRegular');
   static const crosshair = IconData(0xe1d6, fontFamily: 'PhosphorRegular');
-  static const crosshairSimple = IconData(0xe1d8, fontFamily: 'PhosphorRegular');
+  static const crosshairSimple = IconData(
+    0xe1d8,
+    fontFamily: 'PhosphorRegular',
+  );
   static const crown = IconData(0xe614, fontFamily: 'PhosphorRegular');
   static const crownCross = IconData(0xee5e, fontFamily: 'PhosphorRegular');
   static const crownSimple = IconData(0xe616, fontFamily: 'PhosphorRegular');
   static const cube = IconData(0xe1da, fontFamily: 'PhosphorRegular');
   static const cubeFocus = IconData(0xed0a, fontFamily: 'PhosphorRegular');
-  static const cubeTransparent = IconData(0xec7c, fontFamily: 'PhosphorRegular');
+  static const cubeTransparent = IconData(
+    0xec7c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const currencyBtc = IconData(0xe618, fontFamily: 'PhosphorRegular');
-  static const currencyCircleDollar = IconData(0xe54c, fontFamily: 'PhosphorRegular');
+  static const currencyCircleDollar = IconData(
+    0xe54c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const currencyCny = IconData(0xe54e, fontFamily: 'PhosphorRegular');
   static const currencyDollar = IconData(0xe550, fontFamily: 'PhosphorRegular');
-  static const currencyDollarSimple = IconData(0xe552, fontFamily: 'PhosphorRegular');
+  static const currencyDollarSimple = IconData(
+    0xe552,
+    fontFamily: 'PhosphorRegular',
+  );
   static const currencyEth = IconData(0xeada, fontFamily: 'PhosphorRegular');
   static const currencyEur = IconData(0xe554, fontFamily: 'PhosphorRegular');
   static const currencyGbp = IconData(0xe556, fontFamily: 'PhosphorRegular');
@@ -477,13 +837,28 @@ abstract final class Ph {
   static const detective = IconData(0xe83e, fontFamily: 'PhosphorRegular');
   static const devToLogo = IconData(0xed0e, fontFamily: 'PhosphorRegular');
   static const deviceMobile = IconData(0xe1e0, fontFamily: 'PhosphorRegular');
-  static const deviceMobileCamera = IconData(0xe1e2, fontFamily: 'PhosphorRegular');
-  static const deviceMobileSlash = IconData(0xee46, fontFamily: 'PhosphorRegular');
-  static const deviceMobileSpeaker = IconData(0xe1e4, fontFamily: 'PhosphorRegular');
+  static const deviceMobileCamera = IconData(
+    0xe1e2,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const deviceMobileSlash = IconData(
+    0xee46,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const deviceMobileSpeaker = IconData(
+    0xe1e4,
+    fontFamily: 'PhosphorRegular',
+  );
   static const deviceRotate = IconData(0xedf2, fontFamily: 'PhosphorRegular');
   static const deviceTablet = IconData(0xe1e6, fontFamily: 'PhosphorRegular');
-  static const deviceTabletCamera = IconData(0xe1e8, fontFamily: 'PhosphorRegular');
-  static const deviceTabletSpeaker = IconData(0xe1ea, fontFamily: 'PhosphorRegular');
+  static const deviceTabletCamera = IconData(
+    0xe1e8,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const deviceTabletSpeaker = IconData(
+    0xe1ea,
+    fontFamily: 'PhosphorRegular',
+  );
   static const devices = IconData(0xeba4, fontFamily: 'PhosphorRegular');
   static const diamond = IconData(0xe1ec, fontFamily: 'PhosphorRegular');
   static const diamondsFour = IconData(0xe8f4, fontFamily: 'PhosphorRegular');
@@ -505,11 +880,23 @@ abstract final class Ph {
   static const dotOutline = IconData(0xece0, fontFamily: 'PhosphorRegular');
   static const dotsNine = IconData(0xe1fc, fontFamily: 'PhosphorRegular');
   static const dotsSix = IconData(0xe794, fontFamily: 'PhosphorRegular');
-  static const dotsSixVertical = IconData(0xeae2, fontFamily: 'PhosphorRegular');
+  static const dotsSixVertical = IconData(
+    0xeae2,
+    fontFamily: 'PhosphorRegular',
+  );
   static const dotsThree = IconData(0xe1fe, fontFamily: 'PhosphorRegular');
-  static const dotsThreeCircle = IconData(0xe200, fontFamily: 'PhosphorRegular');
-  static const dotsThreeOutline = IconData(0xe204, fontFamily: 'PhosphorRegular');
-  static const dotsThreeVertical = IconData(0xe208, fontFamily: 'PhosphorRegular');
+  static const dotsThreeCircle = IconData(
+    0xe200,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const dotsThreeOutline = IconData(
+    0xe204,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const dotsThreeVertical = IconData(
+    0xe208,
+    fontFamily: 'PhosphorRegular',
+  );
   static const download = IconData(0xe20a, fontFamily: 'PhosphorRegular');
   static const downloadSimple = IconData(0xe20c, fontFamily: 'PhosphorRegular');
   static const dress = IconData(0xea7e, fontFamily: 'PhosphorRegular');
@@ -534,14 +921,20 @@ abstract final class Ph {
   static const envelope = IconData(0xe214, fontFamily: 'PhosphorRegular');
   static const envelopeOpen = IconData(0xe216, fontFamily: 'PhosphorRegular');
   static const envelopeSimple = IconData(0xe218, fontFamily: 'PhosphorRegular');
-  static const envelopeSimpleOpen = IconData(0xe21a, fontFamily: 'PhosphorRegular');
+  static const envelopeSimpleOpen = IconData(
+    0xe21a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const equalizer = IconData(0xebbc, fontFamily: 'PhosphorRegular');
   static const equals = IconData(0xe21c, fontFamily: 'PhosphorRegular');
   static const eraser = IconData(0xe21e, fontFamily: 'PhosphorRegular');
   static const escalatorDown = IconData(0xecba, fontFamily: 'PhosphorRegular');
   static const escalatorUp = IconData(0xecbc, fontFamily: 'PhosphorRegular');
   static const exam = IconData(0xe742, fontFamily: 'PhosphorRegular');
-  static const exclamationMark = IconData(0xee44, fontFamily: 'PhosphorRegular');
+  static const exclamationMark = IconData(
+    0xee44,
+    fontFamily: 'PhosphorRegular',
+  );
   static const exclude = IconData(0xe882, fontFamily: 'PhosphorRegular');
   static const excludeSquare = IconData(0xe880, fontFamily: 'PhosphorRegular');
   static const export = IconData(0xeaf0, fontFamily: 'PhosphorRegular');
@@ -549,19 +942,28 @@ abstract final class Ph {
   static const eyeClosed = IconData(0xe222, fontFamily: 'PhosphorRegular');
   static const eyeSlash = IconData(0xe224, fontFamily: 'PhosphorRegular');
   static const eyedropper = IconData(0xe568, fontFamily: 'PhosphorRegular');
-  static const eyedropperSample = IconData(0xeac4, fontFamily: 'PhosphorRegular');
+  static const eyedropperSample = IconData(
+    0xeac4,
+    fontFamily: 'PhosphorRegular',
+  );
   static const eyeglasses = IconData(0xe7ba, fontFamily: 'PhosphorRegular');
   static const eyes = IconData(0xee5c, fontFamily: 'PhosphorRegular');
   static const faceMask = IconData(0xe56a, fontFamily: 'PhosphorRegular');
   static const facebookLogo = IconData(0xe226, fontFamily: 'PhosphorRegular');
   static const factory = IconData(0xe760, fontFamily: 'PhosphorRegular');
   static const faders = IconData(0xe228, fontFamily: 'PhosphorRegular');
-  static const fadersHorizontal = IconData(0xe22a, fontFamily: 'PhosphorRegular');
+  static const fadersHorizontal = IconData(
+    0xe22a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const falloutShelter = IconData(0xe9de, fontFamily: 'PhosphorRegular');
   static const fan = IconData(0xe9f2, fontFamily: 'PhosphorRegular');
   static const farm = IconData(0xec70, fontFamily: 'PhosphorRegular');
   static const fastForward = IconData(0xe6a6, fontFamily: 'PhosphorRegular');
-  static const fastForwardCircle = IconData(0xe22c, fontFamily: 'PhosphorRegular');
+  static const fastForwardCircle = IconData(
+    0xe22c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const feather = IconData(0xe9c0, fontFamily: 'PhosphorRegular');
   static const fediverseLogo = IconData(0xed66, fontFamily: 'PhosphorRegular');
   static const figmaLogo = IconData(0xe22e, fontFamily: 'PhosphorRegular');
@@ -586,7 +988,10 @@ abstract final class Ph {
   static const fileJs = IconData(0xeb24, fontFamily: 'PhosphorRegular');
   static const fileJsx = IconData(0xeb3a, fontFamily: 'PhosphorRegular');
   static const fileLock = IconData(0xe95c, fontFamily: 'PhosphorRegular');
-  static const fileMagnifyingGlass = IconData(0xe238, fontFamily: 'PhosphorRegular');
+  static const fileMagnifyingGlass = IconData(
+    0xe238,
+    fontFamily: 'PhosphorRegular',
+  );
   static const fileMd = IconData(0xed50, fontFamily: 'PhosphorRegular');
   static const fileMinus = IconData(0xe234, fontFamily: 'PhosphorRegular');
   static const filePdf = IconData(0xe702, fontFamily: 'PhosphorRegular');
@@ -612,10 +1017,16 @@ abstract final class Ph {
   static const filmSlate = IconData(0xe8c2, fontFamily: 'PhosphorRegular');
   static const filmStrip = IconData(0xe792, fontFamily: 'PhosphorRegular');
   static const fingerprint = IconData(0xe23e, fontFamily: 'PhosphorRegular');
-  static const fingerprintSimple = IconData(0xe240, fontFamily: 'PhosphorRegular');
+  static const fingerprintSimple = IconData(
+    0xe240,
+    fontFamily: 'PhosphorRegular',
+  );
   static const finnTheHuman = IconData(0xe56c, fontFamily: 'PhosphorRegular');
   static const fire = IconData(0xe242, fontFamily: 'PhosphorRegular');
-  static const fireExtinguisher = IconData(0xe9e8, fontFamily: 'PhosphorRegular');
+  static const fireExtinguisher = IconData(
+    0xe9e8,
+    fontFamily: 'PhosphorRegular',
+  );
   static const fireSimple = IconData(0xe620, fontFamily: 'PhosphorRegular');
   static const fireTruck = IconData(0xe574, fontFamily: 'PhosphorRegular');
   static const firstAid = IconData(0xe56e, fontFamily: 'PhosphorRegular');
@@ -646,12 +1057,30 @@ abstract final class Ph {
   static const folderOpen = IconData(0xe256, fontFamily: 'PhosphorRegular');
   static const folderPlus = IconData(0xe258, fontFamily: 'PhosphorRegular');
   static const folderSimple = IconData(0xe25a, fontFamily: 'PhosphorRegular');
-  static const folderSimpleDashed = IconData(0xec2a, fontFamily: 'PhosphorRegular');
-  static const folderSimpleLock = IconData(0xeb5e, fontFamily: 'PhosphorRegular');
-  static const folderSimpleMinus = IconData(0xe25c, fontFamily: 'PhosphorRegular');
-  static const folderSimplePlus = IconData(0xe25e, fontFamily: 'PhosphorRegular');
-  static const folderSimpleStar = IconData(0xec2e, fontFamily: 'PhosphorRegular');
-  static const folderSimpleUser = IconData(0xeb60, fontFamily: 'PhosphorRegular');
+  static const folderSimpleDashed = IconData(
+    0xec2a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const folderSimpleLock = IconData(
+    0xeb5e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const folderSimpleMinus = IconData(
+    0xe25c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const folderSimplePlus = IconData(
+    0xe25e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const folderSimpleStar = IconData(
+    0xec2e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const folderSimpleUser = IconData(
+    0xeb60,
+    fontFamily: 'PhosphorRegular',
+  );
   static const folderStar = IconData(0xea86, fontFamily: 'PhosphorRegular');
   static const folderUser = IconData(0xeb46, fontFamily: 'PhosphorRegular');
   static const folders = IconData(0xe260, fontFamily: 'PhosphorRegular');
@@ -680,8 +1109,14 @@ abstract final class Ph {
   static const genderIntersex = IconData(0xe6e6, fontFamily: 'PhosphorRegular');
   static const genderMale = IconData(0xe6e2, fontFamily: 'PhosphorRegular');
   static const genderNeuter = IconData(0xe6ea, fontFamily: 'PhosphorRegular');
-  static const genderNonbinary = IconData(0xe6e4, fontFamily: 'PhosphorRegular');
-  static const genderTransgender = IconData(0xe6e8, fontFamily: 'PhosphorRegular');
+  static const genderNonbinary = IconData(
+    0xe6e4,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const genderTransgender = IconData(
+    0xe6e8,
+    fontFamily: 'PhosphorRegular',
+  );
   static const ghost = IconData(0xe62a, fontFamily: 'PhosphorRegular');
   static const gif = IconData(0xe274, fontFamily: 'PhosphorRegular');
   static const gift = IconData(0xe276, fontFamily: 'PhosphorRegular');
@@ -693,10 +1128,19 @@ abstract final class Ph {
   static const gitPullRequest = IconData(0xe282, fontFamily: 'PhosphorRegular');
   static const githubLogo = IconData(0xe576, fontFamily: 'PhosphorRegular');
   static const gitlabLogo = IconData(0xe694, fontFamily: 'PhosphorRegular');
-  static const gitlabLogoSimple = IconData(0xe696, fontFamily: 'PhosphorRegular');
+  static const gitlabLogoSimple = IconData(
+    0xe696,
+    fontFamily: 'PhosphorRegular',
+  );
   static const globe = IconData(0xe288, fontFamily: 'PhosphorRegular');
-  static const globeHemisphereEast = IconData(0xe28a, fontFamily: 'PhosphorRegular');
-  static const globeHemisphereWest = IconData(0xe28c, fontFamily: 'PhosphorRegular');
+  static const globeHemisphereEast = IconData(
+    0xe28a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const globeHemisphereWest = IconData(
+    0xe28c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const globeSimple = IconData(0xe28e, fontFamily: 'PhosphorRegular');
   static const globeSimpleX = IconData(0xe284, fontFamily: 'PhosphorRegular');
   static const globeStand = IconData(0xe290, fontFamily: 'PhosphorRegular');
@@ -704,13 +1148,28 @@ abstract final class Ph {
   static const goggles = IconData(0xecb4, fontFamily: 'PhosphorRegular');
   static const golf = IconData(0xea3e, fontFamily: 'PhosphorRegular');
   static const goodreadsLogo = IconData(0xed10, fontFamily: 'PhosphorRegular');
-  static const googleCardboardLogo = IconData(0xe7b6, fontFamily: 'PhosphorRegular');
-  static const googleChromeLogo = IconData(0xe976, fontFamily: 'PhosphorRegular');
-  static const googleDriveLogo = IconData(0xe8f6, fontFamily: 'PhosphorRegular');
+  static const googleCardboardLogo = IconData(
+    0xe7b6,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const googleChromeLogo = IconData(
+    0xe976,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const googleDriveLogo = IconData(
+    0xe8f6,
+    fontFamily: 'PhosphorRegular',
+  );
   static const googleLogo = IconData(0xe292, fontFamily: 'PhosphorRegular');
-  static const googlePhotosLogo = IconData(0xeb92, fontFamily: 'PhosphorRegular');
+  static const googlePhotosLogo = IconData(
+    0xeb92,
+    fontFamily: 'PhosphorRegular',
+  );
   static const googlePlayLogo = IconData(0xe294, fontFamily: 'PhosphorRegular');
-  static const googlePodcastsLogo = IconData(0xeb94, fontFamily: 'PhosphorRegular');
+  static const googlePodcastsLogo = IconData(
+    0xeb94,
+    fontFamily: 'PhosphorRegular',
+  );
   static const gps = IconData(0xedd8, fontFamily: 'PhosphorRegular');
   static const gpsFix = IconData(0xedd6, fontFamily: 'PhosphorRegular');
   static const gpsSlash = IconData(0xedd4, fontFamily: 'PhosphorRegular');
@@ -721,7 +1180,10 @@ abstract final class Ph {
   static const graph = IconData(0xeb58, fontFamily: 'PhosphorRegular');
   static const graphicsCard = IconData(0xe612, fontFamily: 'PhosphorRegular');
   static const greaterThan = IconData(0xedc4, fontFamily: 'PhosphorRegular');
-  static const greaterThanOrEqual = IconData(0xeda2, fontFamily: 'PhosphorRegular');
+  static const greaterThanOrEqual = IconData(
+    0xeda2,
+    fontFamily: 'PhosphorRegular',
+  );
   static const gridFour = IconData(0xe296, fontFamily: 'PhosphorRegular');
   static const gridNine = IconData(0xec8c, fontFamily: 'PhosphorRegular');
   static const guitar = IconData(0xea8a, fontFamily: 'PhosphorRegular');
@@ -764,13 +1226,19 @@ abstract final class Ph {
   static const heartBreak = IconData(0xebe8, fontFamily: 'PhosphorRegular');
   static const heartHalf = IconData(0xec48, fontFamily: 'PhosphorRegular');
   static const heartStraight = IconData(0xe2aa, fontFamily: 'PhosphorRegular');
-  static const heartStraightBreak = IconData(0xeb98, fontFamily: 'PhosphorRegular');
+  static const heartStraightBreak = IconData(
+    0xeb98,
+    fontFamily: 'PhosphorRegular',
+  );
   static const heartbeat = IconData(0xe2ac, fontFamily: 'PhosphorRegular');
   static const hexagon = IconData(0xe2ae, fontFamily: 'PhosphorRegular');
   static const highDefinition = IconData(0xea8e, fontFamily: 'PhosphorRegular');
   static const highHeel = IconData(0xe8e8, fontFamily: 'PhosphorRegular');
   static const highlighter = IconData(0xec76, fontFamily: 'PhosphorRegular');
-  static const highlighterCircle = IconData(0xe632, fontFamily: 'PhosphorRegular');
+  static const highlighterCircle = IconData(
+    0xe632,
+    fontFamily: 'PhosphorRegular',
+  );
   static const hockey = IconData(0xec86, fontFamily: 'PhosphorRegular');
   static const hoodie = IconData(0xecd0, fontFamily: 'PhosphorRegular');
   static const horse = IconData(0xe2b0, fontFamily: 'PhosphorRegular');
@@ -778,18 +1246,39 @@ abstract final class Ph {
   static const hourglass = IconData(0xe2b2, fontFamily: 'PhosphorRegular');
   static const hourglassHigh = IconData(0xe2b4, fontFamily: 'PhosphorRegular');
   static const hourglassLow = IconData(0xe2b6, fontFamily: 'PhosphorRegular');
-  static const hourglassMedium = IconData(0xe2b8, fontFamily: 'PhosphorRegular');
-  static const hourglassSimple = IconData(0xe2ba, fontFamily: 'PhosphorRegular');
-  static const hourglassSimpleHigh = IconData(0xe2bc, fontFamily: 'PhosphorRegular');
-  static const hourglassSimpleLow = IconData(0xe2be, fontFamily: 'PhosphorRegular');
-  static const hourglassSimpleMedium = IconData(0xe2c0, fontFamily: 'PhosphorRegular');
+  static const hourglassMedium = IconData(
+    0xe2b8,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const hourglassSimple = IconData(
+    0xe2ba,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const hourglassSimpleHigh = IconData(
+    0xe2bc,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const hourglassSimpleLow = IconData(
+    0xe2be,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const hourglassSimpleMedium = IconData(
+    0xe2c0,
+    fontFamily: 'PhosphorRegular',
+  );
   static const house = IconData(0xe2c2, fontFamily: 'PhosphorRegular');
   static const houseLine = IconData(0xe2c4, fontFamily: 'PhosphorRegular');
   static const houseSimple = IconData(0xe2c6, fontFamily: 'PhosphorRegular');
   static const hurricane = IconData(0xe88e, fontFamily: 'PhosphorRegular');
   static const iceCream = IconData(0xe804, fontFamily: 'PhosphorRegular');
-  static const identificationBadge = IconData(0xe6f6, fontFamily: 'PhosphorRegular');
-  static const identificationCard = IconData(0xe2c8, fontFamily: 'PhosphorRegular');
+  static const identificationBadge = IconData(
+    0xe6f6,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const identificationCard = IconData(
+    0xe2c8,
+    fontFamily: 'PhosphorRegular',
+  );
   static const image = IconData(0xe2ca, fontFamily: 'PhosphorRegular');
   static const imageBroken = IconData(0xe7a8, fontFamily: 'PhosphorRegular');
   static const imageSquare = IconData(0xe2cc, fontFamily: 'PhosphorRegular');
@@ -799,7 +1288,10 @@ abstract final class Ph {
   static const info = IconData(0xe2ce, fontFamily: 'PhosphorRegular');
   static const instagramLogo = IconData(0xe2d0, fontFamily: 'PhosphorRegular');
   static const intersect = IconData(0xe2d2, fontFamily: 'PhosphorRegular');
-  static const intersectSquare = IconData(0xe87a, fontFamily: 'PhosphorRegular');
+  static const intersectSquare = IconData(
+    0xe87a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const intersectThree = IconData(0xecc4, fontFamily: 'PhosphorRegular');
   static const intersection = IconData(0xedba, fontFamily: 'PhosphorRegular');
   static const invoice = IconData(0xee42, fontFamily: 'PhosphorRegular');
@@ -827,13 +1319,19 @@ abstract final class Ph {
   static const lego = IconData(0xe8c6, fontFamily: 'PhosphorRegular');
   static const legoSmiley = IconData(0xe8c7, fontFamily: 'PhosphorRegular');
   static const lessThan = IconData(0xedac, fontFamily: 'PhosphorRegular');
-  static const lessThanOrEqual = IconData(0xeda4, fontFamily: 'PhosphorRegular');
+  static const lessThanOrEqual = IconData(
+    0xeda4,
+    fontFamily: 'PhosphorRegular',
+  );
   static const letterCircleH = IconData(0xebf8, fontFamily: 'PhosphorRegular');
   static const letterCircleP = IconData(0xec08, fontFamily: 'PhosphorRegular');
   static const letterCircleV = IconData(0xec14, fontFamily: 'PhosphorRegular');
   static const lifebuoy = IconData(0xe63a, fontFamily: 'PhosphorRegular');
   static const lightbulb = IconData(0xe2dc, fontFamily: 'PhosphorRegular');
-  static const lightbulbFilament = IconData(0xe63c, fontFamily: 'PhosphorRegular');
+  static const lightbulbFilament = IconData(
+    0xe63c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const lighthouse = IconData(0xe9f6, fontFamily: 'PhosphorRegular');
   static const lightning = IconData(0xe2de, fontFamily: 'PhosphorRegular');
   static const lightningA = IconData(0xea84, fontFamily: 'PhosphorRegular');
@@ -844,8 +1342,14 @@ abstract final class Ph {
   static const link = IconData(0xe2e2, fontFamily: 'PhosphorRegular');
   static const linkBreak = IconData(0xe2e4, fontFamily: 'PhosphorRegular');
   static const linkSimple = IconData(0xe2e6, fontFamily: 'PhosphorRegular');
-  static const linkSimpleBreak = IconData(0xe2e8, fontFamily: 'PhosphorRegular');
-  static const linkSimpleHorizontal = IconData(0xe2ea, fontFamily: 'PhosphorRegular');
+  static const linkSimpleBreak = IconData(
+    0xe2e8,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const linkSimpleHorizontal = IconData(
+    0xe2ea,
+    fontFamily: 'PhosphorRegular',
+  );
   static const linkedinLogo = IconData(0xe2ee, fontFamily: 'PhosphorRegular');
   static const linktreeLogo = IconData(0xedee, fontFamily: 'PhosphorRegular');
   static const linuxLogo = IconData(0xeb02, fontFamily: 'PhosphorRegular');
@@ -854,7 +1358,10 @@ abstract final class Ph {
   static const listChecks = IconData(0xeadc, fontFamily: 'PhosphorRegular');
   static const listDashes = IconData(0xe2f4, fontFamily: 'PhosphorRegular');
   static const listHeart = IconData(0xebde, fontFamily: 'PhosphorRegular');
-  static const listMagnifyingGlass = IconData(0xebe0, fontFamily: 'PhosphorRegular');
+  static const listMagnifyingGlass = IconData(
+    0xebe0,
+    fontFamily: 'PhosphorRegular',
+  );
   static const listNumbers = IconData(0xe2f6, fontFamily: 'PhosphorRegular');
   static const listPlus = IconData(0xe2f8, fontFamily: 'PhosphorRegular');
   static const listStar = IconData(0xebdc, fontFamily: 'PhosphorRegular');
@@ -862,7 +1369,10 @@ abstract final class Ph {
   static const lockKey = IconData(0xe2fe, fontFamily: 'PhosphorRegular');
   static const lockKeyOpen = IconData(0xe300, fontFamily: 'PhosphorRegular');
   static const lockLaminated = IconData(0xe302, fontFamily: 'PhosphorRegular');
-  static const lockLaminatedOpen = IconData(0xe304, fontFamily: 'PhosphorRegular');
+  static const lockLaminatedOpen = IconData(
+    0xe304,
+    fontFamily: 'PhosphorRegular',
+  );
   static const lockOpen = IconData(0xe306, fontFamily: 'PhosphorRegular');
   static const lockSimple = IconData(0xe308, fontFamily: 'PhosphorRegular');
   static const lockSimpleOpen = IconData(0xe30a, fontFamily: 'PhosphorRegular');
@@ -871,17 +1381,32 @@ abstract final class Ph {
   static const magicWand = IconData(0xe6b6, fontFamily: 'PhosphorRegular');
   static const magnet = IconData(0xe680, fontFamily: 'PhosphorRegular');
   static const magnetStraight = IconData(0xe682, fontFamily: 'PhosphorRegular');
-  static const magnifyingGlass = IconData(0xe30c, fontFamily: 'PhosphorRegular');
-  static const magnifyingGlassMinus = IconData(0xe30e, fontFamily: 'PhosphorRegular');
-  static const magnifyingGlassPlus = IconData(0xe310, fontFamily: 'PhosphorRegular');
+  static const magnifyingGlass = IconData(
+    0xe30c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const magnifyingGlassMinus = IconData(
+    0xe30e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const magnifyingGlassPlus = IconData(
+    0xe310,
+    fontFamily: 'PhosphorRegular',
+  );
   static const mailbox = IconData(0xec1e, fontFamily: 'PhosphorRegular');
   static const mapPin = IconData(0xe316, fontFamily: 'PhosphorRegular');
   static const mapPinArea = IconData(0xee3a, fontFamily: 'PhosphorRegular');
   static const mapPinLine = IconData(0xe318, fontFamily: 'PhosphorRegular');
   static const mapPinPlus = IconData(0xe314, fontFamily: 'PhosphorRegular');
   static const mapPinSimple = IconData(0xee3e, fontFamily: 'PhosphorRegular');
-  static const mapPinSimpleArea = IconData(0xee3c, fontFamily: 'PhosphorRegular');
-  static const mapPinSimpleLine = IconData(0xee38, fontFamily: 'PhosphorRegular');
+  static const mapPinSimpleArea = IconData(
+    0xee3c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const mapPinSimpleLine = IconData(
+    0xee38,
+    fontFamily: 'PhosphorRegular',
+  );
   static const mapTrifold = IconData(0xe31a, fontFamily: 'PhosphorRegular');
   static const markdownLogo = IconData(0xe508, fontFamily: 'PhosphorRegular');
   static const markerCircle = IconData(0xe640, fontFamily: 'PhosphorRegular');
@@ -895,7 +1420,10 @@ abstract final class Ph {
   static const medalMilitary = IconData(0xecfc, fontFamily: 'PhosphorRegular');
   static const mediumLogo = IconData(0xe322, fontFamily: 'PhosphorRegular');
   static const megaphone = IconData(0xe324, fontFamily: 'PhosphorRegular');
-  static const megaphoneSimple = IconData(0xe642, fontFamily: 'PhosphorRegular');
+  static const megaphoneSimple = IconData(
+    0xe642,
+    fontFamily: 'PhosphorRegular',
+  );
   static const memberOf = IconData(0xedc2, fontFamily: 'PhosphorRegular');
   static const memory = IconData(0xe9c4, fontFamily: 'PhosphorRegular');
   static const messengerLogo = IconData(0xe6d8, fontFamily: 'PhosphorRegular');
@@ -903,13 +1431,31 @@ abstract final class Ph {
   static const meteor = IconData(0xe9ba, fontFamily: 'PhosphorRegular');
   static const metronome = IconData(0xec8e, fontFamily: 'PhosphorRegular');
   static const microphone = IconData(0xe326, fontFamily: 'PhosphorRegular');
-  static const microphoneSlash = IconData(0xe328, fontFamily: 'PhosphorRegular');
-  static const microphoneStage = IconData(0xe75c, fontFamily: 'PhosphorRegular');
+  static const microphoneSlash = IconData(
+    0xe328,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const microphoneStage = IconData(
+    0xe75c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const microscope = IconData(0xec7a, fontFamily: 'PhosphorRegular');
-  static const microsoftExcelLogo = IconData(0xeb6c, fontFamily: 'PhosphorRegular');
-  static const microsoftOutlookLogo = IconData(0xeb70, fontFamily: 'PhosphorRegular');
-  static const microsoftTeamsLogo = IconData(0xeb66, fontFamily: 'PhosphorRegular');
-  static const microsoftWordLogo = IconData(0xeb6a, fontFamily: 'PhosphorRegular');
+  static const microsoftExcelLogo = IconData(
+    0xeb6c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const microsoftOutlookLogo = IconData(
+    0xeb70,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const microsoftTeamsLogo = IconData(
+    0xeb66,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const microsoftWordLogo = IconData(
+    0xeb6a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const minus = IconData(0xe32a, fontFamily: 'PhosphorRegular');
   static const minusCircle = IconData(0xe32c, fontFamily: 'PhosphorRegular');
   static const minusSquare = IconData(0xed4c, fontFamily: 'PhosphorRegular');
@@ -927,23 +1473,44 @@ abstract final class Ph {
   static const mountains = IconData(0xe7ae, fontFamily: 'PhosphorRegular');
   static const mouse = IconData(0xe33a, fontFamily: 'PhosphorRegular');
   static const mouseLeftClick = IconData(0xe334, fontFamily: 'PhosphorRegular');
-  static const mouseMiddleClick = IconData(0xe338, fontFamily: 'PhosphorRegular');
-  static const mouseRightClick = IconData(0xe336, fontFamily: 'PhosphorRegular');
+  static const mouseMiddleClick = IconData(
+    0xe338,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const mouseRightClick = IconData(
+    0xe336,
+    fontFamily: 'PhosphorRegular',
+  );
   static const mouseScroll = IconData(0xe332, fontFamily: 'PhosphorRegular');
   static const mouseSimple = IconData(0xe644, fontFamily: 'PhosphorRegular');
   static const musicNote = IconData(0xe33c, fontFamily: 'PhosphorRegular');
-  static const musicNoteSimple = IconData(0xe33e, fontFamily: 'PhosphorRegular');
+  static const musicNoteSimple = IconData(
+    0xe33e,
+    fontFamily: 'PhosphorRegular',
+  );
   static const musicNotes = IconData(0xe340, fontFamily: 'PhosphorRegular');
-  static const musicNotesMinus = IconData(0xee0c, fontFamily: 'PhosphorRegular');
+  static const musicNotesMinus = IconData(
+    0xee0c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const musicNotesPlus = IconData(0xeb7c, fontFamily: 'PhosphorRegular');
-  static const musicNotesSimple = IconData(0xe342, fontFamily: 'PhosphorRegular');
-  static const navigationArrow = IconData(0xeade, fontFamily: 'PhosphorRegular');
+  static const musicNotesSimple = IconData(
+    0xe342,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const navigationArrow = IconData(
+    0xeade,
+    fontFamily: 'PhosphorRegular',
+  );
   static const needle = IconData(0xe82e, fontFamily: 'PhosphorRegular');
   static const network = IconData(0xedde, fontFamily: 'PhosphorRegular');
   static const networkSlash = IconData(0xeddc, fontFamily: 'PhosphorRegular');
   static const networkX = IconData(0xedda, fontFamily: 'PhosphorRegular');
   static const newspaper = IconData(0xe344, fontFamily: 'PhosphorRegular');
-  static const newspaperClipping = IconData(0xe346, fontFamily: 'PhosphorRegular');
+  static const newspaperClipping = IconData(
+    0xe346,
+    fontFamily: 'PhosphorRegular',
+  );
   static const notEquals = IconData(0xeda6, fontFamily: 'PhosphorRegular');
   static const notMemberOf = IconData(0xedae, fontFamily: 'PhosphorRegular');
   static const notSubsetOf = IconData(0xedb0, fontFamily: 'PhosphorRegular');
@@ -957,16 +1524,46 @@ abstract final class Ph {
   static const notification = IconData(0xe6fa, fontFamily: 'PhosphorRegular');
   static const notionLogo = IconData(0xe9a0, fontFamily: 'PhosphorRegular');
   static const nuclearPlant = IconData(0xed7c, fontFamily: 'PhosphorRegular');
-  static const numberCircleEight = IconData(0xe352, fontFamily: 'PhosphorRegular');
-  static const numberCircleFive = IconData(0xe358, fontFamily: 'PhosphorRegular');
-  static const numberCircleFour = IconData(0xe35e, fontFamily: 'PhosphorRegular');
-  static const numberCircleNine = IconData(0xe364, fontFamily: 'PhosphorRegular');
-  static const numberCircleOne = IconData(0xe36a, fontFamily: 'PhosphorRegular');
-  static const numberCircleSeven = IconData(0xe370, fontFamily: 'PhosphorRegular');
-  static const numberCircleSix = IconData(0xe376, fontFamily: 'PhosphorRegular');
-  static const numberCircleThree = IconData(0xe37c, fontFamily: 'PhosphorRegular');
-  static const numberCircleTwo = IconData(0xe382, fontFamily: 'PhosphorRegular');
-  static const numberCircleZero = IconData(0xe388, fontFamily: 'PhosphorRegular');
+  static const numberCircleEight = IconData(
+    0xe352,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberCircleFive = IconData(
+    0xe358,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberCircleFour = IconData(
+    0xe35e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberCircleNine = IconData(
+    0xe364,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberCircleOne = IconData(
+    0xe36a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberCircleSeven = IconData(
+    0xe370,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberCircleSix = IconData(
+    0xe376,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberCircleThree = IconData(
+    0xe37c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberCircleTwo = IconData(
+    0xe382,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberCircleZero = IconData(
+    0xe388,
+    fontFamily: 'PhosphorRegular',
+  );
   static const numberEight = IconData(0xe350, fontFamily: 'PhosphorRegular');
   static const numberFive = IconData(0xe356, fontFamily: 'PhosphorRegular');
   static const numberFour = IconData(0xe35c, fontFamily: 'PhosphorRegular');
@@ -974,16 +1571,46 @@ abstract final class Ph {
   static const numberOne = IconData(0xe368, fontFamily: 'PhosphorRegular');
   static const numberSeven = IconData(0xe36e, fontFamily: 'PhosphorRegular');
   static const numberSix = IconData(0xe374, fontFamily: 'PhosphorRegular');
-  static const numberSquareEight = IconData(0xe354, fontFamily: 'PhosphorRegular');
-  static const numberSquareFive = IconData(0xe35a, fontFamily: 'PhosphorRegular');
-  static const numberSquareFour = IconData(0xe360, fontFamily: 'PhosphorRegular');
-  static const numberSquareNine = IconData(0xe366, fontFamily: 'PhosphorRegular');
-  static const numberSquareOne = IconData(0xe36c, fontFamily: 'PhosphorRegular');
-  static const numberSquareSeven = IconData(0xe372, fontFamily: 'PhosphorRegular');
-  static const numberSquareSix = IconData(0xe378, fontFamily: 'PhosphorRegular');
-  static const numberSquareThree = IconData(0xe37e, fontFamily: 'PhosphorRegular');
-  static const numberSquareTwo = IconData(0xe384, fontFamily: 'PhosphorRegular');
-  static const numberSquareZero = IconData(0xe38a, fontFamily: 'PhosphorRegular');
+  static const numberSquareEight = IconData(
+    0xe354,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberSquareFive = IconData(
+    0xe35a,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberSquareFour = IconData(
+    0xe360,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberSquareNine = IconData(
+    0xe366,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberSquareOne = IconData(
+    0xe36c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberSquareSeven = IconData(
+    0xe372,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberSquareSix = IconData(
+    0xe378,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberSquareThree = IconData(
+    0xe37e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberSquareTwo = IconData(
+    0xe384,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const numberSquareZero = IconData(
+    0xe38a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const numberThree = IconData(0xe37a, fontFamily: 'PhosphorRegular');
   static const numberTwo = IconData(0xe380, fontFamily: 'PhosphorRegular');
   static const numberZero = IconData(0xe386, fontFamily: 'PhosphorRegular');
@@ -1000,18 +1627,30 @@ abstract final class Ph {
   static const oven = IconData(0xed8c, fontFamily: 'PhosphorRegular');
   static const package = IconData(0xe390, fontFamily: 'PhosphorRegular');
   static const paintBrush = IconData(0xe6f0, fontFamily: 'PhosphorRegular');
-  static const paintBrushBroad = IconData(0xe590, fontFamily: 'PhosphorRegular');
-  static const paintBrushHousehold = IconData(0xe6f2, fontFamily: 'PhosphorRegular');
+  static const paintBrushBroad = IconData(
+    0xe590,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const paintBrushHousehold = IconData(
+    0xe6f2,
+    fontFamily: 'PhosphorRegular',
+  );
   static const paintBucket = IconData(0xe392, fontFamily: 'PhosphorRegular');
   static const paintRoller = IconData(0xe6f4, fontFamily: 'PhosphorRegular');
   static const palette = IconData(0xe6c8, fontFamily: 'PhosphorRegular');
   static const panorama = IconData(0xeaa2, fontFamily: 'PhosphorRegular');
   static const pants = IconData(0xec88, fontFamily: 'PhosphorRegular');
   static const paperPlane = IconData(0xe394, fontFamily: 'PhosphorRegular');
-  static const paperPlaneRight = IconData(0xe396, fontFamily: 'PhosphorRegular');
+  static const paperPlaneRight = IconData(
+    0xe396,
+    fontFamily: 'PhosphorRegular',
+  );
   static const paperPlaneTilt = IconData(0xe398, fontFamily: 'PhosphorRegular');
   static const paperclip = IconData(0xe39a, fontFamily: 'PhosphorRegular');
-  static const paperclipHorizontal = IconData(0xe592, fontFamily: 'PhosphorRegular');
+  static const paperclipHorizontal = IconData(
+    0xe592,
+    fontFamily: 'PhosphorRegular',
+  );
   static const parachute = IconData(0xea7c, fontFamily: 'PhosphorRegular');
   static const paragraph = IconData(0xe960, fontFamily: 'PhosphorRegular');
   static const parallelogram = IconData(0xecc6, fontFamily: 'PhosphorRegular');
@@ -1032,30 +1671,72 @@ abstract final class Ph {
   static const pencilLine = IconData(0xe3b2, fontFamily: 'PhosphorRegular');
   static const pencilRuler = IconData(0xe906, fontFamily: 'PhosphorRegular');
   static const pencilSimple = IconData(0xe3b4, fontFamily: 'PhosphorRegular');
-  static const pencilSimpleLine = IconData(0xebc6, fontFamily: 'PhosphorRegular');
-  static const pencilSimpleSlash = IconData(0xecf6, fontFamily: 'PhosphorRegular');
+  static const pencilSimpleLine = IconData(
+    0xebc6,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const pencilSimpleSlash = IconData(
+    0xecf6,
+    fontFamily: 'PhosphorRegular',
+  );
   static const pencilSlash = IconData(0xecf8, fontFamily: 'PhosphorRegular');
   static const pentagon = IconData(0xec7e, fontFamily: 'PhosphorRegular');
   static const pentagram = IconData(0xec5c, fontFamily: 'PhosphorRegular');
   static const pepper = IconData(0xe94a, fontFamily: 'PhosphorRegular');
   static const percent = IconData(0xe3b6, fontFamily: 'PhosphorRegular');
   static const person = IconData(0xe3a8, fontFamily: 'PhosphorRegular');
-  static const personArmsSpread = IconData(0xecfe, fontFamily: 'PhosphorRegular');
+  static const personArmsSpread = IconData(
+    0xecfe,
+    fontFamily: 'PhosphorRegular',
+  );
   static const personSimple = IconData(0xe72e, fontFamily: 'PhosphorRegular');
-  static const personSimpleBike = IconData(0xe734, fontFamily: 'PhosphorRegular');
-  static const personSimpleCircle = IconData(0xee58, fontFamily: 'PhosphorRegular');
-  static const personSimpleHike = IconData(0xed54, fontFamily: 'PhosphorRegular');
-  static const personSimpleRun = IconData(0xe730, fontFamily: 'PhosphorRegular');
-  static const personSimpleSki = IconData(0xe71c, fontFamily: 'PhosphorRegular');
-  static const personSimpleSnowboard = IconData(0xe71e, fontFamily: 'PhosphorRegular');
-  static const personSimpleSwim = IconData(0xe736, fontFamily: 'PhosphorRegular');
-  static const personSimpleTaiChi = IconData(0xed5c, fontFamily: 'PhosphorRegular');
-  static const personSimpleThrow = IconData(0xe732, fontFamily: 'PhosphorRegular');
-  static const personSimpleWalk = IconData(0xe73a, fontFamily: 'PhosphorRegular');
+  static const personSimpleBike = IconData(
+    0xe734,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const personSimpleCircle = IconData(
+    0xee58,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const personSimpleHike = IconData(
+    0xed54,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const personSimpleRun = IconData(
+    0xe730,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const personSimpleSki = IconData(
+    0xe71c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const personSimpleSnowboard = IconData(
+    0xe71e,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const personSimpleSwim = IconData(
+    0xe736,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const personSimpleTaiChi = IconData(
+    0xed5c,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const personSimpleThrow = IconData(
+    0xe732,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const personSimpleWalk = IconData(
+    0xe73a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const perspective = IconData(0xebe6, fontFamily: 'PhosphorRegular');
   static const phone = IconData(0xe3b8, fontFamily: 'PhosphorRegular');
   static const phoneCall = IconData(0xe3ba, fontFamily: 'PhosphorRegular');
-  static const phoneDisconnect = IconData(0xe3bc, fontFamily: 'PhosphorRegular');
+  static const phoneDisconnect = IconData(
+    0xe3bc,
+    fontFamily: 'PhosphorRegular',
+  );
   static const phoneIncoming = IconData(0xe3be, fontFamily: 'PhosphorRegular');
   static const phoneList = IconData(0xe3cc, fontFamily: 'PhosphorRegular');
   static const phoneOutgoing = IconData(0xe3c0, fontFamily: 'PhosphorRegular');
@@ -1068,7 +1749,10 @@ abstract final class Ph {
   static const pi = IconData(0xec80, fontFamily: 'PhosphorRegular');
   static const pianoKeys = IconData(0xe9c8, fontFamily: 'PhosphorRegular');
   static const picnicTable = IconData(0xee26, fontFamily: 'PhosphorRegular');
-  static const pictureInpicture = IconData(0xe64c, fontFamily: 'PhosphorRegular');
+  static const pictureInpicture = IconData(
+    0xe64c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const piggyBank = IconData(0xea04, fontFamily: 'PhosphorRegular');
   static const pill = IconData(0xe700, fontFamily: 'PhosphorRegular');
   static const pingPong = IconData(0xea42, fontFamily: 'PhosphorRegular');
@@ -1103,16 +1787,28 @@ abstract final class Ph {
   static const power = IconData(0xe3da, fontFamily: 'PhosphorRegular');
   static const prescription = IconData(0xe7a2, fontFamily: 'PhosphorRegular');
   static const presentation = IconData(0xe654, fontFamily: 'PhosphorRegular');
-  static const presentationChart = IconData(0xe656, fontFamily: 'PhosphorRegular');
+  static const presentationChart = IconData(
+    0xe656,
+    fontFamily: 'PhosphorRegular',
+  );
   static const printer = IconData(0xe3dc, fontFamily: 'PhosphorRegular');
   static const prohibit = IconData(0xe3de, fontFamily: 'PhosphorRegular');
   static const prohibitInset = IconData(0xe3e0, fontFamily: 'PhosphorRegular');
-  static const projectorScreen = IconData(0xe658, fontFamily: 'PhosphorRegular');
-  static const projectorScreenChart = IconData(0xe65a, fontFamily: 'PhosphorRegular');
+  static const projectorScreen = IconData(
+    0xe658,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const projectorScreenChart = IconData(
+    0xe65a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const pulse = IconData(0xe000, fontFamily: 'PhosphorRegular');
   static const pushPin = IconData(0xe3e2, fontFamily: 'PhosphorRegular');
   static const pushPinSimple = IconData(0xe65c, fontFamily: 'PhosphorRegular');
-  static const pushPinSimpleSlash = IconData(0xe65e, fontFamily: 'PhosphorRegular');
+  static const pushPinSimpleSlash = IconData(
+    0xe65e,
+    fontFamily: 'PhosphorRegular',
+  );
   static const pushPinSlash = IconData(0xe3e4, fontFamily: 'PhosphorRegular');
   static const puzzlePiece = IconData(0xe596, fontFamily: 'PhosphorRegular');
   static const qrCode = IconData(0xe3e6, fontFamily: 'PhosphorRegular');
@@ -1134,7 +1830,10 @@ abstract final class Ph {
   static const receiptX = IconData(0xed40, fontFamily: 'PhosphorRegular');
   static const record = IconData(0xe3ee, fontFamily: 'PhosphorRegular');
   static const rectangle = IconData(0xe3f0, fontFamily: 'PhosphorRegular');
-  static const rectangleDashed = IconData(0xe3f2, fontFamily: 'PhosphorRegular');
+  static const rectangleDashed = IconData(
+    0xe3f2,
+    fontFamily: 'PhosphorRegular',
+  );
   static const recycle = IconData(0xe75a, fontFamily: 'PhosphorRegular');
   static const redditLogo = IconData(0xe59c, fontFamily: 'PhosphorRegular');
   static const repeat = IconData(0xe3f6, fontFamily: 'PhosphorRegular');
@@ -1175,9 +1874,18 @@ abstract final class Ph {
   static const securityCamera = IconData(0xeca4, fontFamily: 'PhosphorRegular');
   static const selection = IconData(0xe69a, fontFamily: 'PhosphorRegular');
   static const selectionAll = IconData(0xe746, fontFamily: 'PhosphorRegular');
-  static const selectionBackground = IconData(0xeaf8, fontFamily: 'PhosphorRegular');
-  static const selectionForeground = IconData(0xeaf6, fontFamily: 'PhosphorRegular');
-  static const selectionInverse = IconData(0xe744, fontFamily: 'PhosphorRegular');
+  static const selectionBackground = IconData(
+    0xeaf8,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const selectionForeground = IconData(
+    0xeaf6,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const selectionInverse = IconData(
+    0xe744,
+    fontFamily: 'PhosphorRegular',
+  );
   static const selectionPlus = IconData(0xe69c, fontFamily: 'PhosphorRegular');
   static const selectionSlash = IconData(0xe69e, fontFamily: 'PhosphorRegular');
   static const shapes = IconData(0xec5e, fontFamily: 'PhosphorRegular');
@@ -1186,19 +1894,31 @@ abstract final class Ph {
   static const shareNetwork = IconData(0xe408, fontFamily: 'PhosphorRegular');
   static const shield = IconData(0xe40a, fontFamily: 'PhosphorRegular');
   static const shieldCheck = IconData(0xe40c, fontFamily: 'PhosphorRegular');
-  static const shieldCheckered = IconData(0xe708, fontFamily: 'PhosphorRegular');
+  static const shieldCheckered = IconData(
+    0xe708,
+    fontFamily: 'PhosphorRegular',
+  );
   static const shieldChevron = IconData(0xe40e, fontFamily: 'PhosphorRegular');
   static const shieldPlus = IconData(0xe706, fontFamily: 'PhosphorRegular');
   static const shieldSlash = IconData(0xe410, fontFamily: 'PhosphorRegular');
   static const shieldStar = IconData(0xec34, fontFamily: 'PhosphorRegular');
   static const shieldWarning = IconData(0xe412, fontFamily: 'PhosphorRegular');
-  static const shippingContainer = IconData(0xe78c, fontFamily: 'PhosphorRegular');
+  static const shippingContainer = IconData(
+    0xe78c,
+    fontFamily: 'PhosphorRegular',
+  );
   static const shirtFolded = IconData(0xea92, fontFamily: 'PhosphorRegular');
   static const shootingStar = IconData(0xecfa, fontFamily: 'PhosphorRegular');
   static const shoppingBag = IconData(0xe416, fontFamily: 'PhosphorRegular');
-  static const shoppingBagOpen = IconData(0xe418, fontFamily: 'PhosphorRegular');
+  static const shoppingBagOpen = IconData(
+    0xe418,
+    fontFamily: 'PhosphorRegular',
+  );
   static const shoppingCart = IconData(0xe41e, fontFamily: 'PhosphorRegular');
-  static const shoppingCartSimple = IconData(0xe420, fontFamily: 'PhosphorRegular');
+  static const shoppingCartSimple = IconData(
+    0xe420,
+    fontFamily: 'PhosphorRegular',
+  );
   static const shovel = IconData(0xe9e6, fontFamily: 'PhosphorRegular');
   static const shower = IconData(0xe776, fontFamily: 'PhosphorRegular');
   static const shrimp = IconData(0xeab4, fontFamily: 'PhosphorRegular');
@@ -1218,12 +1938,18 @@ abstract final class Ph {
   static const skipBack = IconData(0xe5a4, fontFamily: 'PhosphorRegular');
   static const skipBackCircle = IconData(0xe42e, fontFamily: 'PhosphorRegular');
   static const skipForward = IconData(0xe5a6, fontFamily: 'PhosphorRegular');
-  static const skipForwardCircle = IconData(0xe430, fontFamily: 'PhosphorRegular');
+  static const skipForwardCircle = IconData(
+    0xe430,
+    fontFamily: 'PhosphorRegular',
+  );
   static const skull = IconData(0xe916, fontFamily: 'PhosphorRegular');
   static const skypeLogo = IconData(0xe8dc, fontFamily: 'PhosphorRegular');
   static const slackLogo = IconData(0xe5a8, fontFamily: 'PhosphorRegular');
   static const sliders = IconData(0xe432, fontFamily: 'PhosphorRegular');
-  static const slidersHorizontal = IconData(0xe434, fontFamily: 'PhosphorRegular');
+  static const slidersHorizontal = IconData(
+    0xe434,
+    fontFamily: 'PhosphorRegular',
+  );
   static const slideshow = IconData(0xed32, fontFamily: 'PhosphorRegular');
   static const smiley = IconData(0xe436, fontFamily: 'PhosphorRegular');
   static const smileyAngry = IconData(0xec62, fontFamily: 'PhosphorRegular');
@@ -1252,10 +1978,22 @@ abstract final class Ph {
   static const speakerHigh = IconData(0xe44a, fontFamily: 'PhosphorRegular');
   static const speakerLow = IconData(0xe44c, fontFamily: 'PhosphorRegular');
   static const speakerNone = IconData(0xe44e, fontFamily: 'PhosphorRegular');
-  static const speakerSimpleHigh = IconData(0xe450, fontFamily: 'PhosphorRegular');
-  static const speakerSimpleLow = IconData(0xe452, fontFamily: 'PhosphorRegular');
-  static const speakerSimpleNone = IconData(0xe454, fontFamily: 'PhosphorRegular');
-  static const speakerSimpleSlash = IconData(0xe456, fontFamily: 'PhosphorRegular');
+  static const speakerSimpleHigh = IconData(
+    0xe450,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const speakerSimpleLow = IconData(
+    0xe452,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const speakerSimpleNone = IconData(
+    0xe454,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const speakerSimpleSlash = IconData(
+    0xe456,
+    fontFamily: 'PhosphorRegular',
+  );
   static const speakerSimpleX = IconData(0xe458, fontFamily: 'PhosphorRegular');
   static const speakerSlash = IconData(0xe45a, fontFamily: 'PhosphorRegular');
   static const speakerX = IconData(0xe45c, fontFamily: 'PhosphorRegular');
@@ -1265,27 +2003,48 @@ abstract final class Ph {
   static const spinnerBall = IconData(0xee28, fontFamily: 'PhosphorRegular');
   static const spinnerGap = IconData(0xe66c, fontFamily: 'PhosphorRegular');
   static const spiral = IconData(0xe9fa, fontFamily: 'PhosphorRegular');
-  static const splitHorizontal = IconData(0xe872, fontFamily: 'PhosphorRegular');
+  static const splitHorizontal = IconData(
+    0xe872,
+    fontFamily: 'PhosphorRegular',
+  );
   static const splitVertical = IconData(0xe876, fontFamily: 'PhosphorRegular');
   static const spotifyLogo = IconData(0xe66e, fontFamily: 'PhosphorRegular');
   static const sprayBottle = IconData(0xe7e4, fontFamily: 'PhosphorRegular');
   static const square = IconData(0xe45e, fontFamily: 'PhosphorRegular');
   static const squareHalf = IconData(0xe462, fontFamily: 'PhosphorRegular');
-  static const squareHalfBottom = IconData(0xeb16, fontFamily: 'PhosphorRegular');
+  static const squareHalfBottom = IconData(
+    0xeb16,
+    fontFamily: 'PhosphorRegular',
+  );
   static const squareLogo = IconData(0xe690, fontFamily: 'PhosphorRegular');
-  static const squareSplitHorizontal = IconData(0xe870, fontFamily: 'PhosphorRegular');
-  static const squareSplitVertical = IconData(0xe874, fontFamily: 'PhosphorRegular');
+  static const squareSplitHorizontal = IconData(
+    0xe870,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const squareSplitVertical = IconData(
+    0xe874,
+    fontFamily: 'PhosphorRegular',
+  );
   static const squaresFour = IconData(0xe464, fontFamily: 'PhosphorRegular');
   static const stack = IconData(0xe466, fontFamily: 'PhosphorRegular');
   static const stackMinus = IconData(0xedf4, fontFamily: 'PhosphorRegular');
-  static const stackOverflowLogo = IconData(0xeb78, fontFamily: 'PhosphorRegular');
+  static const stackOverflowLogo = IconData(
+    0xeb78,
+    fontFamily: 'PhosphorRegular',
+  );
   static const stackPlus = IconData(0xedf6, fontFamily: 'PhosphorRegular');
   static const stackSimple = IconData(0xe468, fontFamily: 'PhosphorRegular');
   static const stairs = IconData(0xe8ec, fontFamily: 'PhosphorRegular');
   static const stamp = IconData(0xea48, fontFamily: 'PhosphorRegular');
-  static const standardDefinition = IconData(0xea90, fontFamily: 'PhosphorRegular');
+  static const standardDefinition = IconData(
+    0xea90,
+    fontFamily: 'PhosphorRegular',
+  );
   static const star = IconData(0xe46a, fontFamily: 'PhosphorRegular');
-  static const starAndCrescent = IconData(0xecf4, fontFamily: 'PhosphorRegular');
+  static const starAndCrescent = IconData(
+    0xecf4,
+    fontFamily: 'PhosphorRegular',
+  );
   static const starFour = IconData(0xe6a4, fontFamily: 'PhosphorRegular');
   static const starHalf = IconData(0xe70a, fontFamily: 'PhosphorRegular');
   static const starOfDavid = IconData(0xe89e, fontFamily: 'PhosphorRegular');
@@ -1309,14 +2068,20 @@ abstract final class Ph {
   static const subtractSquare = IconData(0xebd4, fontFamily: 'PhosphorRegular');
   static const subway = IconData(0xe498, fontFamily: 'PhosphorRegular');
   static const suitcase = IconData(0xe5ae, fontFamily: 'PhosphorRegular');
-  static const suitcaseRolling = IconData(0xe9b0, fontFamily: 'PhosphorRegular');
+  static const suitcaseRolling = IconData(
+    0xe9b0,
+    fontFamily: 'PhosphorRegular',
+  );
   static const suitcaseSimple = IconData(0xe5b0, fontFamily: 'PhosphorRegular');
   static const sun = IconData(0xe472, fontFamily: 'PhosphorRegular');
   static const sunDim = IconData(0xe474, fontFamily: 'PhosphorRegular');
   static const sunHorizon = IconData(0xe5b6, fontFamily: 'PhosphorRegular');
   static const sunglasses = IconData(0xe816, fontFamily: 'PhosphorRegular');
   static const supersetOf = IconData(0xedb8, fontFamily: 'PhosphorRegular');
-  static const supersetProperOf = IconData(0xedb4, fontFamily: 'PhosphorRegular');
+  static const supersetProperOf = IconData(
+    0xedb4,
+    fontFamily: 'PhosphorRegular',
+  );
   static const swap = IconData(0xe83c, fontFamily: 'PhosphorRegular');
   static const swatches = IconData(0xe5b8, fontFamily: 'PhosphorRegular');
   static const swimmingPool = IconData(0xecb6, fontFamily: 'PhosphorRegular');
@@ -1334,7 +2099,10 @@ abstract final class Ph {
   static const teaBag = IconData(0xe8e6, fontFamily: 'PhosphorRegular');
   static const telegramLogo = IconData(0xe5bc, fontFamily: 'PhosphorRegular');
   static const television = IconData(0xe754, fontFamily: 'PhosphorRegular');
-  static const televisionSimple = IconData(0xeae6, fontFamily: 'PhosphorRegular');
+  static const televisionSimple = IconData(
+    0xeae6,
+    fontFamily: 'PhosphorRegular',
+  );
   static const tennisBall = IconData(0xe720, fontFamily: 'PhosphorRegular');
   static const tent = IconData(0xe8ba, fontFamily: 'PhosphorRegular');
   static const terminal = IconData(0xe47e, fontFamily: 'PhosphorRegular');
@@ -1342,8 +2110,14 @@ abstract final class Ph {
   static const testTube = IconData(0xe7a0, fontFamily: 'PhosphorRegular');
   static const textAUnderline = IconData(0xed34, fontFamily: 'PhosphorRegular');
   static const textAa = IconData(0xe6ee, fontFamily: 'PhosphorRegular');
-  static const textAlignCenter = IconData(0xe480, fontFamily: 'PhosphorRegular');
-  static const textAlignJustify = IconData(0xe482, fontFamily: 'PhosphorRegular');
+  static const textAlignCenter = IconData(
+    0xe480,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const textAlignJustify = IconData(
+    0xe482,
+    fontFamily: 'PhosphorRegular',
+  );
   static const textAlignLeft = IconData(0xe484, fontFamily: 'PhosphorRegular');
   static const textAlignRight = IconData(0xe486, fontFamily: 'PhosphorRegular');
   static const textB = IconData(0xe5be, fontFamily: 'PhosphorRegular');
@@ -1358,17 +2132,29 @@ abstract final class Ph {
   static const textIndent = IconData(0xea1e, fontFamily: 'PhosphorRegular');
   static const textItalic = IconData(0xe5c0, fontFamily: 'PhosphorRegular');
   static const textOutdent = IconData(0xea1c, fontFamily: 'PhosphorRegular');
-  static const textStrikethrough = IconData(0xe5c2, fontFamily: 'PhosphorRegular');
+  static const textStrikethrough = IconData(
+    0xe5c2,
+    fontFamily: 'PhosphorRegular',
+  );
   static const textSubscript = IconData(0xec98, fontFamily: 'PhosphorRegular');
-  static const textSuperscript = IconData(0xec9a, fontFamily: 'PhosphorRegular');
+  static const textSuperscript = IconData(
+    0xec9a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const textT = IconData(0xe48a, fontFamily: 'PhosphorRegular');
   static const textTSlash = IconData(0xe488, fontFamily: 'PhosphorRegular');
   static const textUnderline = IconData(0xe5c4, fontFamily: 'PhosphorRegular');
   static const textbox = IconData(0xeb0a, fontFamily: 'PhosphorRegular');
   static const thermometer = IconData(0xe5c6, fontFamily: 'PhosphorRegular');
-  static const thermometerCold = IconData(0xe5c8, fontFamily: 'PhosphorRegular');
+  static const thermometerCold = IconData(
+    0xe5c8,
+    fontFamily: 'PhosphorRegular',
+  );
   static const thermometerHot = IconData(0xe5ca, fontFamily: 'PhosphorRegular');
-  static const thermometerSimple = IconData(0xe5cc, fontFamily: 'PhosphorRegular');
+  static const thermometerSimple = IconData(
+    0xe5cc,
+    fontFamily: 'PhosphorRegular',
+  );
   static const threadsLogo = IconData(0xed9e, fontFamily: 'PhosphorRegular');
   static const threeD = IconData(0xea5a, fontFamily: 'PhosphorRegular');
   static const thumbsDown = IconData(0xe48c, fontFamily: 'PhosphorRegular');
@@ -1393,7 +2179,10 @@ abstract final class Ph {
   static const towel = IconData(0xede6, fontFamily: 'PhosphorRegular');
   static const tractor = IconData(0xec6e, fontFamily: 'PhosphorRegular');
   static const trademark = IconData(0xe9f0, fontFamily: 'PhosphorRegular');
-  static const trademarkRegistered = IconData(0xe3f4, fontFamily: 'PhosphorRegular');
+  static const trademarkRegistered = IconData(
+    0xe3f4,
+    fontFamily: 'PhosphorRegular',
+  );
   static const trafficCone = IconData(0xe9a8, fontFamily: 'PhosphorRegular');
   static const trafficSign = IconData(0xe67a, fontFamily: 'PhosphorRegular');
   static const trafficSignal = IconData(0xe9aa, fontFamily: 'PhosphorRegular');
@@ -1418,7 +2207,10 @@ abstract final class Ph {
   static const triangle = IconData(0xe4b0, fontFamily: 'PhosphorRegular');
   static const triangleDashed = IconData(0xe4b2, fontFamily: 'PhosphorRegular');
   static const trolley = IconData(0xe5b2, fontFamily: 'PhosphorRegular');
-  static const trolleySuitcase = IconData(0xe5b4, fontFamily: 'PhosphorRegular');
+  static const trolleySuitcase = IconData(
+    0xe5b4,
+    fontFamily: 'PhosphorRegular',
+  );
   static const trophy = IconData(0xe67e, fontFamily: 'PhosphorRegular');
   static const truck = IconData(0xe4b4, fontFamily: 'PhosphorRegular');
   static const truckTrailer = IconData(0xe4b6, fontFamily: 'PhosphorRegular');
@@ -1436,10 +2228,19 @@ abstract final class Ph {
   static const user = IconData(0xe4c2, fontFamily: 'PhosphorRegular');
   static const userCheck = IconData(0xeafa, fontFamily: 'PhosphorRegular');
   static const userCircle = IconData(0xe4c4, fontFamily: 'PhosphorRegular');
-  static const userCircleCheck = IconData(0xec38, fontFamily: 'PhosphorRegular');
-  static const userCircleDashed = IconData(0xec36, fontFamily: 'PhosphorRegular');
+  static const userCircleCheck = IconData(
+    0xec38,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const userCircleDashed = IconData(
+    0xec36,
+    fontFamily: 'PhosphorRegular',
+  );
   static const userCircleGear = IconData(0xe4c6, fontFamily: 'PhosphorRegular');
-  static const userCircleMinus = IconData(0xe4c8, fontFamily: 'PhosphorRegular');
+  static const userCircleMinus = IconData(
+    0xe4c8,
+    fontFamily: 'PhosphorRegular',
+  );
   static const userCirclePlus = IconData(0xe4ca, fontFamily: 'PhosphorRegular');
   static const userFocus = IconData(0xe6fc, fontFamily: 'PhosphorRegular');
   static const userGear = IconData(0xe4cc, fontFamily: 'PhosphorRegular');
@@ -1460,8 +2261,14 @@ abstract final class Ph {
   static const vibrate = IconData(0xe4d8, fontFamily: 'PhosphorRegular');
   static const video = IconData(0xe740, fontFamily: 'PhosphorRegular');
   static const videoCamera = IconData(0xe4da, fontFamily: 'PhosphorRegular');
-  static const videoCameraSlash = IconData(0xe4dc, fontFamily: 'PhosphorRegular');
-  static const videoConference = IconData(0xedce, fontFamily: 'PhosphorRegular');
+  static const videoCameraSlash = IconData(
+    0xe4dc,
+    fontFamily: 'PhosphorRegular',
+  );
+  static const videoConference = IconData(
+    0xedce,
+    fontFamily: 'PhosphorRegular',
+  );
   static const vignette = IconData(0xeba2, fontFamily: 'PhosphorRegular');
   static const vinylRecord = IconData(0xecac, fontFamily: 'PhosphorRegular');
   static const virtualReality = IconData(0xe7b8, fontFamily: 'PhosphorRegular');
@@ -1491,7 +2298,10 @@ abstract final class Ph {
   static const wechatLogo = IconData(0xe8d2, fontFamily: 'PhosphorRegular');
   static const whatsappLogo = IconData(0xe5d0, fontFamily: 'PhosphorRegular');
   static const wheelchair = IconData(0xe4e8, fontFamily: 'PhosphorRegular');
-  static const wheelchairMotion = IconData(0xe89a, fontFamily: 'PhosphorRegular');
+  static const wheelchairMotion = IconData(
+    0xe89a,
+    fontFamily: 'PhosphorRegular',
+  );
   static const wifiHigh = IconData(0xe4ea, fontFamily: 'PhosphorRegular');
   static const wifiLow = IconData(0xe4ec, fontFamily: 'PhosphorRegular');
   static const wifiMedium = IconData(0xe4ee, fontFamily: 'PhosphorRegular');
@@ -1529,9 +2339,18 @@ abstract final class PhFill {
   static const alien = IconData(0xe8a6, fontFamily: 'PhosphorFill');
   static const alignBottom = IconData(0xe506, fontFamily: 'PhosphorFill');
   static const alignBottomSimple = IconData(0xeb0c, fontFamily: 'PhosphorFill');
-  static const alignCenterHorizontal = IconData(0xe50a, fontFamily: 'PhosphorFill');
-  static const alignCenterVertical = IconData(0xe50c, fontFamily: 'PhosphorFill');
-  static const alignCenterVerticalSimple = IconData(0xeb10, fontFamily: 'PhosphorFill');
+  static const alignCenterHorizontal = IconData(
+    0xe50a,
+    fontFamily: 'PhosphorFill',
+  );
+  static const alignCenterVertical = IconData(
+    0xe50c,
+    fontFamily: 'PhosphorFill',
+  );
+  static const alignCenterVerticalSimple = IconData(
+    0xeb10,
+    fontFamily: 'PhosphorFill',
+  );
   static const alignLeft = IconData(0xe50e, fontFamily: 'PhosphorFill');
   static const alignLeftSimple = IconData(0xeaee, fontFamily: 'PhosphorFill');
   static const alignRight = IconData(0xe510, fontFamily: 'PhosphorFill');
@@ -1555,36 +2374,72 @@ abstract final class PhFill {
   static const armchair = IconData(0xe012, fontFamily: 'PhosphorFill');
   static const arrowArcLeft = IconData(0xe014, fontFamily: 'PhosphorFill');
   static const arrowArcRight = IconData(0xe016, fontFamily: 'PhosphorFill');
-  static const arrowBendDoubleUpLeft = IconData(0xe03a, fontFamily: 'PhosphorFill');
-  static const arrowBendDoubleUpRight = IconData(0xe03c, fontFamily: 'PhosphorFill');
+  static const arrowBendDoubleUpLeft = IconData(
+    0xe03a,
+    fontFamily: 'PhosphorFill',
+  );
+  static const arrowBendDoubleUpRight = IconData(
+    0xe03c,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowBendDownLeft = IconData(0xe018, fontFamily: 'PhosphorFill');
-  static const arrowBendDownRight = IconData(0xe01a, fontFamily: 'PhosphorFill');
+  static const arrowBendDownRight = IconData(
+    0xe01a,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowBendLeftDown = IconData(0xe01c, fontFamily: 'PhosphorFill');
   static const arrowBendLeftUp = IconData(0xe01e, fontFamily: 'PhosphorFill');
-  static const arrowBendRightDown = IconData(0xe020, fontFamily: 'PhosphorFill');
+  static const arrowBendRightDown = IconData(
+    0xe020,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowBendRightUp = IconData(0xe022, fontFamily: 'PhosphorFill');
   static const arrowBendUpLeft = IconData(0xe024, fontFamily: 'PhosphorFill');
   static const arrowBendUpRight = IconData(0xe026, fontFamily: 'PhosphorFill');
   static const arrowCircleDown = IconData(0xe028, fontFamily: 'PhosphorFill');
-  static const arrowCircleDownLeft = IconData(0xe02a, fontFamily: 'PhosphorFill');
-  static const arrowCircleDownRight = IconData(0xe02c, fontFamily: 'PhosphorFill');
+  static const arrowCircleDownLeft = IconData(
+    0xe02a,
+    fontFamily: 'PhosphorFill',
+  );
+  static const arrowCircleDownRight = IconData(
+    0xe02c,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowCircleLeft = IconData(0xe05a, fontFamily: 'PhosphorFill');
   static const arrowCircleRight = IconData(0xe02e, fontFamily: 'PhosphorFill');
   static const arrowCircleUp = IconData(0xe030, fontFamily: 'PhosphorFill');
   static const arrowCircleUpLeft = IconData(0xe032, fontFamily: 'PhosphorFill');
-  static const arrowCircleUpRight = IconData(0xe034, fontFamily: 'PhosphorFill');
+  static const arrowCircleUpRight = IconData(
+    0xe034,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowClockwise = IconData(0xe036, fontFamily: 'PhosphorFill');
-  static const arrowCounterClockwise = IconData(0xe038, fontFamily: 'PhosphorFill');
+  static const arrowCounterClockwise = IconData(
+    0xe038,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowDown = IconData(0xe03e, fontFamily: 'PhosphorFill');
   static const arrowDownLeft = IconData(0xe040, fontFamily: 'PhosphorFill');
   static const arrowDownRight = IconData(0xe042, fontFamily: 'PhosphorFill');
-  static const arrowElbowDownLeft = IconData(0xe044, fontFamily: 'PhosphorFill');
-  static const arrowElbowDownRight = IconData(0xe046, fontFamily: 'PhosphorFill');
+  static const arrowElbowDownLeft = IconData(
+    0xe044,
+    fontFamily: 'PhosphorFill',
+  );
+  static const arrowElbowDownRight = IconData(
+    0xe046,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowElbowLeft = IconData(0xe048, fontFamily: 'PhosphorFill');
-  static const arrowElbowLeftDown = IconData(0xe04a, fontFamily: 'PhosphorFill');
+  static const arrowElbowLeftDown = IconData(
+    0xe04a,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowElbowLeftUp = IconData(0xe04c, fontFamily: 'PhosphorFill');
   static const arrowElbowRight = IconData(0xe04e, fontFamily: 'PhosphorFill');
-  static const arrowElbowRightDown = IconData(0xe050, fontFamily: 'PhosphorFill');
+  static const arrowElbowRightDown = IconData(
+    0xe050,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowElbowRightUp = IconData(0xe052, fontFamily: 'PhosphorFill');
   static const arrowElbowUpLeft = IconData(0xe054, fontFamily: 'PhosphorFill');
   static const arrowElbowUpRight = IconData(0xe056, fontFamily: 'PhosphorFill');
@@ -1596,14 +2451,20 @@ abstract final class PhFill {
   static const arrowFatLineUp = IconData(0xe522, fontFamily: 'PhosphorFill');
   static const arrowFatLinesDown = IconData(0xe524, fontFamily: 'PhosphorFill');
   static const arrowFatLinesLeft = IconData(0xe526, fontFamily: 'PhosphorFill');
-  static const arrowFatLinesRight = IconData(0xe528, fontFamily: 'PhosphorFill');
+  static const arrowFatLinesRight = IconData(
+    0xe528,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowFatLinesUp = IconData(0xe52a, fontFamily: 'PhosphorFill');
   static const arrowFatRight = IconData(0xe52c, fontFamily: 'PhosphorFill');
   static const arrowFatUp = IconData(0xe52e, fontFamily: 'PhosphorFill');
   static const arrowLeft = IconData(0xe058, fontFamily: 'PhosphorFill');
   static const arrowLineDown = IconData(0xe05c, fontFamily: 'PhosphorFill');
   static const arrowLineDownLeft = IconData(0xe05e, fontFamily: 'PhosphorFill');
-  static const arrowLineDownRight = IconData(0xe060, fontFamily: 'PhosphorFill');
+  static const arrowLineDownRight = IconData(
+    0xe060,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowLineLeft = IconData(0xe062, fontFamily: 'PhosphorFill');
   static const arrowLineRight = IconData(0xe064, fontFamily: 'PhosphorFill');
   static const arrowLineUp = IconData(0xe066, fontFamily: 'PhosphorFill');
@@ -1611,15 +2472,24 @@ abstract final class PhFill {
   static const arrowLineUpRight = IconData(0xe06a, fontFamily: 'PhosphorFill');
   static const arrowRight = IconData(0xe06c, fontFamily: 'PhosphorFill');
   static const arrowSquareDown = IconData(0xe06e, fontFamily: 'PhosphorFill');
-  static const arrowSquareDownLeft = IconData(0xe070, fontFamily: 'PhosphorFill');
-  static const arrowSquareDownRight = IconData(0xe072, fontFamily: 'PhosphorFill');
+  static const arrowSquareDownLeft = IconData(
+    0xe070,
+    fontFamily: 'PhosphorFill',
+  );
+  static const arrowSquareDownRight = IconData(
+    0xe072,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowSquareIn = IconData(0xe5dc, fontFamily: 'PhosphorFill');
   static const arrowSquareLeft = IconData(0xe074, fontFamily: 'PhosphorFill');
   static const arrowSquareOut = IconData(0xe5de, fontFamily: 'PhosphorFill');
   static const arrowSquareRight = IconData(0xe076, fontFamily: 'PhosphorFill');
   static const arrowSquareUp = IconData(0xe078, fontFamily: 'PhosphorFill');
   static const arrowSquareUpLeft = IconData(0xe07a, fontFamily: 'PhosphorFill');
-  static const arrowSquareUpRight = IconData(0xe07c, fontFamily: 'PhosphorFill');
+  static const arrowSquareUpRight = IconData(
+    0xe07c,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowUDownLeft = IconData(0xe07e, fontFamily: 'PhosphorFill');
   static const arrowUDownRight = IconData(0xe080, fontFamily: 'PhosphorFill');
   static const arrowULeftDown = IconData(0xe082, fontFamily: 'PhosphorFill');
@@ -1632,20 +2502,35 @@ abstract final class PhFill {
   static const arrowUpLeft = IconData(0xe090, fontFamily: 'PhosphorFill');
   static const arrowUpRight = IconData(0xe092, fontFamily: 'PhosphorFill');
   static const arrowsClockwise = IconData(0xe094, fontFamily: 'PhosphorFill');
-  static const arrowsCounterClockwise = IconData(0xe096, fontFamily: 'PhosphorFill');
+  static const arrowsCounterClockwise = IconData(
+    0xe096,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowsDownUp = IconData(0xe098, fontFamily: 'PhosphorFill');
   static const arrowsHorizontal = IconData(0xeb06, fontFamily: 'PhosphorFill');
   static const arrowsIn = IconData(0xe09a, fontFamily: 'PhosphorFill');
   static const arrowsInCardinal = IconData(0xe09c, fontFamily: 'PhosphorFill');
-  static const arrowsInLineHorizontal = IconData(0xe530, fontFamily: 'PhosphorFill');
-  static const arrowsInLineVertical = IconData(0xe532, fontFamily: 'PhosphorFill');
+  static const arrowsInLineHorizontal = IconData(
+    0xe530,
+    fontFamily: 'PhosphorFill',
+  );
+  static const arrowsInLineVertical = IconData(
+    0xe532,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowsInSimple = IconData(0xe09e, fontFamily: 'PhosphorFill');
   static const arrowsLeftRight = IconData(0xe0a0, fontFamily: 'PhosphorFill');
   static const arrowsMerge = IconData(0xed3e, fontFamily: 'PhosphorFill');
   static const arrowsOut = IconData(0xe0a2, fontFamily: 'PhosphorFill');
   static const arrowsOutCardinal = IconData(0xe0a4, fontFamily: 'PhosphorFill');
-  static const arrowsOutLineHorizontal = IconData(0xe534, fontFamily: 'PhosphorFill');
-  static const arrowsOutLineVertical = IconData(0xe536, fontFamily: 'PhosphorFill');
+  static const arrowsOutLineHorizontal = IconData(
+    0xe534,
+    fontFamily: 'PhosphorFill',
+  );
+  static const arrowsOutLineVertical = IconData(
+    0xe536,
+    fontFamily: 'PhosphorFill',
+  );
   static const arrowsOutSimple = IconData(0xe0a6, fontFamily: 'PhosphorFill');
   static const arrowsSplit = IconData(0xed3c, fontFamily: 'PhosphorFill');
   static const arrowsVertical = IconData(0xeb04, fontFamily: 'PhosphorFill');
@@ -1679,21 +2564,45 @@ abstract final class PhFill {
   static const basketball = IconData(0xe724, fontFamily: 'PhosphorFill');
   static const bathtub = IconData(0xe81e, fontFamily: 'PhosphorFill');
   static const batteryCharging = IconData(0xe0ba, fontFamily: 'PhosphorFill');
-  static const batteryChargingVertical = IconData(0xe0bc, fontFamily: 'PhosphorFill');
+  static const batteryChargingVertical = IconData(
+    0xe0bc,
+    fontFamily: 'PhosphorFill',
+  );
   static const batteryEmpty = IconData(0xe0be, fontFamily: 'PhosphorFill');
   static const batteryFull = IconData(0xe0c0, fontFamily: 'PhosphorFill');
   static const batteryHigh = IconData(0xe0c2, fontFamily: 'PhosphorFill');
   static const batteryLow = IconData(0xe0c4, fontFamily: 'PhosphorFill');
   static const batteryMedium = IconData(0xe0c6, fontFamily: 'PhosphorFill');
   static const batteryPlus = IconData(0xe808, fontFamily: 'PhosphorFill');
-  static const batteryPlusVertical = IconData(0xec50, fontFamily: 'PhosphorFill');
-  static const batteryVerticalEmpty = IconData(0xe7c6, fontFamily: 'PhosphorFill');
-  static const batteryVerticalFull = IconData(0xe7c4, fontFamily: 'PhosphorFill');
-  static const batteryVerticalHigh = IconData(0xe7c2, fontFamily: 'PhosphorFill');
-  static const batteryVerticalLow = IconData(0xe7be, fontFamily: 'PhosphorFill');
-  static const batteryVerticalMedium = IconData(0xe7c0, fontFamily: 'PhosphorFill');
+  static const batteryPlusVertical = IconData(
+    0xec50,
+    fontFamily: 'PhosphorFill',
+  );
+  static const batteryVerticalEmpty = IconData(
+    0xe7c6,
+    fontFamily: 'PhosphorFill',
+  );
+  static const batteryVerticalFull = IconData(
+    0xe7c4,
+    fontFamily: 'PhosphorFill',
+  );
+  static const batteryVerticalHigh = IconData(
+    0xe7c2,
+    fontFamily: 'PhosphorFill',
+  );
+  static const batteryVerticalLow = IconData(
+    0xe7be,
+    fontFamily: 'PhosphorFill',
+  );
+  static const batteryVerticalMedium = IconData(
+    0xe7c0,
+    fontFamily: 'PhosphorFill',
+  );
   static const batteryWarning = IconData(0xe0c8, fontFamily: 'PhosphorFill');
-  static const batteryWarningVertical = IconData(0xe0ca, fontFamily: 'PhosphorFill');
+  static const batteryWarningVertical = IconData(
+    0xe0ca,
+    fontFamily: 'PhosphorFill',
+  );
   static const beachBall = IconData(0xed24, fontFamily: 'PhosphorFill');
   static const beanie = IconData(0xea2a, fontFamily: 'PhosphorFill');
   static const bed = IconData(0xe0cc, fontFamily: 'PhosphorFill');
@@ -1717,7 +2626,10 @@ abstract final class PhFill {
   static const bird = IconData(0xe72c, fontFamily: 'PhosphorFill');
   static const blueprint = IconData(0xeda0, fontFamily: 'PhosphorFill');
   static const bluetooth = IconData(0xe0da, fontFamily: 'PhosphorFill');
-  static const bluetoothConnected = IconData(0xe0dc, fontFamily: 'PhosphorFill');
+  static const bluetoothConnected = IconData(
+    0xe0dc,
+    fontFamily: 'PhosphorFill',
+  );
   static const bluetoothSlash = IconData(0xe0de, fontFamily: 'PhosphorFill');
   static const bluetoothX = IconData(0xe0e0, fontFamily: 'PhosphorFill');
   static const boat = IconData(0xe786, fontFamily: 'PhosphorFill');
@@ -1794,10 +2706,22 @@ abstract final class PhFill {
   static const cardholder = IconData(0xe5fa, fontFamily: 'PhosphorFill');
   static const cards = IconData(0xe0f8, fontFamily: 'PhosphorFill');
   static const cardsThree = IconData(0xee50, fontFamily: 'PhosphorFill');
-  static const caretCircleDoubleDown = IconData(0xe116, fontFamily: 'PhosphorFill');
-  static const caretCircleDoubleLeft = IconData(0xe118, fontFamily: 'PhosphorFill');
-  static const caretCircleDoubleRight = IconData(0xe11a, fontFamily: 'PhosphorFill');
-  static const caretCircleDoubleUp = IconData(0xe11c, fontFamily: 'PhosphorFill');
+  static const caretCircleDoubleDown = IconData(
+    0xe116,
+    fontFamily: 'PhosphorFill',
+  );
+  static const caretCircleDoubleLeft = IconData(
+    0xe118,
+    fontFamily: 'PhosphorFill',
+  );
+  static const caretCircleDoubleRight = IconData(
+    0xe11a,
+    fontFamily: 'PhosphorFill',
+  );
+  static const caretCircleDoubleUp = IconData(
+    0xe11c,
+    fontFamily: 'PhosphorFill',
+  );
   static const caretCircleDown = IconData(0xe11e, fontFamily: 'PhosphorFill');
   static const caretCircleLeft = IconData(0xe120, fontFamily: 'PhosphorFill');
   static const caretCircleRight = IconData(0xe122, fontFamily: 'PhosphorFill');
@@ -1837,7 +2761,10 @@ abstract final class PhFill {
   static const champagne = IconData(0xeaca, fontFamily: 'PhosphorFill');
   static const chargingStation = IconData(0xe8d0, fontFamily: 'PhosphorFill');
   static const chartBar = IconData(0xe150, fontFamily: 'PhosphorFill');
-  static const chartBarHorizontal = IconData(0xe152, fontFamily: 'PhosphorFill');
+  static const chartBarHorizontal = IconData(
+    0xe152,
+    fontFamily: 'PhosphorFill',
+  );
   static const chartDonut = IconData(0xeaa6, fontFamily: 'PhosphorFill');
   static const chartLine = IconData(0xe154, fontFamily: 'PhosphorFill');
   static const chartLineDown = IconData(0xe8b6, fontFamily: 'PhosphorFill');
@@ -1895,7 +2822,10 @@ abstract final class PhFill {
   static const clockAfternoon = IconData(0xe19c, fontFamily: 'PhosphorFill');
   static const clockClockwise = IconData(0xe19e, fontFamily: 'PhosphorFill');
   static const clockCountdown = IconData(0xed2c, fontFamily: 'PhosphorFill');
-  static const clockCounterClockwise = IconData(0xe1a0, fontFamily: 'PhosphorFill');
+  static const clockCounterClockwise = IconData(
+    0xe1a0,
+    fontFamily: 'PhosphorFill',
+  );
   static const clockUser = IconData(0xedec, fontFamily: 'PhosphorFill');
   static const closedCaptioning = IconData(0xe1a4, fontFamily: 'PhosphorFill');
   static const cloud = IconData(0xe1aa, fontFamily: 'PhosphorFill');
@@ -1934,7 +2864,10 @@ abstract final class PhFill {
   static const compassTool = IconData(0xea0e, fontFamily: 'PhosphorFill');
   static const computerTower = IconData(0xe548, fontFamily: 'PhosphorFill');
   static const confetti = IconData(0xe81a, fontFamily: 'PhosphorFill');
-  static const contactlessPayment = IconData(0xed42, fontFamily: 'PhosphorFill');
+  static const contactlessPayment = IconData(
+    0xed42,
+    fontFamily: 'PhosphorFill',
+  );
   static const control = IconData(0xeca6, fontFamily: 'PhosphorFill');
   static const cookie = IconData(0xe6ca, fontFamily: 'PhosphorFill');
   static const cookingPot = IconData(0xe764, fontFamily: 'PhosphorFill');
@@ -1964,10 +2897,16 @@ abstract final class PhFill {
   static const cubeFocus = IconData(0xed0a, fontFamily: 'PhosphorFill');
   static const cubeTransparent = IconData(0xec7c, fontFamily: 'PhosphorFill');
   static const currencyBtc = IconData(0xe618, fontFamily: 'PhosphorFill');
-  static const currencyCircleDollar = IconData(0xe54c, fontFamily: 'PhosphorFill');
+  static const currencyCircleDollar = IconData(
+    0xe54c,
+    fontFamily: 'PhosphorFill',
+  );
   static const currencyCny = IconData(0xe54e, fontFamily: 'PhosphorFill');
   static const currencyDollar = IconData(0xe550, fontFamily: 'PhosphorFill');
-  static const currencyDollarSimple = IconData(0xe552, fontFamily: 'PhosphorFill');
+  static const currencyDollarSimple = IconData(
+    0xe552,
+    fontFamily: 'PhosphorFill',
+  );
   static const currencyEth = IconData(0xeada, fontFamily: 'PhosphorFill');
   static const currencyEur = IconData(0xe554, fontFamily: 'PhosphorFill');
   static const currencyGbp = IconData(0xe556, fontFamily: 'PhosphorFill');
@@ -1988,13 +2927,25 @@ abstract final class PhFill {
   static const detective = IconData(0xe83e, fontFamily: 'PhosphorFill');
   static const devToLogo = IconData(0xed0e, fontFamily: 'PhosphorFill');
   static const deviceMobile = IconData(0xe1e0, fontFamily: 'PhosphorFill');
-  static const deviceMobileCamera = IconData(0xe1e2, fontFamily: 'PhosphorFill');
+  static const deviceMobileCamera = IconData(
+    0xe1e2,
+    fontFamily: 'PhosphorFill',
+  );
   static const deviceMobileSlash = IconData(0xee46, fontFamily: 'PhosphorFill');
-  static const deviceMobileSpeaker = IconData(0xe1e4, fontFamily: 'PhosphorFill');
+  static const deviceMobileSpeaker = IconData(
+    0xe1e4,
+    fontFamily: 'PhosphorFill',
+  );
   static const deviceRotate = IconData(0xedf2, fontFamily: 'PhosphorFill');
   static const deviceTablet = IconData(0xe1e6, fontFamily: 'PhosphorFill');
-  static const deviceTabletCamera = IconData(0xe1e8, fontFamily: 'PhosphorFill');
-  static const deviceTabletSpeaker = IconData(0xe1ea, fontFamily: 'PhosphorFill');
+  static const deviceTabletCamera = IconData(
+    0xe1e8,
+    fontFamily: 'PhosphorFill',
+  );
+  static const deviceTabletSpeaker = IconData(
+    0xe1ea,
+    fontFamily: 'PhosphorFill',
+  );
   static const devices = IconData(0xeba4, fontFamily: 'PhosphorFill');
   static const diamond = IconData(0xe1ec, fontFamily: 'PhosphorFill');
   static const diamondsFour = IconData(0xe8f4, fontFamily: 'PhosphorFill');
@@ -2019,9 +2970,15 @@ abstract final class PhFill {
   static const dotsSixVertical = IconData(0xeae2, fontFamily: 'PhosphorFill');
   static const dotsThree = IconData(0xe1fe, fontFamily: 'PhosphorFill');
   static const dotsThreeCircle = IconData(0xe200, fontFamily: 'PhosphorFill');
-  static const dotsThreeCircleVertical = IconData(0xe202, fontFamily: 'PhosphorFill');
+  static const dotsThreeCircleVertical = IconData(
+    0xe202,
+    fontFamily: 'PhosphorFill',
+  );
   static const dotsThreeOutline = IconData(0xe204, fontFamily: 'PhosphorFill');
-  static const dotsThreeOutlineVertical = IconData(0xe206, fontFamily: 'PhosphorFill');
+  static const dotsThreeOutlineVertical = IconData(
+    0xe206,
+    fontFamily: 'PhosphorFill',
+  );
   static const dotsThreeVertical = IconData(0xe208, fontFamily: 'PhosphorFill');
   static const download = IconData(0xe20a, fontFamily: 'PhosphorFill');
   static const downloadSimple = IconData(0xe20c, fontFamily: 'PhosphorFill');
@@ -2047,7 +3004,10 @@ abstract final class PhFill {
   static const envelope = IconData(0xe214, fontFamily: 'PhosphorFill');
   static const envelopeOpen = IconData(0xe216, fontFamily: 'PhosphorFill');
   static const envelopeSimple = IconData(0xe218, fontFamily: 'PhosphorFill');
-  static const envelopeSimpleOpen = IconData(0xe21a, fontFamily: 'PhosphorFill');
+  static const envelopeSimpleOpen = IconData(
+    0xe21a,
+    fontFamily: 'PhosphorFill',
+  );
   static const equalizer = IconData(0xebbc, fontFamily: 'PhosphorFill');
   static const equals = IconData(0xe21c, fontFamily: 'PhosphorFill');
   static const eraser = IconData(0xe21e, fontFamily: 'PhosphorFill');
@@ -2099,7 +3059,10 @@ abstract final class PhFill {
   static const fileJs = IconData(0xeb24, fontFamily: 'PhosphorFill');
   static const fileJsx = IconData(0xeb3a, fontFamily: 'PhosphorFill');
   static const fileLock = IconData(0xe95c, fontFamily: 'PhosphorFill');
-  static const fileMagnifyingGlass = IconData(0xe238, fontFamily: 'PhosphorFill');
+  static const fileMagnifyingGlass = IconData(
+    0xe238,
+    fontFamily: 'PhosphorFill',
+  );
   static const fileMd = IconData(0xed50, fontFamily: 'PhosphorFill');
   static const fileMinus = IconData(0xe234, fontFamily: 'PhosphorFill');
   static const filePdf = IconData(0xe702, fontFamily: 'PhosphorFill');
@@ -2159,7 +3122,10 @@ abstract final class PhFill {
   static const folderOpen = IconData(0xe256, fontFamily: 'PhosphorFill');
   static const folderPlus = IconData(0xe258, fontFamily: 'PhosphorFill');
   static const folderSimple = IconData(0xe25a, fontFamily: 'PhosphorFill');
-  static const folderSimpleDashed = IconData(0xec2a, fontFamily: 'PhosphorFill');
+  static const folderSimpleDashed = IconData(
+    0xec2a,
+    fontFamily: 'PhosphorFill',
+  );
   static const folderSimpleLock = IconData(0xeb5e, fontFamily: 'PhosphorFill');
   static const folderSimpleMinus = IconData(0xe25c, fontFamily: 'PhosphorFill');
   static const folderSimplePlus = IconData(0xe25e, fontFamily: 'PhosphorFill');
@@ -2208,8 +3174,14 @@ abstract final class PhFill {
   static const gitlabLogo = IconData(0xe694, fontFamily: 'PhosphorFill');
   static const gitlabLogoSimple = IconData(0xe696, fontFamily: 'PhosphorFill');
   static const globe = IconData(0xe288, fontFamily: 'PhosphorFill');
-  static const globeHemisphereEast = IconData(0xe28a, fontFamily: 'PhosphorFill');
-  static const globeHemisphereWest = IconData(0xe28c, fontFamily: 'PhosphorFill');
+  static const globeHemisphereEast = IconData(
+    0xe28a,
+    fontFamily: 'PhosphorFill',
+  );
+  static const globeHemisphereWest = IconData(
+    0xe28c,
+    fontFamily: 'PhosphorFill',
+  );
   static const globeSimple = IconData(0xe28e, fontFamily: 'PhosphorFill');
   static const globeSimpleX = IconData(0xe284, fontFamily: 'PhosphorFill');
   static const globeStand = IconData(0xe290, fontFamily: 'PhosphorFill');
@@ -2217,13 +3189,19 @@ abstract final class PhFill {
   static const goggles = IconData(0xecb4, fontFamily: 'PhosphorFill');
   static const golf = IconData(0xea3e, fontFamily: 'PhosphorFill');
   static const goodreadsLogo = IconData(0xed10, fontFamily: 'PhosphorFill');
-  static const googleCardboardLogo = IconData(0xe7b6, fontFamily: 'PhosphorFill');
+  static const googleCardboardLogo = IconData(
+    0xe7b6,
+    fontFamily: 'PhosphorFill',
+  );
   static const googleChromeLogo = IconData(0xe976, fontFamily: 'PhosphorFill');
   static const googleDriveLogo = IconData(0xe8f6, fontFamily: 'PhosphorFill');
   static const googleLogo = IconData(0xe292, fontFamily: 'PhosphorFill');
   static const googlePhotosLogo = IconData(0xeb92, fontFamily: 'PhosphorFill');
   static const googlePlayLogo = IconData(0xe294, fontFamily: 'PhosphorFill');
-  static const googlePodcastsLogo = IconData(0xeb94, fontFamily: 'PhosphorFill');
+  static const googlePodcastsLogo = IconData(
+    0xeb94,
+    fontFamily: 'PhosphorFill',
+  );
   static const gps = IconData(0xedd8, fontFamily: 'PhosphorFill');
   static const gpsFix = IconData(0xedd6, fontFamily: 'PhosphorFill');
   static const gpsSlash = IconData(0xedd4, fontFamily: 'PhosphorFill');
@@ -2234,7 +3212,10 @@ abstract final class PhFill {
   static const graph = IconData(0xeb58, fontFamily: 'PhosphorFill');
   static const graphicsCard = IconData(0xe612, fontFamily: 'PhosphorFill');
   static const greaterThan = IconData(0xedc4, fontFamily: 'PhosphorFill');
-  static const greaterThanOrEqual = IconData(0xeda2, fontFamily: 'PhosphorFill');
+  static const greaterThanOrEqual = IconData(
+    0xeda2,
+    fontFamily: 'PhosphorFill',
+  );
   static const gridFour = IconData(0xe296, fontFamily: 'PhosphorFill');
   static const gridNine = IconData(0xec8c, fontFamily: 'PhosphorFill');
   static const guitar = IconData(0xea8a, fontFamily: 'PhosphorFill');
@@ -2277,7 +3258,10 @@ abstract final class PhFill {
   static const heartBreak = IconData(0xebe8, fontFamily: 'PhosphorFill');
   static const heartHalf = IconData(0xec48, fontFamily: 'PhosphorFill');
   static const heartStraight = IconData(0xe2aa, fontFamily: 'PhosphorFill');
-  static const heartStraightBreak = IconData(0xeb98, fontFamily: 'PhosphorFill');
+  static const heartStraightBreak = IconData(
+    0xeb98,
+    fontFamily: 'PhosphorFill',
+  );
   static const heartbeat = IconData(0xe2ac, fontFamily: 'PhosphorFill');
   static const hexagon = IconData(0xe2ae, fontFamily: 'PhosphorFill');
   static const highDefinition = IconData(0xea8e, fontFamily: 'PhosphorFill');
@@ -2293,16 +3277,31 @@ abstract final class PhFill {
   static const hourglassLow = IconData(0xe2b6, fontFamily: 'PhosphorFill');
   static const hourglassMedium = IconData(0xe2b8, fontFamily: 'PhosphorFill');
   static const hourglassSimple = IconData(0xe2ba, fontFamily: 'PhosphorFill');
-  static const hourglassSimpleHigh = IconData(0xe2bc, fontFamily: 'PhosphorFill');
-  static const hourglassSimpleLow = IconData(0xe2be, fontFamily: 'PhosphorFill');
-  static const hourglassSimpleMedium = IconData(0xe2c0, fontFamily: 'PhosphorFill');
+  static const hourglassSimpleHigh = IconData(
+    0xe2bc,
+    fontFamily: 'PhosphorFill',
+  );
+  static const hourglassSimpleLow = IconData(
+    0xe2be,
+    fontFamily: 'PhosphorFill',
+  );
+  static const hourglassSimpleMedium = IconData(
+    0xe2c0,
+    fontFamily: 'PhosphorFill',
+  );
   static const house = IconData(0xe2c2, fontFamily: 'PhosphorFill');
   static const houseLine = IconData(0xe2c4, fontFamily: 'PhosphorFill');
   static const houseSimple = IconData(0xe2c6, fontFamily: 'PhosphorFill');
   static const hurricane = IconData(0xe88e, fontFamily: 'PhosphorFill');
   static const iceCream = IconData(0xe804, fontFamily: 'PhosphorFill');
-  static const identificationBadge = IconData(0xe6f6, fontFamily: 'PhosphorFill');
-  static const identificationCard = IconData(0xe2c8, fontFamily: 'PhosphorFill');
+  static const identificationBadge = IconData(
+    0xe6f6,
+    fontFamily: 'PhosphorFill',
+  );
+  static const identificationCard = IconData(
+    0xe2c8,
+    fontFamily: 'PhosphorFill',
+  );
   static const image = IconData(0xe2ca, fontFamily: 'PhosphorFill');
   static const imageBroken = IconData(0xe7a8, fontFamily: 'PhosphorFill');
   static const imageSquare = IconData(0xe2cc, fontFamily: 'PhosphorFill');
@@ -2358,8 +3357,14 @@ abstract final class PhFill {
   static const linkBreak = IconData(0xe2e4, fontFamily: 'PhosphorFill');
   static const linkSimple = IconData(0xe2e6, fontFamily: 'PhosphorFill');
   static const linkSimpleBreak = IconData(0xe2e8, fontFamily: 'PhosphorFill');
-  static const linkSimpleHorizontal = IconData(0xe2ea, fontFamily: 'PhosphorFill');
-  static const linkSimpleHorizontalBreak = IconData(0xe2ec, fontFamily: 'PhosphorFill');
+  static const linkSimpleHorizontal = IconData(
+    0xe2ea,
+    fontFamily: 'PhosphorFill',
+  );
+  static const linkSimpleHorizontalBreak = IconData(
+    0xe2ec,
+    fontFamily: 'PhosphorFill',
+  );
   static const linkedinLogo = IconData(0xe2ee, fontFamily: 'PhosphorFill');
   static const linktreeLogo = IconData(0xedee, fontFamily: 'PhosphorFill');
   static const linuxLogo = IconData(0xeb02, fontFamily: 'PhosphorFill');
@@ -2368,7 +3373,10 @@ abstract final class PhFill {
   static const listChecks = IconData(0xeadc, fontFamily: 'PhosphorFill');
   static const listDashes = IconData(0xe2f4, fontFamily: 'PhosphorFill');
   static const listHeart = IconData(0xebde, fontFamily: 'PhosphorFill');
-  static const listMagnifyingGlass = IconData(0xebe0, fontFamily: 'PhosphorFill');
+  static const listMagnifyingGlass = IconData(
+    0xebe0,
+    fontFamily: 'PhosphorFill',
+  );
   static const listNumbers = IconData(0xe2f6, fontFamily: 'PhosphorFill');
   static const listPlus = IconData(0xe2f8, fontFamily: 'PhosphorFill');
   static const listStar = IconData(0xebdc, fontFamily: 'PhosphorFill');
@@ -2386,8 +3394,14 @@ abstract final class PhFill {
   static const magnet = IconData(0xe680, fontFamily: 'PhosphorFill');
   static const magnetStraight = IconData(0xe682, fontFamily: 'PhosphorFill');
   static const magnifyingGlass = IconData(0xe30c, fontFamily: 'PhosphorFill');
-  static const magnifyingGlassMinus = IconData(0xe30e, fontFamily: 'PhosphorFill');
-  static const magnifyingGlassPlus = IconData(0xe310, fontFamily: 'PhosphorFill');
+  static const magnifyingGlassMinus = IconData(
+    0xe30e,
+    fontFamily: 'PhosphorFill',
+  );
+  static const magnifyingGlassPlus = IconData(
+    0xe310,
+    fontFamily: 'PhosphorFill',
+  );
   static const mailbox = IconData(0xec1e, fontFamily: 'PhosphorFill');
   static const mapPin = IconData(0xe316, fontFamily: 'PhosphorFill');
   static const mapPinArea = IconData(0xee3a, fontFamily: 'PhosphorFill');
@@ -2420,10 +3434,22 @@ abstract final class PhFill {
   static const microphoneSlash = IconData(0xe328, fontFamily: 'PhosphorFill');
   static const microphoneStage = IconData(0xe75c, fontFamily: 'PhosphorFill');
   static const microscope = IconData(0xec7a, fontFamily: 'PhosphorFill');
-  static const microsoftExcelLogo = IconData(0xeb6c, fontFamily: 'PhosphorFill');
-  static const microsoftOutlookLogo = IconData(0xeb70, fontFamily: 'PhosphorFill');
-  static const microsoftPowerpointLogo = IconData(0xeace, fontFamily: 'PhosphorFill');
-  static const microsoftTeamsLogo = IconData(0xeb66, fontFamily: 'PhosphorFill');
+  static const microsoftExcelLogo = IconData(
+    0xeb6c,
+    fontFamily: 'PhosphorFill',
+  );
+  static const microsoftOutlookLogo = IconData(
+    0xeb70,
+    fontFamily: 'PhosphorFill',
+  );
+  static const microsoftPowerpointLogo = IconData(
+    0xeace,
+    fontFamily: 'PhosphorFill',
+  );
+  static const microsoftTeamsLogo = IconData(
+    0xeb66,
+    fontFamily: 'PhosphorFill',
+  );
   static const microsoftWordLogo = IconData(0xeb6a, fontFamily: 'PhosphorFill');
   static const minus = IconData(0xe32a, fontFamily: 'PhosphorFill');
   static const minusCircle = IconData(0xe32c, fontFamily: 'PhosphorFill');
@@ -2516,7 +3542,10 @@ abstract final class PhFill {
   static const package = IconData(0xe390, fontFamily: 'PhosphorFill');
   static const paintBrush = IconData(0xe6f0, fontFamily: 'PhosphorFill');
   static const paintBrushBroad = IconData(0xe590, fontFamily: 'PhosphorFill');
-  static const paintBrushHousehold = IconData(0xe6f2, fontFamily: 'PhosphorFill');
+  static const paintBrushHousehold = IconData(
+    0xe6f2,
+    fontFamily: 'PhosphorFill',
+  );
   static const paintBucket = IconData(0xe392, fontFamily: 'PhosphorFill');
   static const paintRoller = IconData(0xe6f4, fontFamily: 'PhosphorFill');
   static const palette = IconData(0xe6c8, fontFamily: 'PhosphorFill');
@@ -2526,7 +3555,10 @@ abstract final class PhFill {
   static const paperPlaneRight = IconData(0xe396, fontFamily: 'PhosphorFill');
   static const paperPlaneTilt = IconData(0xe398, fontFamily: 'PhosphorFill');
   static const paperclip = IconData(0xe39a, fontFamily: 'PhosphorFill');
-  static const paperclipHorizontal = IconData(0xe592, fontFamily: 'PhosphorFill');
+  static const paperclipHorizontal = IconData(
+    0xe592,
+    fontFamily: 'PhosphorFill',
+  );
   static const parachute = IconData(0xea7c, fontFamily: 'PhosphorFill');
   static const paragraph = IconData(0xe960, fontFamily: 'PhosphorFill');
   static const parallelogram = IconData(0xecc6, fontFamily: 'PhosphorFill');
@@ -2558,13 +3590,22 @@ abstract final class PhFill {
   static const personArmsSpread = IconData(0xecfe, fontFamily: 'PhosphorFill');
   static const personSimple = IconData(0xe72e, fontFamily: 'PhosphorFill');
   static const personSimpleBike = IconData(0xe734, fontFamily: 'PhosphorFill');
-  static const personSimpleCircle = IconData(0xee58, fontFamily: 'PhosphorFill');
+  static const personSimpleCircle = IconData(
+    0xee58,
+    fontFamily: 'PhosphorFill',
+  );
   static const personSimpleHike = IconData(0xed54, fontFamily: 'PhosphorFill');
   static const personSimpleRun = IconData(0xe730, fontFamily: 'PhosphorFill');
   static const personSimpleSki = IconData(0xe71c, fontFamily: 'PhosphorFill');
-  static const personSimpleSnowboard = IconData(0xe71e, fontFamily: 'PhosphorFill');
+  static const personSimpleSnowboard = IconData(
+    0xe71e,
+    fontFamily: 'PhosphorFill',
+  );
   static const personSimpleSwim = IconData(0xe736, fontFamily: 'PhosphorFill');
-  static const personSimpleTaiChi = IconData(0xed5c, fontFamily: 'PhosphorFill');
+  static const personSimpleTaiChi = IconData(
+    0xed5c,
+    fontFamily: 'PhosphorFill',
+  );
   static const personSimpleThrow = IconData(0xe732, fontFamily: 'PhosphorFill');
   static const personSimpleWalk = IconData(0xe73a, fontFamily: 'PhosphorFill');
   static const perspective = IconData(0xebe6, fontFamily: 'PhosphorFill');
@@ -2623,11 +3664,17 @@ abstract final class PhFill {
   static const prohibit = IconData(0xe3de, fontFamily: 'PhosphorFill');
   static const prohibitInset = IconData(0xe3e0, fontFamily: 'PhosphorFill');
   static const projectorScreen = IconData(0xe658, fontFamily: 'PhosphorFill');
-  static const projectorScreenChart = IconData(0xe65a, fontFamily: 'PhosphorFill');
+  static const projectorScreenChart = IconData(
+    0xe65a,
+    fontFamily: 'PhosphorFill',
+  );
   static const pulse = IconData(0xe000, fontFamily: 'PhosphorFill');
   static const pushPin = IconData(0xe3e2, fontFamily: 'PhosphorFill');
   static const pushPinSimple = IconData(0xe65c, fontFamily: 'PhosphorFill');
-  static const pushPinSimpleSlash = IconData(0xe65e, fontFamily: 'PhosphorFill');
+  static const pushPinSimpleSlash = IconData(
+    0xe65e,
+    fontFamily: 'PhosphorFill',
+  );
   static const pushPinSlash = IconData(0xe3e4, fontFamily: 'PhosphorFill');
   static const puzzlePiece = IconData(0xe596, fontFamily: 'PhosphorFill');
   static const qrCode = IconData(0xe3e6, fontFamily: 'PhosphorFill');
@@ -2690,8 +3737,14 @@ abstract final class PhFill {
   static const securityCamera = IconData(0xeca4, fontFamily: 'PhosphorFill');
   static const selection = IconData(0xe69a, fontFamily: 'PhosphorFill');
   static const selectionAll = IconData(0xe746, fontFamily: 'PhosphorFill');
-  static const selectionBackground = IconData(0xeaf8, fontFamily: 'PhosphorFill');
-  static const selectionForeground = IconData(0xeaf6, fontFamily: 'PhosphorFill');
+  static const selectionBackground = IconData(
+    0xeaf8,
+    fontFamily: 'PhosphorFill',
+  );
+  static const selectionForeground = IconData(
+    0xeaf6,
+    fontFamily: 'PhosphorFill',
+  );
   static const selectionInverse = IconData(0xe744, fontFamily: 'PhosphorFill');
   static const selectionPlus = IconData(0xe69c, fontFamily: 'PhosphorFill');
   static const selectionSlash = IconData(0xe69e, fontFamily: 'PhosphorFill');
@@ -2713,7 +3766,10 @@ abstract final class PhFill {
   static const shoppingBag = IconData(0xe416, fontFamily: 'PhosphorFill');
   static const shoppingBagOpen = IconData(0xe418, fontFamily: 'PhosphorFill');
   static const shoppingCart = IconData(0xe41e, fontFamily: 'PhosphorFill');
-  static const shoppingCartSimple = IconData(0xe420, fontFamily: 'PhosphorFill');
+  static const shoppingCartSimple = IconData(
+    0xe420,
+    fontFamily: 'PhosphorFill',
+  );
   static const shovel = IconData(0xe9e6, fontFamily: 'PhosphorFill');
   static const shower = IconData(0xe776, fontFamily: 'PhosphorFill');
   static const shrimp = IconData(0xeab4, fontFamily: 'PhosphorFill');
@@ -2770,7 +3826,10 @@ abstract final class PhFill {
   static const speakerSimpleHigh = IconData(0xe450, fontFamily: 'PhosphorFill');
   static const speakerSimpleLow = IconData(0xe452, fontFamily: 'PhosphorFill');
   static const speakerSimpleNone = IconData(0xe454, fontFamily: 'PhosphorFill');
-  static const speakerSimpleSlash = IconData(0xe456, fontFamily: 'PhosphorFill');
+  static const speakerSimpleSlash = IconData(
+    0xe456,
+    fontFamily: 'PhosphorFill',
+  );
   static const speakerSimpleX = IconData(0xe458, fontFamily: 'PhosphorFill');
   static const speakerSlash = IconData(0xe45a, fontFamily: 'PhosphorFill');
   static const speakerX = IconData(0xe45c, fontFamily: 'PhosphorFill');
@@ -2788,8 +3847,14 @@ abstract final class PhFill {
   static const squareHalf = IconData(0xe462, fontFamily: 'PhosphorFill');
   static const squareHalfBottom = IconData(0xeb16, fontFamily: 'PhosphorFill');
   static const squareLogo = IconData(0xe690, fontFamily: 'PhosphorFill');
-  static const squareSplitHorizontal = IconData(0xe870, fontFamily: 'PhosphorFill');
-  static const squareSplitVertical = IconData(0xe874, fontFamily: 'PhosphorFill');
+  static const squareSplitHorizontal = IconData(
+    0xe870,
+    fontFamily: 'PhosphorFill',
+  );
+  static const squareSplitVertical = IconData(
+    0xe874,
+    fontFamily: 'PhosphorFill',
+  );
   static const squaresFour = IconData(0xe464, fontFamily: 'PhosphorFill');
   static const stack = IconData(0xe466, fontFamily: 'PhosphorFill');
   static const stackMinus = IconData(0xedf4, fontFamily: 'PhosphorFill');
@@ -2798,7 +3863,10 @@ abstract final class PhFill {
   static const stackSimple = IconData(0xe468, fontFamily: 'PhosphorFill');
   static const stairs = IconData(0xe8ec, fontFamily: 'PhosphorFill');
   static const stamp = IconData(0xea48, fontFamily: 'PhosphorFill');
-  static const standardDefinition = IconData(0xea90, fontFamily: 'PhosphorFill');
+  static const standardDefinition = IconData(
+    0xea90,
+    fontFamily: 'PhosphorFill',
+  );
   static const star = IconData(0xe46a, fontFamily: 'PhosphorFill');
   static const starAndCrescent = IconData(0xecf4, fontFamily: 'PhosphorFill');
   static const starFour = IconData(0xe6a4, fontFamily: 'PhosphorFill');
@@ -2908,7 +3976,10 @@ abstract final class PhFill {
   static const towel = IconData(0xede6, fontFamily: 'PhosphorFill');
   static const tractor = IconData(0xec6e, fontFamily: 'PhosphorFill');
   static const trademark = IconData(0xe9f0, fontFamily: 'PhosphorFill');
-  static const trademarkRegistered = IconData(0xe3f4, fontFamily: 'PhosphorFill');
+  static const trademarkRegistered = IconData(
+    0xe3f4,
+    fontFamily: 'PhosphorFill',
+  );
   static const trafficCone = IconData(0xe9a8, fontFamily: 'PhosphorFill');
   static const trafficSign = IconData(0xe67a, fontFamily: 'PhosphorFill');
   static const trafficSignal = IconData(0xe9aa, fontFamily: 'PhosphorFill');
@@ -3044,7 +4115,10 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'alien': (Ph.alien, PhFill.alien),
   'align-bottom': (Ph.alignBottom, PhFill.alignBottom),
   'align-bottom-simple': (Ph.alignBottomSimple, PhFill.alignBottomSimple),
-  'align-center-horizontal': (Ph.alignCenterHorizontal, PhFill.alignCenterHorizontal),
+  'align-center-horizontal': (
+    Ph.alignCenterHorizontal,
+    PhFill.alignCenterHorizontal,
+  ),
   'align-center-vertical': (Ph.alignCenterVertical, PhFill.alignCenterVertical),
   'align-left': (Ph.alignLeft, PhFill.alignLeft),
   'align-left-simple': (Ph.alignLeftSimple, PhFill.alignLeftSimple),
@@ -3069,8 +4143,14 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'armchair': (Ph.armchair, PhFill.armchair),
   'arrow-arc-left': (Ph.arrowArcLeft, PhFill.arrowArcLeft),
   'arrow-arc-right': (Ph.arrowArcRight, PhFill.arrowArcRight),
-  'arrow-bend-double-up-left': (Ph.arrowBendDoubleUpLeft, PhFill.arrowBendDoubleUpLeft),
-  'arrow-bend-double-up-right': (Ph.arrowBendDoubleUpRight, PhFill.arrowBendDoubleUpRight),
+  'arrow-bend-double-up-left': (
+    Ph.arrowBendDoubleUpLeft,
+    PhFill.arrowBendDoubleUpLeft,
+  ),
+  'arrow-bend-double-up-right': (
+    Ph.arrowBendDoubleUpRight,
+    PhFill.arrowBendDoubleUpRight,
+  ),
   'arrow-bend-down-left': (Ph.arrowBendDownLeft, PhFill.arrowBendDownLeft),
   'arrow-bend-down-right': (Ph.arrowBendDownRight, PhFill.arrowBendDownRight),
   'arrow-bend-left-down': (Ph.arrowBendLeftDown, PhFill.arrowBendLeftDown),
@@ -3080,25 +4160,40 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'arrow-bend-up-left': (Ph.arrowBendUpLeft, PhFill.arrowBendUpLeft),
   'arrow-bend-up-right': (Ph.arrowBendUpRight, PhFill.arrowBendUpRight),
   'arrow-circle-down': (Ph.arrowCircleDown, PhFill.arrowCircleDown),
-  'arrow-circle-down-left': (Ph.arrowCircleDownLeft, PhFill.arrowCircleDownLeft),
-  'arrow-circle-down-right': (Ph.arrowCircleDownRight, PhFill.arrowCircleDownRight),
+  'arrow-circle-down-left': (
+    Ph.arrowCircleDownLeft,
+    PhFill.arrowCircleDownLeft,
+  ),
+  'arrow-circle-down-right': (
+    Ph.arrowCircleDownRight,
+    PhFill.arrowCircleDownRight,
+  ),
   'arrow-circle-left': (Ph.arrowCircleLeft, PhFill.arrowCircleLeft),
   'arrow-circle-right': (Ph.arrowCircleRight, PhFill.arrowCircleRight),
   'arrow-circle-up': (Ph.arrowCircleUp, PhFill.arrowCircleUp),
   'arrow-circle-up-left': (Ph.arrowCircleUpLeft, PhFill.arrowCircleUpLeft),
   'arrow-circle-up-right': (Ph.arrowCircleUpRight, PhFill.arrowCircleUpRight),
   'arrow-clockwise': (Ph.arrowClockwise, PhFill.arrowClockwise),
-  'arrow-counter-clockwise': (Ph.arrowCounterClockwise, PhFill.arrowCounterClockwise),
+  'arrow-counter-clockwise': (
+    Ph.arrowCounterClockwise,
+    PhFill.arrowCounterClockwise,
+  ),
   'arrow-down': (Ph.arrowDown, PhFill.arrowDown),
   'arrow-down-left': (Ph.arrowDownLeft, PhFill.arrowDownLeft),
   'arrow-down-right': (Ph.arrowDownRight, PhFill.arrowDownRight),
   'arrow-elbow-down-left': (Ph.arrowElbowDownLeft, PhFill.arrowElbowDownLeft),
-  'arrow-elbow-down-right': (Ph.arrowElbowDownRight, PhFill.arrowElbowDownRight),
+  'arrow-elbow-down-right': (
+    Ph.arrowElbowDownRight,
+    PhFill.arrowElbowDownRight,
+  ),
   'arrow-elbow-left': (Ph.arrowElbowLeft, PhFill.arrowElbowLeft),
   'arrow-elbow-left-down': (Ph.arrowElbowLeftDown, PhFill.arrowElbowLeftDown),
   'arrow-elbow-left-up': (Ph.arrowElbowLeftUp, PhFill.arrowElbowLeftUp),
   'arrow-elbow-right': (Ph.arrowElbowRight, PhFill.arrowElbowRight),
-  'arrow-elbow-right-down': (Ph.arrowElbowRightDown, PhFill.arrowElbowRightDown),
+  'arrow-elbow-right-down': (
+    Ph.arrowElbowRightDown,
+    PhFill.arrowElbowRightDown,
+  ),
   'arrow-elbow-right-up': (Ph.arrowElbowRightUp, PhFill.arrowElbowRightUp),
   'arrow-elbow-up-left': (Ph.arrowElbowUpLeft, PhFill.arrowElbowUpLeft),
   'arrow-elbow-up-right': (Ph.arrowElbowUpRight, PhFill.arrowElbowUpRight),
@@ -3125,8 +4220,14 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'arrow-line-up-right': (Ph.arrowLineUpRight, PhFill.arrowLineUpRight),
   'arrow-right': (Ph.arrowRight, PhFill.arrowRight),
   'arrow-square-down': (Ph.arrowSquareDown, PhFill.arrowSquareDown),
-  'arrow-square-down-left': (Ph.arrowSquareDownLeft, PhFill.arrowSquareDownLeft),
-  'arrow-square-down-right': (Ph.arrowSquareDownRight, PhFill.arrowSquareDownRight),
+  'arrow-square-down-left': (
+    Ph.arrowSquareDownLeft,
+    PhFill.arrowSquareDownLeft,
+  ),
+  'arrow-square-down-right': (
+    Ph.arrowSquareDownRight,
+    PhFill.arrowSquareDownRight,
+  ),
   'arrow-square-in': (Ph.arrowSquareIn, PhFill.arrowSquareIn),
   'arrow-square-left': (Ph.arrowSquareLeft, PhFill.arrowSquareLeft),
   'arrow-square-out': (Ph.arrowSquareOut, PhFill.arrowSquareOut),
@@ -3146,19 +4247,31 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'arrow-up-left': (Ph.arrowUpLeft, PhFill.arrowUpLeft),
   'arrow-up-right': (Ph.arrowUpRight, PhFill.arrowUpRight),
   'arrows-clockwise': (Ph.arrowsClockwise, PhFill.arrowsClockwise),
-  'arrows-counter-clockwise': (Ph.arrowsCounterClockwise, PhFill.arrowsCounterClockwise),
+  'arrows-counter-clockwise': (
+    Ph.arrowsCounterClockwise,
+    PhFill.arrowsCounterClockwise,
+  ),
   'arrows-down-up': (Ph.arrowsDownUp, PhFill.arrowsDownUp),
   'arrows-horizontal': (Ph.arrowsHorizontal, PhFill.arrowsHorizontal),
   'arrows-in': (Ph.arrowsIn, PhFill.arrowsIn),
   'arrows-in-cardinal': (Ph.arrowsInCardinal, PhFill.arrowsInCardinal),
-  'arrows-in-line-horizontal': (Ph.arrowsInLineHorizontal, PhFill.arrowsInLineHorizontal),
-  'arrows-in-line-vertical': (Ph.arrowsInLineVertical, PhFill.arrowsInLineVertical),
+  'arrows-in-line-horizontal': (
+    Ph.arrowsInLineHorizontal,
+    PhFill.arrowsInLineHorizontal,
+  ),
+  'arrows-in-line-vertical': (
+    Ph.arrowsInLineVertical,
+    PhFill.arrowsInLineVertical,
+  ),
   'arrows-in-simple': (Ph.arrowsInSimple, PhFill.arrowsInSimple),
   'arrows-left-right': (Ph.arrowsLeftRight, PhFill.arrowsLeftRight),
   'arrows-merge': (Ph.arrowsMerge, PhFill.arrowsMerge),
   'arrows-out': (Ph.arrowsOut, PhFill.arrowsOut),
   'arrows-out-cardinal': (Ph.arrowsOutCardinal, PhFill.arrowsOutCardinal),
-  'arrows-out-line-vertical': (Ph.arrowsOutLineVertical, PhFill.arrowsOutLineVertical),
+  'arrows-out-line-vertical': (
+    Ph.arrowsOutLineVertical,
+    PhFill.arrowsOutLineVertical,
+  ),
   'arrows-out-simple': (Ph.arrowsOutSimple, PhFill.arrowsOutSimple),
   'arrows-split': (Ph.arrowsSplit, PhFill.arrowsSplit),
   'arrows-vertical': (Ph.arrowsVertical, PhFill.arrowsVertical),
@@ -3199,13 +4312,22 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'battery-medium': (Ph.batteryMedium, PhFill.batteryMedium),
   'battery-plus': (Ph.batteryPlus, PhFill.batteryPlus),
   'battery-plus-vertical': (Ph.batteryPlusVertical, PhFill.batteryPlusVertical),
-  'battery-vertical-empty': (Ph.batteryVerticalEmpty, PhFill.batteryVerticalEmpty),
+  'battery-vertical-empty': (
+    Ph.batteryVerticalEmpty,
+    PhFill.batteryVerticalEmpty,
+  ),
   'battery-vertical-full': (Ph.batteryVerticalFull, PhFill.batteryVerticalFull),
   'battery-vertical-high': (Ph.batteryVerticalHigh, PhFill.batteryVerticalHigh),
   'battery-vertical-low': (Ph.batteryVerticalLow, PhFill.batteryVerticalLow),
-  'battery-vertical-medium': (Ph.batteryVerticalMedium, PhFill.batteryVerticalMedium),
+  'battery-vertical-medium': (
+    Ph.batteryVerticalMedium,
+    PhFill.batteryVerticalMedium,
+  ),
   'battery-warning': (Ph.batteryWarning, PhFill.batteryWarning),
-  'battery-warning-vertical': (Ph.batteryWarningVertical, PhFill.batteryWarningVertical),
+  'battery-warning-vertical': (
+    Ph.batteryWarningVertical,
+    PhFill.batteryWarningVertical,
+  ),
   'beach-ball': (Ph.beachBall, PhFill.beachBall),
   'beanie': (Ph.beanie, PhFill.beanie),
   'bed': (Ph.bed, PhFill.bed),
@@ -3306,10 +4428,22 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'cardholder': (Ph.cardholder, PhFill.cardholder),
   'cards': (Ph.cards, PhFill.cards),
   'cards-three': (Ph.cardsThree, PhFill.cardsThree),
-  'caret-circle-double-down': (Ph.caretCircleDoubleDown, PhFill.caretCircleDoubleDown),
-  'caret-circle-double-left': (Ph.caretCircleDoubleLeft, PhFill.caretCircleDoubleLeft),
-  'caret-circle-double-right': (Ph.caretCircleDoubleRight, PhFill.caretCircleDoubleRight),
-  'caret-circle-double-up': (Ph.caretCircleDoubleUp, PhFill.caretCircleDoubleUp),
+  'caret-circle-double-down': (
+    Ph.caretCircleDoubleDown,
+    PhFill.caretCircleDoubleDown,
+  ),
+  'caret-circle-double-left': (
+    Ph.caretCircleDoubleLeft,
+    PhFill.caretCircleDoubleLeft,
+  ),
+  'caret-circle-double-right': (
+    Ph.caretCircleDoubleRight,
+    PhFill.caretCircleDoubleRight,
+  ),
+  'caret-circle-double-up': (
+    Ph.caretCircleDoubleUp,
+    PhFill.caretCircleDoubleUp,
+  ),
   'caret-circle-down': (Ph.caretCircleDown, PhFill.caretCircleDown),
   'caret-circle-left': (Ph.caretCircleLeft, PhFill.caretCircleLeft),
   'caret-circle-right': (Ph.caretCircleRight, PhFill.caretCircleRight),
@@ -3407,7 +4541,10 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'clock-afternoon': (Ph.clockAfternoon, PhFill.clockAfternoon),
   'clock-clockwise': (Ph.clockClockwise, PhFill.clockClockwise),
   'clock-countdown': (Ph.clockCountdown, PhFill.clockCountdown),
-  'clock-counter-clockwise': (Ph.clockCounterClockwise, PhFill.clockCounterClockwise),
+  'clock-counter-clockwise': (
+    Ph.clockCounterClockwise,
+    PhFill.clockCounterClockwise,
+  ),
   'clock-user': (Ph.clockUser, PhFill.clockUser),
   'closed-captioning': (Ph.closedCaptioning, PhFill.closedCaptioning),
   'cloud': (Ph.cloud, PhFill.cloud),
@@ -3476,10 +4613,16 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'cube-focus': (Ph.cubeFocus, PhFill.cubeFocus),
   'cube-transparent': (Ph.cubeTransparent, PhFill.cubeTransparent),
   'currency-btc': (Ph.currencyBtc, PhFill.currencyBtc),
-  'currency-circle-dollar': (Ph.currencyCircleDollar, PhFill.currencyCircleDollar),
+  'currency-circle-dollar': (
+    Ph.currencyCircleDollar,
+    PhFill.currencyCircleDollar,
+  ),
   'currency-cny': (Ph.currencyCny, PhFill.currencyCny),
   'currency-dollar': (Ph.currencyDollar, PhFill.currencyDollar),
-  'currency-dollar-simple': (Ph.currencyDollarSimple, PhFill.currencyDollarSimple),
+  'currency-dollar-simple': (
+    Ph.currencyDollarSimple,
+    PhFill.currencyDollarSimple,
+  ),
   'currency-eth': (Ph.currencyEth, PhFill.currencyEth),
   'currency-eur': (Ph.currencyEur, PhFill.currencyEur),
   'currency-gbp': (Ph.currencyGbp, PhFill.currencyGbp),
@@ -3805,7 +4948,10 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'hourglass-simple': (Ph.hourglassSimple, PhFill.hourglassSimple),
   'hourglass-simple-high': (Ph.hourglassSimpleHigh, PhFill.hourglassSimpleHigh),
   'hourglass-simple-low': (Ph.hourglassSimpleLow, PhFill.hourglassSimpleLow),
-  'hourglass-simple-medium': (Ph.hourglassSimpleMedium, PhFill.hourglassSimpleMedium),
+  'hourglass-simple-medium': (
+    Ph.hourglassSimpleMedium,
+    PhFill.hourglassSimpleMedium,
+  ),
   'house': (Ph.house, PhFill.house),
   'house-line': (Ph.houseLine, PhFill.houseLine),
   'house-simple': (Ph.houseSimple, PhFill.houseSimple),
@@ -3868,7 +5014,10 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'link-break': (Ph.linkBreak, PhFill.linkBreak),
   'link-simple': (Ph.linkSimple, PhFill.linkSimple),
   'link-simple-break': (Ph.linkSimpleBreak, PhFill.linkSimpleBreak),
-  'link-simple-horizontal': (Ph.linkSimpleHorizontal, PhFill.linkSimpleHorizontal),
+  'link-simple-horizontal': (
+    Ph.linkSimpleHorizontal,
+    PhFill.linkSimpleHorizontal,
+  ),
   'linkedin-logo': (Ph.linkedinLogo, PhFill.linkedinLogo),
   'linktree-logo': (Ph.linktreeLogo, PhFill.linktreeLogo),
   'linux-logo': (Ph.linuxLogo, PhFill.linuxLogo),
@@ -3895,7 +5044,10 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'magnet': (Ph.magnet, PhFill.magnet),
   'magnet-straight': (Ph.magnetStraight, PhFill.magnetStraight),
   'magnifying-glass': (Ph.magnifyingGlass, PhFill.magnifyingGlass),
-  'magnifying-glass-minus': (Ph.magnifyingGlassMinus, PhFill.magnifyingGlassMinus),
+  'magnifying-glass-minus': (
+    Ph.magnifyingGlassMinus,
+    PhFill.magnifyingGlassMinus,
+  ),
   'magnifying-glass-plus': (Ph.magnifyingGlassPlus, PhFill.magnifyingGlassPlus),
   'mailbox': (Ph.mailbox, PhFill.mailbox),
   'map-pin': (Ph.mapPin, PhFill.mapPin),
@@ -3930,7 +5082,10 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'microphone-stage': (Ph.microphoneStage, PhFill.microphoneStage),
   'microscope': (Ph.microscope, PhFill.microscope),
   'microsoft-excel-logo': (Ph.microsoftExcelLogo, PhFill.microsoftExcelLogo),
-  'microsoft-outlook-logo': (Ph.microsoftOutlookLogo, PhFill.microsoftOutlookLogo),
+  'microsoft-outlook-logo': (
+    Ph.microsoftOutlookLogo,
+    PhFill.microsoftOutlookLogo,
+  ),
   'microsoft-teams-logo': (Ph.microsoftTeamsLogo, PhFill.microsoftTeamsLogo),
   'microsoft-word-logo': (Ph.microsoftWordLogo, PhFill.microsoftWordLogo),
   'minus': (Ph.minus, PhFill.minus),
@@ -4070,7 +5225,10 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'person-simple-hike': (Ph.personSimpleHike, PhFill.personSimpleHike),
   'person-simple-run': (Ph.personSimpleRun, PhFill.personSimpleRun),
   'person-simple-ski': (Ph.personSimpleSki, PhFill.personSimpleSki),
-  'person-simple-snowboard': (Ph.personSimpleSnowboard, PhFill.personSimpleSnowboard),
+  'person-simple-snowboard': (
+    Ph.personSimpleSnowboard,
+    PhFill.personSimpleSnowboard,
+  ),
   'person-simple-swim': (Ph.personSimpleSwim, PhFill.personSimpleSwim),
   'person-simple-tai-chi': (Ph.personSimpleTaiChi, PhFill.personSimpleTaiChi),
   'person-simple-throw': (Ph.personSimpleThrow, PhFill.personSimpleThrow),
@@ -4131,7 +5289,10 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'prohibit': (Ph.prohibit, PhFill.prohibit),
   'prohibit-inset': (Ph.prohibitInset, PhFill.prohibitInset),
   'projector-screen': (Ph.projectorScreen, PhFill.projectorScreen),
-  'projector-screen-chart': (Ph.projectorScreenChart, PhFill.projectorScreenChart),
+  'projector-screen-chart': (
+    Ph.projectorScreenChart,
+    PhFill.projectorScreenChart,
+  ),
   'pulse': (Ph.pulse, PhFill.pulse),
   'push-pin': (Ph.pushPin, PhFill.pushPin),
   'push-pin-simple': (Ph.pushPinSimple, PhFill.pushPinSimple),
@@ -4296,7 +5457,10 @@ const Map<String, (IconData, IconData)> phosphorIconMap = {
   'square-half': (Ph.squareHalf, PhFill.squareHalf),
   'square-half-bottom': (Ph.squareHalfBottom, PhFill.squareHalfBottom),
   'square-logo': (Ph.squareLogo, PhFill.squareLogo),
-  'square-split-horizontal': (Ph.squareSplitHorizontal, PhFill.squareSplitHorizontal),
+  'square-split-horizontal': (
+    Ph.squareSplitHorizontal,
+    PhFill.squareSplitHorizontal,
+  ),
   'square-split-vertical': (Ph.squareSplitVertical, PhFill.squareSplitVertical),
   'squares-four': (Ph.squaresFour, PhFill.squaresFour),
   'stack': (Ph.stack, PhFill.stack),

@@ -26,7 +26,8 @@ String? thumbSourcepath(Json record, {required bool isAsset}) =>
     record['_thumbpath'] as String? ?? (isAsset ? record.sourcepath : null);
 
 IconData iconForAsset(Json asset) {
-  final type = '${asset['mediarendertype'] ?? (asset['assettype'] as Map?)?['id'] ?? ''}';
+  final type =
+      '${asset['mediarendertype'] ?? (asset['assettype'] as Map?)?['id'] ?? ''}';
   return switch (type) {
     'image' || 'photo' => Ph.image,
     'video' => Ph.videoCamera,
@@ -63,31 +64,48 @@ class AssetThumb extends ConsumerWidget {
       color: bg,
       alignment: Alignment.center,
       child: LayoutBuilder(
-        builder: (_, c) =>
-            Icon(fallbackIcon, size: (c.biggest.shortestSide * 0.36).clamp(12, 64), color: context.colors.muted),
+        builder: (_, c) => Icon(
+          fallbackIcon,
+          size: (c.biggest.shortestSide * 0.36).clamp(12, 64),
+          color: context.colors.muted,
+        ),
       ),
     );
     final sp = sourcepath;
+    final headers = ref.watch(authHeadersProvider).value;
     return ClipRRect(
       borderRadius: BorderRadius.circular(radius),
       child: sp == null
           ? placeholder()
+          : headers == null
+          ? Container(color: bg)
           : Image.network(
               generatedUrl(ref.watch(apiClientProvider), sp, preset),
-              headers: ref.watch(apiClientProvider).authHeaders,
+              headers: headers,
               fit: fit,
               gaplessPlayback: true,
               errorBuilder: (_, _, _) => placeholder(),
-              frameBuilder: (context, child, frame, sync) => frame == null && !sync
+              frameBuilder: (context, child, frame, sync) =>
+                  frame == null && !sync
                   ? Container(color: bg)
-                  : AnimatedOpacity(opacity: 1, duration: const Duration(milliseconds: 200), child: child),
+                  : AnimatedOpacity(
+                      opacity: 1,
+                      duration: const Duration(milliseconds: 200),
+                      child: child,
+                    ),
             ),
     );
   }
 }
 
 class EmptyState extends StatelessWidget {
-  const EmptyState({super.key, required this.icon, required this.title, this.message, this.action});
+  const EmptyState({
+    super.key,
+    required this.icon,
+    required this.title,
+    this.message,
+    this.action,
+  });
   final IconData icon;
   final String title;
   final String? message;
@@ -103,13 +121,18 @@ class EmptyState extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(18),
-              decoration: BoxDecoration(color: context.colors.accentSoft, shape: BoxShape.circle),
+              decoration: BoxDecoration(
+                color: context.colors.accentSoft,
+                shape: BoxShape.circle,
+              ),
               child: Icon(icon, size: 28, color: context.scheme.primary),
             ),
             const SizedBox(height: 16),
             Text(
               title,
-              style: context.text.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+              style: context.text.titleMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
               textAlign: TextAlign.center,
             ),
             if (message != null) ...[
@@ -141,7 +164,9 @@ class ErrorState extends StatelessWidget {
     icon: Ph.warning,
     title: 'Something went wrong',
     message: '$error',
-    action: onRetry == null ? null : OutlinedButton(onPressed: onRetry, child: const Text('Try again')),
+    action: onRetry == null
+        ? null
+        : OutlinedButton(onPressed: onRetry, child: const Text('Try again')),
   );
 }
 
@@ -157,14 +182,24 @@ class Pill extends StatelessWidget {
     final c = color ?? context.scheme.primary;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(color: c.withValues(alpha: 0.14), borderRadius: BorderRadius.circular(6)),
+      decoration: BoxDecoration(
+        color: c.withValues(alpha: 0.14),
+        borderRadius: BorderRadius.circular(6),
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (icon != null) ...[Icon(icon, size: 12, color: c), const SizedBox(width: 4)],
+          if (icon != null) ...[
+            Icon(icon, size: 12, color: c),
+            const SizedBox(width: 4),
+          ],
           Text(
             label,
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: c),
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: c,
+            ),
           ),
         ],
       ),
@@ -173,9 +208,12 @@ class Pill extends StatelessWidget {
 }
 
 void showMessage(BuildContext context, String message, {bool error = false}) {
-  ScaffoldMessenger.of(
-    context,
-  ).showSnackBar(SnackBar(content: Text(message), backgroundColor: error ? Theme.of(context).colorScheme.error : null));
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(message),
+      backgroundColor: error ? Theme.of(context).colorScheme.error : null,
+    ),
+  );
 }
 
 Future<bool> confirm(
@@ -190,9 +228,14 @@ Future<bool> confirm(
       title: Text(title),
       content: Text(message),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(c, false), child: const Text('Cancel')),
+        TextButton(
+          onPressed: () => Navigator.pop(c, false),
+          child: const Text('Cancel'),
+        ),
         FilledButton(
-          style: FilledButton.styleFrom(backgroundColor: Theme.of(c).colorScheme.error),
+          style: FilledButton.styleFrom(
+            backgroundColor: Theme.of(c).colorScheme.error,
+          ),
           onPressed: () => Navigator.pop(c, true),
           child: Text(action),
         ),
