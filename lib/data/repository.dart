@@ -220,6 +220,16 @@ class EmeRepository {
     }
   }
 
+  /// Server-relative thumbnail path of an asset, or null when it has none.
+  Future<String?> assetPreviewPath(String assetId) async {
+    final res = await api.getJson(
+      'settings/datamanager/asset/preview',
+      query: {'assetid': assetId},
+    );
+    final p = res['path'];
+    return p is String && p.isNotEmpty ? p : null;
+  }
+
   Future<List<FieldDef>> fields(String searchType) async {
     final res = await api.getJson(
       'settings/datamanager/fields/listfields',

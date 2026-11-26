@@ -10,8 +10,12 @@ class ColumnDef {
     this.kind = ColumnKind.text,
     this.flex = 2,
     this.sortable = true,
+    this.field,
   });
   final String id;
+
+  /// The field definition, when known: drives the typed cell rendering.
+  final FieldDef? field;
   final String label;
   final ColumnKind kind;
   final int flex;
@@ -169,6 +173,7 @@ List<ColumnDef> columnsFor(
               : (f.isMulti ? ColumnKind.chips : ColumnKind.text),
           flex: f.isTextArea ? 3 : 2,
           sortable: !f.isMulti,
+          field: f,
         ),
       );
     }
@@ -193,6 +198,7 @@ List<ColumnDef> columnsFor(
               kind: c.kind,
               flex: c.flex,
               sortable: c.sortable,
+              field: c.field,
             )
           : c,
   ];

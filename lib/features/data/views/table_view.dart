@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:eme_data_app/core/ph.dart';
+import 'package:eme_app_sdk/eme_app_sdk.dart' show FieldValueView;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,6 +9,7 @@ import '../../../core/values.dart';
 import '../../../data/models.dart';
 import '../../../data/providers.dart';
 import '../../../theme/app_theme.dart';
+import '../../../widgets/asset_preview.dart';
 import '../../../widgets/common.dart';
 import '../columns.dart';
 import '../module_page.dart';
@@ -77,12 +79,7 @@ class ResultsTable extends ConsumerWidget {
           ),
         );
         if (tableW <= box.maxWidth) return table;
-        return Scrollbar(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: table,
-          ),
-        );
+        return _HScroll(child: table);
       },
     );
   }
@@ -267,6 +264,18 @@ class _RowState extends State<_Row> {
             ),
           ),
         );
+      case _ when col.field != null && col.kind != ColumnKind.thumb:
+        final f = col.field!;
+        return Align(
+          alignment: Alignment.centerLeft,
+          child: FieldValueView(
+            fieldId: f.id,
+            value: r[col.id],
+            datatype: f.datatype,
+            rendertype: f.rendertype,
+            assetBuilder: (_, id) => AssetPreview(assetId: id),
+          ),
+        );
       case ColumnKind.chips:
         final values = r[col.id] is List
             ? (r[col.id] as List)
@@ -303,5 +312,41 @@ class _RowState extends State<_Row> {
           ),
         );
     }
+  }
+}
+
+/// Horizontal scroller whose bar is always visible and can be dragged with the mouse.
+class _HScroll extends StatefulWidget {
+  const _HScroll({required this.child});
+  final Widget child;
+
+  @override
+  State<_HScroll> createState() => _HScrollState();
+}
+
+class _HScrollState extends State<_HScroll> {
+  final _controller = ScrollController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scrollbar(
+      controller: _controller,
+      thumbVisibility: true,
+      trackVisibility: true,
+      interactive: true,
+      child: SingleChildScrollView(
+        controller: _controller,
+        scrollDirection: Axis.horizontal,
+        // Leaves room so the bar does not cover the last row.
+        padding: const EdgeInsets.only(bottom: 12),
+        child: widget.child,
+      ),
+    );
   }
 }

@@ -244,3 +244,8 @@ class ViewerNavigation extends Notifier<List<String>> {
 
 final viewerNavigationProvider =
     NotifierProvider<ViewerNavigation, List<String>>(ViewerNavigation.new);
+
+final assetPreviewPathProvider = FutureProvider.autoDispose
+    .family<String?, String>(
+      (ref, id) => ref.watch(repositoryProvider).assetPreviewPath(id),
+    );
