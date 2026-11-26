@@ -20,10 +20,23 @@ final routerProvider = Provider<GoRouter>((ref) {
     redirect: (context, state) {
       final auth = ref.read(authProvider);
       final loc = state.matchedLocation;
-      if (auth.isRestoring) return loc == '/splash' ? null : '/splash';
-      final signedIn = auth.isAuthenticated;
-      if (!signedIn) return loc == '/login' ? null : '/login';
-      if (loc == '/login' || loc == '/splash') return '/';
+      const gates = {'/splash', '/login'};
+      // The page the user asked for, kept through the splash and login screens.
+      final from = gates.contains(loc)
+          ? state.uri.queryParameters['from']
+          : state.uri.toString();
+      String gate(String path) => from == null || !from.startsWith('/')
+          ? path
+          : '$path?from=${Uri.encodeQueryComponent(from)}';
+      if (auth.isRestoring) return loc == '/splash' ? null : gate('/splash');
+      if (!auth.isAuthenticated) return loc == '/login' ? null : gate('/login');
+      if (gates.contains(loc)) {
+        return from != null &&
+                from.startsWith('/') &&
+                !gates.contains(Uri.parse(from).path)
+            ? from
+            : '/';
+      }
       return null;
     },
     routes: [
