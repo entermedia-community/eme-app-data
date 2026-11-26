@@ -121,8 +121,7 @@ class _SideRail extends ConsumerWidget {
           const SizedBox(height: 14),
           InkWell(
             onTap: () => context.go('/'),
-            borderRadius: BorderRadius.circular(10),
-            child: const BrandMark(size: 32, showText: false),
+            child: const BrandMark(size: 16, showText: false),
           ),
           const SizedBox(height: 18),
           _RailButton(
